@@ -259,6 +259,16 @@ function GlobalStyles() {
         .padma-footer-link:hover { color: rgba(249,245,239,0.9) !important; }
       }
 
+      /* Course row: flex-col on mobile, 3-col grid on md+ */
+      @media (min-width: 768px) {
+        .padma-course-grid {
+          display: grid !important;
+          grid-template-columns: 5.5rem 1fr 11rem;
+          align-items: start;
+          gap: 2.5rem;
+        }
+      }
+
       button, a { touch-action: manipulation; }
 
       @media (prefers-reduced-motion: reduce) {
@@ -415,7 +425,9 @@ function StickyNav() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Btn label={CONTENT.nav.cta.label} href={CONTENT.nav.cta.href} />
+          <div className="hidden md:block">
+            <Btn label={CONTENT.nav.cta.label} href={CONTENT.nav.cta.href} />
+          </div>
           <button
             className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setOpen(v => !v)}
@@ -657,14 +669,14 @@ function PhilosophySection() {
             </div>
           </div>
 
-          {/* Staggered grid with real photos */}
-          <div className="grid grid-cols-2 gap-4 lg:mt-12">
-            <Reveal className="row-span-2">
+          {/* Staggered grid with real photos — single col on mobile, 2-col stagger on lg */}
+          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:mt-12">
+            <Reveal className="lg:row-span-2">
               <img src={IMG.groupClass} alt="Group yoga class at Castle Resort"
-                   className="w-full h-full object-cover rounded-2xl"
-                   style={{ aspectRatio: "3/4" }} />
+                   className="w-full object-cover rounded-2xl"
+                   style={{ aspectRatio: "16/9", maxHeight: "360px" }} />
             </Reveal>
-            <div className="flex flex-col gap-4 mt-10">
+            <div className="grid grid-cols-2 lg:flex lg:flex-col gap-4 lg:mt-10">
               <Reveal delay={100}>
                 <img src={IMG.groupStretch} alt="Side-stretch group session"
                      className="w-full object-cover rounded-2xl"
@@ -720,23 +732,20 @@ function CoursesSection() {
         {/* Course rows */}
         {CO.items.map((course, i) => (
           <Reveal key={course.number} delay={i * 60}>
+            {/* padma-course-grid: flex-col on mobile → 3-col CSS grid on md+ (via GlobalStyles) */}
             <div
-              className="padma-course-row grid items-start gap-6 py-8 md:py-10"
-              style={{
-                gridTemplateColumns: "auto 1fr auto",
-                borderBottom: `1px solid ${C.border}`,
-                transition: `background 200ms ${E.ease}`,
-              }}
+              className="padma-course-row padma-course-grid flex flex-col gap-4 py-8 md:py-10"
+              style={{ borderBottom: `1px solid ${C.border}` }}
             >
-              {/* Number */}
+              {/* 1 — Number */}
               <span
-                className="padma-course-num text-5xl md:text-6xl font-semibold leading-none pt-1 select-none w-16 md:w-20 flex-shrink-0"
+                className="padma-course-num text-4xl md:text-6xl font-semibold leading-none select-none"
                 style={{ fontFamily: FONT.display, color: "rgba(28,25,23,0.14)", transition: `color 200ms ${E.ease}`, fontVariantNumeric: "tabular-nums" }}
               >
                 {course.number}
               </span>
 
-              {/* Main info */}
+              {/* 2 — Main info */}
               <div className="min-w-0">
                 <div className="flex flex-wrap gap-2 mb-3">
                   {course.tags.map(tag => (
@@ -750,24 +759,24 @@ function CoursesSection() {
                     style={{ fontFamily: FONT.display, color: C.charcoal }}>
                   {course.title}
                 </h3>
-                <p className="text-sm leading-relaxed mb-4 max-w-xl" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted, fontFamily: FONT.ui }}>
                   {course.desc}
                 </p>
                 {course.schedule && (
-                  <p className="text-xs" style={{ color: C.sage, fontFamily: FONT.ui }}>{course.schedule}</p>
+                  <p className="text-xs mb-4" style={{ color: C.sage, fontFamily: FONT.ui }}>{course.schedule}</p>
                 )}
                 {course.pricingTable && (
-                  <div className="mt-4 rounded-xl overflow-hidden max-w-sm text-xs"
+                  <div className="rounded-xl overflow-hidden text-xs w-full"
                        style={{ border: `1px solid ${C.border}`, fontFamily: FONT.ui }}>
                     {course.pricingTable.map((row, ri) => (
-                      <div key={ri} className="flex justify-between px-4 py-2"
+                      <div key={ri} className="flex justify-between px-3 py-2"
                            style={{
-                             background:  row.isTotal ? `${C.terracotta}0F` : ri % 2 ? `${C.border}40` : "transparent",
-                             borderTop:   ri > 0 ? `1px solid ${C.border}` : "none",
-                             fontWeight:  row.isTotal ? 600 : 400,
-                             color:       row.isTotal ? C.terracotta : C.charcoal,
+                             background: row.isTotal ? `${C.terracotta}0F` : ri % 2 ? `${C.border}40` : "transparent",
+                             borderTop:  ri > 0 ? `1px solid ${C.border}` : "none",
+                             fontWeight: row.isTotal ? 600 : 400,
+                             color:      row.isTotal ? C.terracotta : C.charcoal,
                            }}>
-                        <span className="pr-3 leading-snug">{row.label}</span>
+                        <span className="pr-2 leading-snug">{row.label}</span>
                         <span style={{ fontVariantNumeric: "tabular-nums", flexShrink: 0 }}>{row.value}</span>
                       </div>
                     ))}
@@ -775,27 +784,34 @@ function CoursesSection() {
                 )}
               </div>
 
-              {/* Right: meta + image */}
-              <div className="flex-shrink-0 flex flex-col items-end gap-5">
-                <div className="text-right">
-                  <p className="text-xs mb-0.5" style={{ color: C.muted, fontFamily: FONT.ui }}>Level</p>
-                  <p className="text-sm font-medium" style={{ color: C.charcoal, fontFamily: FONT.ui }}>{course.level}</p>
-                  <p className="text-xs" style={{ color: C.muted, fontFamily: FONT.ui }}>{course.levelSub}</p>
+              {/* 3 — Right: meta + image + button
+                  Mobile: 2-col mini-grid [meta | image] then button full-width
+                  Desktop: stacked column, right-aligned (via md:flex md:flex-col) */}
+              <div className="flex-shrink-0">
+                <div className="grid grid-cols-[1fr_auto] gap-4 md:flex md:flex-col md:items-end md:gap-5">
+                  {/* Meta */}
+                  <div className="md:text-right">
+                    <p className="text-xs mb-0.5" style={{ color: C.muted, fontFamily: FONT.ui }}>Level</p>
+                    <p className="text-sm font-medium" style={{ color: C.charcoal, fontFamily: FONT.ui }}>{course.level}</p>
+                    <p className="text-xs mb-4" style={{ color: C.muted, fontFamily: FONT.ui }}>{course.levelSub}</p>
+                    <p className="text-xs mb-0.5" style={{ color: C.muted, fontFamily: FONT.ui }}>Duration</p>
+                    <p className="text-sm font-medium" style={{ color: C.charcoal, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>{course.duration}</p>
+                    <p className="text-sm font-semibold mt-1" style={{ color: C.terracotta, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>{course.price}</p>
+                  </div>
+                  {/* Image */}
+                  <div className="w-28 h-24 md:w-32 rounded-xl overflow-hidden self-start">
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="padma-course-img w-full h-full object-cover"
+                      style={{ transition: `transform 400ms ${E.outCubic}` }}
+                    />
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs mb-0.5" style={{ color: C.muted, fontFamily: FONT.ui }}>Duration</p>
-                  <p className="text-sm font-medium" style={{ color: C.charcoal, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>{course.duration}</p>
-                  <p className="text-sm font-semibold mt-1" style={{ color: C.terracotta, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>{course.price}</p>
+                {/* Enquire — full width on mobile, auto on desktop */}
+                <div className="mt-4 md:flex md:justify-end">
+                  <Btn label="Enquire" href="#contact" />
                 </div>
-                <div className="w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden flex-shrink-0">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="padma-course-img w-full h-full object-cover"
-                    style={{ transition: `transform 400ms ${E.outCubic}` }}
-                  />
-                </div>
-                <Btn label="Enquire" href="#contact" />
               </div>
             </div>
           </Reveal>
@@ -966,10 +982,10 @@ function LocationSection() {
 
         {/* Gallery grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Reveal className="col-span-2 row-span-2">
+          <Reveal className="col-span-2 md:row-span-2 h-full">
             <img src={IMG.lake} alt="Phewa Lake panorama from Castle Resort"
                  className="w-full h-full object-cover rounded-2xl"
-                 style={{ aspectRatio: "1/1", minHeight: "200px" }} />
+                 style={{ aspectRatio: "16/9", minHeight: "180px" }} />
           </Reveal>
           {[
             { src: IMG.pool,    alt: "Castle Resort swimming pool" },
