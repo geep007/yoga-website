@@ -214,7 +214,7 @@ const CONTENT = {
     links:   ["Courses", "Philosophy", "About", "Contact"],
     contact: {
       email:    "hello@padmayogashala.com",
-      whatsapp: "+977 000 000 0000",
+      whatsapp: "+91 97255 60379",
       address:  "The Castle Resort Pvt. Ltd., Lakeside, Pokhara-6, Nepal",
     },
     year: new Date().getFullYear(),
@@ -924,10 +924,10 @@ function InstructorSection() {
                   Add instructor details
                 </p>
                 <p className="text-base font-semibold" style={{ color: "#F9F5EF", fontFamily: FONT.display }}>
-                  Instructor name here
+                  Jayesh Mistry
                 </p>
                 <p className="text-sm" style={{ color: "rgba(249,245,239,0.55)", fontFamily: FONT.ui }}>
-                  Qualifications, lineage & bio
+                  Add qualifications, lineage & bio
                 </p>
               </GlassCard>
             </div>
