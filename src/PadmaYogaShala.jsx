@@ -180,29 +180,6 @@ const CONTENT = {
     ],
   },
 
-  whyPadma: {
-    eyebrow: "Why Padma",
-    heading: "Four things every course\nis built on",
-    items: [
-      {
-        title: "Foundational asanas",
-        desc: "Out of thousands of asanas, we teach the ones that matter most to the body and to the practice that follows.",
-      },
-      {
-        title: "Philosophy",
-        desc: "The 40 Hour course carries 15 to 25 hours of real theory, because a strong philosophical base is what makes a strong teacher.",
-      },
-      {
-        title: "Logical reasoning",
-        desc: "Every theory and every pose is taught through its logic. You understand the why before you ever teach the how.",
-      },
-      {
-        title: "Customised teaching",
-        desc: "Sessions adjust to what you most want to explore, and real assignments during the course teach you to read your students.",
-      },
-    ],
-  },
-
   courses: {
     eyebrow: "Our Courses",
     headingLeft: "Four courses.\nClear hours.\nClear outcomes.",
@@ -882,51 +859,8 @@ function CompareSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // PHILOSOPHY
 // ─────────────────────────────────────────────────────────────────────────────
-function WhyCard({ item, index }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.12 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref}
-         className="rounded-2xl p-7 md:p-8 flex items-start gap-5"
-         style={{
-           background: "rgba(249,245,239,0.05)",
-           boxShadow: "0 0 0 1px rgba(249,245,239,0.08)",
-           opacity: visible ? 1 : 0,
-           transform: visible ? "translateY(0)" : "translateY(28px)",
-           transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`,
-         }}>
-      <span className="text-3xl font-semibold leading-none flex-shrink-0 mt-0.5"
-            style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums", opacity: 0.5 }}>
-        0{index + 1}
-      </span>
-      <div>
-        <h3 className="text-lg md:text-xl font-semibold mb-2 leading-snug"
-            style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
-          {item.title}
-        </h3>
-        <p className="text-sm leading-relaxed"
-           style={{ color: "rgba(249,245,239,0.48)", fontFamily: FONT.ui }}>
-          {item.desc}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function PhilosophySection() {
-  const { philosophy: P, whyPadma: W } = CONTENT;
+  const { philosophy: P } = CONTENT;
   const bodyRef = useRef(null);
 
   useEffect(() => {
@@ -995,14 +929,6 @@ function PhilosophySection() {
                style={{ color: "rgba(249,245,239,0.9)", fontFamily: FONT.display }}>
               {para}
             </p>
-          ))}
-        </div>
-
-        {/* 4 commitments — IntersectionObserver stagger cards */}
-        <div className="mt-16 pt-12 grid sm:grid-cols-2 gap-4"
-             style={{ borderTop: "var(--hairline) solid rgba(249,245,239,0.1)" }}>
-          {W.items.map((item, i) => (
-            <WhyCard key={item.title} item={item} index={i} />
           ))}
         </div>
 
