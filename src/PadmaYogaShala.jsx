@@ -133,10 +133,10 @@ const CONTENT = {
     rows: [
       {
         id: "foundations",
-        name: "8 Hour Course",
+        name: "8-Hour Course",
         hours: "8",
         unit: "hrs · 2 days",
-        forWhom: "Open to all",
+        forWhom: "Everyone · No prior exp.",
         price: "$96",
         href: "#courses",
       },
@@ -145,7 +145,7 @@ const CONTENT = {
         name: "20 Hour Course",
         hours: "20",
         unit: "hrs · 5 days",
-        forWhom: "Teachers · or self-practice",
+        forWhom: "2 Variants: Self-Practice or Senior Citizens",
         price: "$280",
         href: "#courses",
       },
@@ -160,7 +160,7 @@ const CONTENT = {
       },
       {
         id: "retreat",
-        name: "Two Day Retreat",
+        name: "Two-Day Ayurvedic Self-Retreat Program",
         hours: "2",
         unit: "days",
         forWhom: "Open to all · stay included",
@@ -187,138 +187,236 @@ const CONTENT = {
       {
         number: "01",
         id: "foundations",
-        title: "8 Hour Course",
+        title: "8-Hour Course",
         tags: ["Open to All", "Choose Your Topics", "2 Days"],
-        level: "Open to All",
-        levelSub: "Beginners welcome",
+        level: "Everyone",
+        levelSub: "No prior experience required",
         hours: "8",
         hoursUnit: "Hours",
         hoursSub: "2 days · 4 hrs per day",
         price: "$96",
-        priceSub: "for the full course",
-        desc: "Eight hours across two days, two in the morning and two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
-        outcome: "Walk away understanding what yoga actually is, and where to begin.",
-        highlights: ["Choose from 10 topics", "Morning + evening sessions", "No experience needed"],
-        schedule: "2 days · 2 hrs morning + 2 hrs evening",
+        priceSub: "for the course only",
+        desc: "An intensive 8-hour course across two days (2 hours in the morning + 2 hours in the evening, each day). Open to everyone with no prior experience required.",
+        outcome: "Includes guidance to build a personalized asana sequence and practice schedule tailored to individual requirements.",
+        highlights: ["Choose from 10 topics", "2 hrs morning + 2 hrs evening", "No experience required"],
+        schedule: "2 days · 2 hours in the morning + 2 hours in the evening, each day",
         image: IMG.groupClass,
-        split: null,
-        pricingTable: null,
-        topicsTitle: "Choose your topics",
-        topics: [
-          "Yog and Yog Philosophy",
-          "Yog Practical and Asana Theory",
-          "Ayurveda",
-          "Indian History and Civilisation",
-          "Sankhya Darshan (Sankhya Philosophy)",
-          "Mantra and Mantra Philosophy",
-          "Pranayama and Pranayama Philosophy",
-          "Yama – Niyama",
-          "Patanjali Yog Sutra",
-          "Sun Salutation, theory only (combine with one other topic)",
-        ],
-        bullets: [
-          "Who it’s for: beginners, anyone wanting in-depth knowledge of a specific topic, and anyone who wants to try a course with Mr. Jayesh Mistry.",
-          "Students are guided to build their own asana sequence and schedule, tailored to their requirements.",
-          "Accommodation and food available on request, chargeable.",
+        accordions: [
+          {
+            title: "Overview & Schedule",
+            icon: "📋",
+            desc: "An intensive self-practice & philosophy foundation course across two days.",
+            details: [
+              "Course Type: Fully personalized self-practice & philosophy course",
+              "Eligibility: Open to everyone (no prior experience required)",
+              "Duration: 2 days (4 hours per day)",
+              "Schedule: 2 hours in the morning + 2 hours in the evening, each day",
+              "Course Fee: $96 for the course only",
+            ],
+          },
+          {
+            title: "Focus & Topics (Choose from 10 Topics)",
+            icon: "🧘",
+            desc: "Participants can choose from 10 subject areas according to their interests and requirements. Mr. Jayesh Mistry can also guide participants in choosing or suggesting topics.",
+            details: [
+              "Yoga and Yoga Philosophy",
+              "Ayurveda",
+              "Sankhya Darshan / Sankhya Philosophy",
+              "Pranayama and Pranayama Philosophy",
+              "Patanjali Yoga Sutra",
+              "Yoga Practice and Asana Theory",
+              "Indian History and Civilization",
+              "Mantra and Mantra Philosophy",
+              "Yama and Niyama",
+              "Surya Namaskar (theory only)",
+            ],
+            note: "Surya Namaskar is a shorter topic and must be combined with one other topic.",
+          },
+          {
+            title: "Accommodation & Food",
+            icon: "🏠",
+            desc: "Accommodation and food are provided separately and can be arranged upon request.",
+            details: [
+              "Course fee of $96 covers the course only.",
+              "Participants may arrange their own accommodation & meals or request stay/food options at an additional charge.",
+            ],
+          },
         ],
       },
       {
         number: "02",
         id: "twenty",
-        title: "20 Hour Course",
-        tags: ["Two Variations", "Senior Citizens", "Self Practice"],
-        level: "Teachers · or self-practice",
-        levelSub: "Two variations",
+        title: "20-Hour Course",
+        tags: ["Two Selectable Variants", "5 Days", "Mon–Fri"],
+        level: "Open to All & Teachers",
+        levelSub: "Two distinct variants available",
         hours: "20",
         hoursUnit: "Hours",
         hoursSub: "5 days · Mon–Fri · 4 hrs a day",
         price: "$280",
-        priceSub: "for the full course",
-        desc: "Five days, Monday to Friday, four hours a day. The course runs in two variations: a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
-        outcome: "Walk away able to teach older students safely, or to practise on your own with a sequence built for you.",
-        highlights: ["Purak asanas focus", "Injury-free methodology", "Syllabus built around you"],
-        schedule: "Mon–Fri · 6:00–8:00 AM and 4:00–6:00 PM",
+        priceSub: "for the course only",
+        desc: "Five days, Monday to Friday, 4 hours a day (2 hours in the morning + 2 hours in the afternoon/evening, each day). Offered in two distinct variants so participants can select the pathway tailored to their goals.",
+        outcome: "Select between a fully personalized self-practice track or a specialized teacher training course for senior citizens.",
+        highlights: ["5 days · Mon to Fri", "2 hrs morning + 2 hrs evening", "Select between 2 variants"],
+        schedule: "5 days · Monday to Friday · 2 hours morning + 2 hours afternoon/evening",
         image: IMG.groupStretch,
         split: null,
         pricingTable: null,
         variations: [
           {
-            name: "20 Hr YTTC · Teaching Senior Citizens",
-            forWhom: "Teachers only",
-            desc: "Asana series plus core theory, focused on how to assist and teach yogasanas to senior citizens in a way that prevents injury and keeps the class risk-free. Main focus is on Purak asanas.",
+            name: "20-Hour Self-Practice Course",
+            forWhom: "Open to Everyone",
+            desc: "A fully personalized self-practice course designed around your individual requirements.",
+            topicsTitle: "Focus & Topics",
+            topics: [
+              "Designing an asana sequence specifically for the participant",
+              "Developing a sequence that the participant can practice on their own",
+              "Personalized self-practice guidance",
+            ],
+            accommodation: "Accommodation & food: $150 for 5 days (includes stay, breakfast and dinner).",
           },
           {
-            name: "20 Hr Self Practice",
-            forWhom: "Open to all",
-            desc: "The syllabus is designed around your own requirements, for anyone who wants to design an asana sequence they can practise on their own.",
+            name: "20-Hour YTTC for Teaching Senior Citizens",
+            forWhom: "Existing Yoga Teachers Only",
+            desc: "A specialized YTTC comprising asana series plus core theory, focused on how to assist and teach yoga asanas to senior citizens safely, preventing injury and keeping classes risk-free.",
+            topicsTitle: "Focus & Topics",
+            topics: [
+              "Purak Asanas",
+              "Teaching asanas to senior citizens",
+              "Preventing injury and minimizing the risk of injury",
+              "Helping senior citizens practice asanas safely",
+            ],
+            accommodation: "Accommodation & food: $150 for 5 days (includes stay, breakfast and dinner).",
           },
         ],
         bullets: [
-          "Accommodation on request, chargeable: one week’s stay with breakfast and dinner, $280.",
+          "Duration: 5 days, Monday to Friday (20 hours total)",
+          "Schedule: 2 hours in the morning + 2 hours in the afternoon/evening, each day",
+          "Course Fee: $280 for the course only",
+          "Accommodation & Food (optional): $150 for 5 days (includes accommodation, breakfast and dinner)",
         ],
       },
       {
         number: "03",
         id: "yttc",
-        title: "40 Hour YTTC",
-        tags: ["Purak Asana", "Asana Theory", "Yog Theory"],
-        level: "Certified Teachers Only",
-        levelSub: "Certificate awarded",
+        title: "40-Hour Yoga Teachers Training Course",
+        tags: ["YTTC", "Existing Teachers Only", "Certificate Awarded"],
+        level: "Existing Teachers Only",
+        levelSub: "Yoga Teachers Training Course (YTTC)",
         hours: "40",
         hoursUnit: "Hrs · 15 Days",
-        hoursSub: "10 teaching days over two weeks",
+        hoursSub: "10 teaching days over 2 weeks",
         price: "$480",
-        priceSub: "+ $350 stay · $830 all-in",
-        desc: "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs, and the total always comes to forty.",
-        outcome: "Walk away a stronger teacher, with the philosophy, method, and practice to back it.",
-        highlights: ["Certificate on completion", "Hours adjusted to you", "15 days · stay + meals"],
-        schedule: "Mon–Fri · 8:30–10:30 AM and 6:30–8:30 PM",
+        priceSub: "+ $350 stay · $830 total",
+        desc: "Our most complete programme: forty hours of teaching over ten teaching days, spread across two weeks with weekends off. Theory and practical training hours can be adjusted according to each student's needs.",
+        outcome: "Walk away a stronger teacher with custom theory/practical split, mastering Purak asanas and advanced teaching methodology.",
+        highlights: ["Certificate on completion", "Hours adjusted to you", "15 days stay + meals option"],
+        schedule: "2 weeks · Mon–Fri · 2 hours in the morning + 2 hours in the evening (weekends off)",
         image: IMG.lakeYoga,
-        split: { theory: "15–25", practice: "15–25", theoryLabel: "Theory", practiceLabel: "Practice" },
+        split: { theory: "15–25", practice: "15–25", theoryLabel: "Theory", practiceLabel: "Practical" },
         pricingTable: [
-          { label: "Course Fee", value: "$480" },
-          { label: "Accommodation + Food (15 days @ Castle)", value: "$350" },
-          { label: "Total, all-inclusive", value: "$830 USD", isTotal: true },
+          { label: "Course Fee (40 Hours Teaching)", value: "$480" },
+          { label: "Accommodation + Food (15 days @ Castle Resort)", value: "$350" },
+          { label: "Total All-Inclusive", value: "$830 USD", isTotal: true },
         ],
-        topicsTitle: "Sample topics covered",
-        topics: [
-          "Purak asana",
-          "How to teach asanas and prepare students for advanced poses",
-          "Asana theory",
-          "Yog theory",
-        ],
-        bullets: [
-          "Only for practising or certified teachers.",
-          "Accommodation on request, chargeable: 15 days of stay with breakfast and dinner, $350. The course is spread over two weeks; weekends are off.",
+        accordions: [
+          {
+            title: "Overview & Schedule",
+            icon: "📋",
+            desc: "A comprehensive 40-hour Yoga Teachers Training Course spread over two weeks.",
+            details: [
+              "Course Type: Yoga Teachers Training Course (YTTC)",
+              "Eligibility: Open only to existing yoga teachers",
+              "Duration: 2 weeks",
+              "Teaching Days: 10 days, Monday to Friday (weekends off)",
+              "Total Hours: 40 hours of teaching",
+              "Schedule: 2 hours in the morning + 2 hours in the evening",
+              "Course Fee: $480 for the course only",
+            ],
+          },
+          {
+            title: "Focus & Topics",
+            icon: "🧘",
+            desc: "The course includes both theory and practical training. The hours for theory and practical can be adjusted according to each student's needs. Students are free to choose how many hours they want of theory and how many hours of practical training, with the total duration being 40 hours.",
+            details: [
+              "Purak Asanas",
+              "Asana Theory",
+              "Yoga Theory",
+              "How to Teach Asanas and Prepare Students for Advanced Poses",
+            ],
+          },
+          {
+            title: "Accommodation & Food",
+            icon: "🏠",
+            desc: "Accommodation can be provided upon request and is charged separately.",
+            details: [
+              "Location: The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal",
+              "Duration: 15 days",
+              "Includes: 15 days of stay, breakfast and dinner",
+              "Accommodation & Food Charges: $350",
+            ],
+            pricingSummary: [
+              { label: "Course Fee", value: "$480" },
+              { label: "Accommodation & Food", value: "$350" },
+              { label: "Total", value: "$830 USD", isTotal: true },
+            ],
+          },
         ],
       },
       {
         number: "04",
         id: "retreat",
-        title: "Two Day Retreat",
+        title: "Two-Day Ayurvedic Self-Retreat Program",
         tags: ["Ayurveda", "Doshas", "Body Reset"],
         level: "Open to All",
-        levelSub: "Self practice retreat",
+        levelSub: "Residential program",
         hours: "2",
         hoursUnit: "Days",
-        hoursSub: "Accommodation included",
+        hoursSub: "Residential program at Padma Yogshala",
         price: "$220",
-        priceSub: "stay included",
-        desc: "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
-        outcome: "Walk away knowing your body type, and how to reset it on your own.",
-        highlights: ["Know your doshas", "Gut cleaning food", "Stay included"],
-        schedule: "2 days · residential",
+        priceSub: "including accommodation",
+        desc: "A two-day residential Ayurvedic self-retreat program at Padma Yogshala. Understand your body constitution (dosha), reset your digestive system with gut cleansing, and learn how to self-retreat at home.",
+        outcome: "Walk away understanding your body constitution (dosha) and how to self-retreat and reset your body at home.",
+        highlights: ["Dosha & digestive health", "Gut cleansing & reset", "Stay & meals included"],
+        schedule: "2 days · residential at Padma Yogshala",
         image: IMG.garden,
-        split: null,
-        pricingTable: null,
-        topicsTitle: "The $220 includes",
-        topics: [
-          "Theory explanation and lectures",
-          "Herbs for internal body cleaning, focused on the stomach",
-          "Specially prepared food for two days, for gut cleaning and body resetting",
-          "Accommodation for the full retreat",
+        accordions: [
+          {
+            title: "Overview & Program Details",
+            icon: "📋",
+            desc: "A 2-day residential Ayurvedic self-retreat program at Padma Yogshala.",
+            details: [
+              "Course Type: Residential program",
+              "Eligibility: Open to all",
+              "Duration: 2 days (residential at Padma Yogshala)",
+              "Course Fee: $220, including accommodation and stay charges",
+            ],
+          },
+          {
+            title: "Focus & What the Retreat Includes",
+            icon: "🌿",
+            desc: "Guided learning, digestive health reset, and body constitution assessment.",
+            details: [
+              "Understanding your body constitution (dosha) through Ayurvedic principles",
+              "Ayurvedic body type and digestive health sessions",
+              "Guided theory and practical learning",
+              "Learning how to recognize and work with your dosha",
+              "Gut cleansing and digestive reset",
+              "Specially prepared meals for internal cleansing and digestive restoration",
+              "Herbal support for internal cleansing of the gut and stomach",
+              "Guidance on how to self-retreat and reset your body at home",
+            ],
+          },
+          {
+            title: "Accommodation & Stay",
+            icon: "🏠",
+            desc: "Stay and meals are fully included in the $220 program fee.",
+            details: [
+              "2 days of residential stay at Padma Yogshala",
+              "Includes internal cleansing meals and herbal support",
+            ],
+          },
         ],
-        bullets: null,
       },
     ],
   },
@@ -327,16 +425,16 @@ const CONTENT = {
     eyebrow: "What You’ll Study",
     heading: "Theory that changes how\nyou practice and teach",
     items: [
-      { icon: "🪷", title: "Yog & Yog Philosophy", desc: "What yog actually is, what it set out to do, and the philosophy that holds the whole practice together." },
-      { icon: "🧘", title: "Yog Practical & Asana Theory", desc: "Practice paired with the theory behind it: why each asana exists, and what it is doing to body and mind." },
+      { icon: "🪷", title: "Yoga & Yoga Philosophy", desc: "What yoga actually is, what it set out to do, and the philosophy that holds the whole practice together." },
+      { icon: "🧘", title: "Yoga Practice & Asana Theory", desc: "Practice paired with the theory behind it: why each asana exists, and what it is doing to body and mind." },
       { icon: "🌿", title: "Ayurveda", desc: "India’s ancient science of balance, and the root causes it sees where modern medicine often sees only symptoms." },
-      { icon: "📜", title: "Indian History & Civilisation", desc: "The civilisation that produced yog: its history, its thought, and the world these practices grew out of." },
-      { icon: "🌌", title: "Sankhya Darshan", desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog, and asks what it has to say about God." },
-      { icon: "🎵", title: "Mantra & Mantra Philosophy", desc: "What aid do mantras really offer on the path of yog? Sound, vibration, and their quiet work on the mind." },
+      { icon: "📜", title: "Indian History & Civilization", desc: "The civilisation that produced yoga: its history, its thought, and the world these practices grew out of." },
+      { icon: "🌌", title: "Sankhya Darshan / Philosophy", desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yoga, and asks what it has to say about God." },
+      { icon: "🎵", title: "Mantra & Mantra Philosophy", desc: "What aid do mantras really offer on the path of yoga? Sound, vibration, and their quiet work on the mind." },
       { icon: "🌬️", title: "Pranayama & Its Philosophy", desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
-      { icon: "⚖️", title: "Yama – Niyama", desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
-      { icon: "📖", title: "Patanjali Yog Sutra", desc: "An initial understanding of the foundational text behind classical yog, in plain language." },
-      { icon: "☀️", title: "Sun Salutation", desc: "The history and root theory behind yog’s most iconic sequence. Theory only, so pair it with one other topic." },
+      { icon: "⚖️", title: "Yama & Niyama", desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
+      { icon: "📖", title: "Patanjali Yoga Sutra", desc: "An initial understanding of the foundational text behind classical yoga, in plain language." },
+      { icon: "☀️", title: "Surya Namaskar (theory only)", desc: "The history and root theory behind yoga’s most iconic sequence. Shorter topic, must be combined with one other topic." },
     ],
   },
 
@@ -373,17 +471,18 @@ const CONTENT = {
     sub: "Tell us which course fits you and we’ll confirm dates and details. Prefer to chat first? Message us on WhatsApp, we reply fast.",
     courses: [
       "8 Hour Course · 2 days · $96",
-      "20 Hour Course · Teaching Senior Citizens (teachers) · $280",
-      "20 Hour Course · Self Practice (open to all) · $280",
+      "20-Hour Self-Practice Course · 5 days · $280",
+      "20-Hour YTTC for Senior Citizens · 5 days · $280",
       "40 Hour YTTC · 15 days · $480 (+$350 stay)",
-      "Two Day Retreat · stay included · $220",
+      "Two-Day Ayurvedic Self-Retreat Program · stay included · $220",
       "Not sure yet, help me choose",
     ],
     whatsappPrompts: [
       { label: "8 Hour Course", msg: "Hi Padma Yog Shala, I’m interested in the 8 Hour Course." },
-      { label: "20 Hour Course", msg: "Hi Padma Yog Shala, I’m interested in the 20 Hour Course." },
+      { label: "20-Hour Self-Practice Course", msg: "Hi Padma Yog Shala, I’m interested in the 20-Hour Self-Practice Course." },
+      { label: "20-Hour YTTC for Senior Citizens", msg: "Hi Padma Yog Shala, I’m interested in the 20-Hour YTTC for Teaching Senior Citizens." },
       { label: "40 Hour YTTC", msg: "Hi Padma Yog Shala, I’m interested in the 40 Hour YTTC." },
-      { label: "Two Day Retreat", msg: "Hi Padma Yog Shala, I’m interested in the Two Day Retreat course." },
+      { label: "Two-Day Ayurvedic Self-Retreat Program", msg: "Hi Padma Yog Shala, I’m interested in the Two-Day Ayurvedic Self-Retreat Program." },
     ],
   },
 
@@ -936,6 +1035,207 @@ function PhilosophySection() {
 
 
 // ─────────────────────────────────────────────────────────────────────────────
+// COURSE VARIATIONS ACCORDION — internal expandable accordions for course variants
+// ─────────────────────────────────────────────────────────────────────────────
+function CourseVariationsAccordion({ variations }) {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  return (
+    <div className="mb-6 flex flex-col gap-3">
+      <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-1"
+        style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+        Course Variants (Click to view details)
+      </p>
+      {variations.map((v, idx) => {
+        const isOpen = openIndex === idx;
+        return (
+          <div
+            key={v.name}
+            className="rounded-xl overflow-hidden transition-all duration-200"
+            style={{
+              background: C.cardBg,
+              boxShadow: `0 0 0 1px ${isOpen ? C.terracotta : C.border}`,
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenIndex(isOpen ? null : idx)}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left cursor-pointer transition-colors duration-150"
+              style={{ background: isOpen ? `${C.terracotta}0A` : "transparent" }}
+            >
+              <div className="flex flex-wrap items-center gap-2.5 min-w-0">
+                <span
+                  className="text-xs font-semibold px-2.5 py-0.5 rounded-full flex-shrink-0"
+                  style={{
+                    background: `${C.terracotta}18`,
+                    color: C.terracotta,
+                    fontFamily: FONT.ui,
+                  }}
+                >
+                  {v.forWhom}
+                </span>
+                <span
+                  className="text-sm md:text-base font-semibold leading-snug truncate"
+                  style={{ fontFamily: FONT.display, color: C.charcoal }}
+                >
+                  {v.name}
+                </span>
+              </div>
+              <span
+                className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-transform duration-200 flex-shrink-0"
+                style={{
+                  background: isOpen ? C.terracotta : `${C.border}60`,
+                  color: isOpen ? "#FFF" : C.charcoal,
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                ▼
+              </span>
+            </button>
+
+            {isOpen && (
+              <div
+                className="px-5 pb-5 pt-3 space-y-3.5"
+                style={{ borderTop: `1px solid ${C.border}` }}
+              >
+                <p className="text-xs md:text-sm leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                  {v.desc}
+                </p>
+
+                {v.topics && (
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-2"
+                      style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                      {v.topicsTitle || "Focus & Topics"}
+                    </p>
+                    <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                      {v.topics.map((t) => (
+                        <li key={t} className="flex items-start gap-2 text-xs leading-relaxed"
+                          style={{ color: C.charcoal, fontFamily: FONT.ui }}>
+                          <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: C.sage }} />
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {v.accommodation && (
+                  <p className="text-xs pt-3 leading-relaxed"
+                    style={{ color: C.muted, borderTop: `1px dashed ${C.border}`, fontFamily: FONT.ui }}>
+                    🏠 <strong>Accommodation & Food:</strong> {v.accommodation}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COURSE SECTIONS ACCORDION — internal expandable accordions for course details
+// ─────────────────────────────────────────────────────────────────────────────
+function CourseSectionsAccordion({ sections }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  return (
+    <div className="mb-6 flex flex-col gap-2.5">
+      <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-1"
+        style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+        Detailed Information (Click to expand)
+      </p>
+      {sections.map((sec, idx) => {
+        const isOpen = openIndex === idx;
+        return (
+          <div
+            key={sec.title}
+            className="rounded-xl overflow-hidden transition-all duration-200"
+            style={{
+              background: C.cardBg,
+              boxShadow: `0 0 0 1px ${isOpen ? C.terracotta : C.border}`,
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenIndex(isOpen ? null : idx)}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left cursor-pointer transition-colors duration-150"
+              style={{ background: isOpen ? `${C.terracotta}0A` : "transparent" }}
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                {sec.icon && <span className="text-sm select-none">{sec.icon}</span>}
+                <span
+                  className="text-xs md:text-sm font-semibold leading-snug"
+                  style={{ fontFamily: FONT.display, color: C.charcoal }}
+                >
+                  {sec.title}
+                </span>
+              </div>
+              <span
+                className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold transition-transform duration-200 flex-shrink-0"
+                style={{
+                  background: isOpen ? C.terracotta : `${C.border}60`,
+                  color: isOpen ? "#FFF" : C.charcoal,
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                ▼
+              </span>
+            </button>
+
+            {isOpen && (
+              <div
+                className="px-5 pb-4 pt-2.5 space-y-3"
+                style={{ borderTop: `1px solid ${C.border}` }}
+              >
+                {sec.desc && (
+                  <p className="text-xs md:text-sm leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                    {sec.desc}
+                  </p>
+                )}
+
+                {sec.details && sec.details.length > 0 && (
+                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                    {sec.details.map((d, di) => (
+                      <li key={di} className="flex items-start gap-2 text-xs leading-relaxed"
+                        style={{ color: C.charcoal, fontFamily: FONT.ui }}>
+                        <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: C.sage }} />
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {sec.note && (
+                  <p className="text-[11px] italic pt-1" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                    {sec.note}
+                  </p>
+                )}
+
+                {sec.pricingSummary && (
+                  <div className="rounded-lg p-3 text-xs space-y-1 mt-2"
+                    style={{ background: `${C.terracotta}0F`, border: `1px solid ${C.terracotta}30`, fontFamily: FONT.ui }}>
+                    {sec.pricingSummary.map((p, pi) => (
+                      <div key={pi} className="flex justify-between font-medium"
+                        style={{ color: p.isTotal ? C.terracotta : C.charcoal, fontWeight: p.isTotal ? 600 : 500 }}>
+                        <span>{p.label}</span>
+                        <span style={{ fontVariantNumeric: "tabular-nums" }}>{p.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // COURSES — list rows with explicit hours band + theory/practice split
 // ─────────────────────────────────────────────────────────────────────────────
 function CoursesSection() {
@@ -1010,26 +1310,14 @@ function CoursesSection() {
                 </div>
               )}
 
-              {/* Variations — courses that run in more than one form */}
+              {/* Variations — rendered as interactive accordions */}
               {course.variations && (
-                <div className="grid sm:grid-cols-2 gap-3 mb-5">
-                  {course.variations.map(v => (
-                    <div key={v.name} className="rounded-xl p-4"
-                      style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
-                      <p className="text-xs font-medium mb-1.5 inline-block px-2 py-0.5 rounded-full"
-                        style={{ background: `${C.sage}22`, color: C.sage, fontFamily: FONT.ui }}>
-                        {v.forWhom}
-                      </p>
-                      <p className="text-sm font-semibold mb-1.5 leading-snug"
-                        style={{ fontFamily: FONT.display, color: C.charcoal }}>
-                        {v.name}
-                      </p>
-                      <p className="text-xs leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
-                        {v.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <CourseVariationsAccordion variations={course.variations} />
+              )}
+
+              {/* Course sections — rendered as internal expandable accordions */}
+              {course.accordions && (
+                <CourseSectionsAccordion sections={course.accordions} />
               )}
 
               {/* Theory / practice split bar (40hr only) */}
@@ -1074,10 +1362,15 @@ function CoursesSection() {
               {/* Topic list — what you can choose, or what’s included */}
               {course.topics && (
                 <div className="mt-5">
-                  <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-3"
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-1.5"
                     style={{ color: C.terracotta, fontFamily: FONT.ui }}>
                     {course.topicsTitle}
                   </p>
+                  {course.topicsSubText && (
+                    <p className="text-xs leading-relaxed mb-3" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                      {course.topicsSubText}
+                    </p>
+                  )}
                   <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
                     {course.topics.map(t => (
                       <li key={t} className="flex items-start gap-2.5 text-sm leading-snug"
@@ -1088,21 +1381,59 @@ function CoursesSection() {
                       </li>
                     ))}
                   </ul>
+                  {course.topicsNote && (
+                    <p className="text-xs italic mt-2.5" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                      {course.topicsNote}
+                    </p>
+                  )}
                 </div>
               )}
 
-              {/* Practical notes — stay, food, who it’s for, flexibility */}
-              {course.bullets && (
-                <ul className="mt-5 flex flex-col gap-2 pt-4"
-                  style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
-                  {course.bullets.map(b => (
-                    <li key={b} className="flex items-start gap-2.5 text-xs leading-relaxed"
-                      style={{ color: C.muted, fontFamily: FONT.ui }}>
-                      <span aria-hidden="true" style={{ color: C.terracotta }}>·</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+              {/* Also Includes */}
+              {course.includes && (
+                <div className="mt-5 pt-4" style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-2"
+                    style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                    {course.includesTitle || "Also Includes"}
+                  </p>
+                  <ul className="flex flex-col gap-1.5">
+                    {course.includes.map(inc => (
+                      <li key={inc} className="flex items-start gap-2 text-xs leading-relaxed"
+                        style={{ color: C.charcoal, fontFamily: FONT.ui }}>
+                        <span style={{ color: C.sage, fontWeight: 600 }}>✓</span>
+                        {inc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Accommodation & Food or Practical notes */}
+              {(course.bullets || course.accommodation) && (
+                <div className="mt-5 pt-4" style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
+                  {course.accommodation && (
+                    <div className="mb-2">
+                      <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-1"
+                        style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                        {course.accommodation.title || "Accommodation & Food"}
+                      </p>
+                      <p className="text-xs leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                        {course.accommodation.text}
+                      </p>
+                    </div>
+                  )}
+                  {course.bullets && (
+                    <ul className="flex flex-col gap-2">
+                      {course.bullets.map(b => (
+                        <li key={b} className="flex items-start gap-2.5 text-xs leading-relaxed"
+                          style={{ color: C.muted, fontFamily: FONT.ui }}>
+                          <span aria-hidden="true" style={{ color: C.terracotta }}>·</span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               )}
             </div>
 
