@@ -20,22 +20,16 @@ const PAGE = {
   hero: {
     eyebrow: "Founder’s Desk",
     heading: "A note from\nJayesh Mistry",
-    sub: "Founder and Chief Instructor, Padma Yog Shala — on what we consciously choose to do differently.",
+    sub: "Founder and Chief Instructor, Padma Yog Shala, on what we consciously choose to do differently.",
   },
 
   different: {
     eyebrow: "What We Do Differently",
-    pillars: [
-      { title: "The mind first",           desc: "We teach the manas, then the philosophy and theory, and only then the asanas that support them." },
-      { title: "An individual practice",   desc: "A teacher guides the path. The practice itself must eventually become entirely your own." },
-      { title: "Sequences with intention", desc: "Every posture prepares the body for the next — asanas are never taught as isolated exercises." },
-      { title: "Yog as anushasan",         desc: "A lifelong discipline of awareness, not an hour on a mat. That is what every course is built to hand you." },
-    ],
     paras: [
       "Mr. Jayesh Mistry, the founder and chief instructor of Padma Yog Shala, has taught over 35,000 students from across the globe. His years of teaching brought to light a fundamental gap in the way Yog is practised and taught in many places today. Such teaching is often extremely limiting, as it does not fulfil the true purpose of learning Yog for the student. In some instances, rather than simply offering limited benefit, it can even take the practice in a direction that is contrary to the very purpose of Yog itself.",
       "At Padma Yog Shala, we believe that Yog must begin with an understanding of the manas. Only then can one truly appreciate the philosophy, theory, and eventually the asanas that support this understanding. We consciously teach Yog in this order because we believe that physical practice without an understanding of the mind remains incomplete.",
       "One truth that is often left unspoken is that Yog is ultimately an individual practice. While it can certainly be learnt within a cohort or under the guidance of a teacher, it can only truly be practised by oneself. A teacher may guide the path, but the practice of Yog must eventually become one’s own. We believe this is essential to the spirit of Yog.",
-      "Another aspect that distinguishes our teaching is the way we approach yogasana itself. Mr. Jayesh Mistry is yet to come across a school where even the most fundamental basics of Yog — the asanas — are taught in a sequence that is truly appropriate for the human body and practised as described by the actual masters. At Padma Yog Shala, every sequence is designed with intention, ensuring that each posture prepares the body for the next, rather than treating asanas as isolated exercises.",
+      "Another aspect that distinguishes our teaching is the way we approach yogasana itself. Mr. Jayesh Mistry is yet to come across a school where even the most fundamental basics of Yog, the asanas, are taught in a sequence that is truly appropriate for the human body and practised as described by the actual masters. At Padma Yog Shala, every sequence is designed with intention, ensuring that each posture prepares the body for the next, rather than treating asanas as isolated exercises.",
       "Our approach is rooted in the belief that Yog is far more than movement. It is a lifelong discipline of understanding the mind, cultivating awareness, and living with anushasan. Everything we teach is guided by this philosophy.",
     ],
     signature: {
@@ -46,12 +40,12 @@ const PAGE = {
 
   archive: {
     caption: "Mr. Jayesh training members at Pioneer Fitness Centre",
-    note: "Before Padma Yog Shala, there was Pioneer — the fitness centre he built and ran himself, where more than 35,000 people first trained under him.",
+    note: "Before Padma Yog Shala, there was Pioneer, the fitness centre he built and ran himself, where more than 35,000 people first trained under him.",
   },
 
   cta: {
     heading: "Study it the way\nit was handed down.",
-    sub: "Four courses, taught in this order and for this reason — from a two-day introduction to a forty-hour teacher training.",
+    sub: "Four courses, taught in this order and for this reason, from a two-day introduction to a forty-hour teacher training.",
     primary:   { label: "View the Courses",     href: `${HOME}#courses` },
     secondary: { label: "Philosophy & Vision",  href: "/philosophy.html" },
   },
@@ -69,29 +63,6 @@ function DifferenceSection() {
 
         <div className="mb-14">
           <Eyebrow light>{D.eyebrow}</Eyebrow>
-        </div>
-
-        {/* Four pillars — the essay in short form */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-16">
-          {D.pillars.map((p, i) => (
-            <div key={p.title} className="rounded-2xl p-7 flex items-start gap-5"
-                 style={{ background: "rgba(249,245,239,0.05)", boxShadow: "0 0 0 1px rgba(249,245,239,0.08)" }}>
-              <span className="text-3xl font-semibold leading-none flex-shrink-0 mt-0.5"
-                    style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums", opacity: 0.5 }}>
-                0{i + 1}
-              </span>
-              <div>
-                <h3 className="text-lg font-semibold mb-2 leading-snug"
-                    style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
-                  {p.title}
-                </h3>
-                <p className="text-sm leading-relaxed"
-                   style={{ color: "rgba(249,245,239,0.48)", fontFamily: FONT.ui }}>
-                  {p.desc}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
 
         <div className="max-w-3xl flex flex-col gap-7">

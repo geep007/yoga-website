@@ -196,8 +196,8 @@ const CONTENT = {
         hoursSub:     "2 days · 4 hrs per day",
         price:        "$96",
         priceSub:     "for the full course",
-        desc:         "Eight hours across two days — two in the morning, two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
-        outcome:      "Walk away understanding what yoga actually is — and where to begin.",
+        desc:         "Eight hours across two days, two in the morning and two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
+        outcome:      "Walk away understanding what yoga actually is, and where to begin.",
         highlights:   ["Choose from 10 topics", "Morning + evening sessions", "No experience needed"],
         schedule:     "2 days · 2 hrs morning + 2 hrs evening",
         image:        IMG.groupClass,
@@ -214,7 +214,7 @@ const CONTENT = {
           "Pranayama and Pranayama Philosophy",
           "Yama – Niyama",
           "Patanjali Yog Sutra",
-          "Sun Salutation — theory only (combine with one other topic)",
+          "Sun Salutation, theory only (combine with one other topic)",
         ],
         bullets: [
           "Who it’s for: beginners, anyone wanting in-depth knowledge of a specific topic, and anyone who wants to try a course with Mr. Jayesh Mistry.",
@@ -234,8 +234,8 @@ const CONTENT = {
         hoursSub:     "5 days · Mon–Fri · 4 hrs a day",
         price:        "$280",
         priceSub:     "for the full course",
-        desc:         "Five days, Monday to Friday, four hours a day. The course runs in two variations — a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
-        outcome:      "Walk away able to teach older students safely — or to practise on your own with a sequence built for you.",
+        desc:         "Five days, Monday to Friday, four hours a day. The course runs in two variations: a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
+        outcome:      "Walk away able to teach older students safely, or to practise on your own with a sequence built for you.",
         highlights:   ["Purak asanas focus", "Injury-free methodology", "Syllabus built around you"],
         schedule:     "Mon–Fri · 6:00–8:00 AM and 4:00–6:00 PM",
         image:        IMG.groupStretch,
@@ -243,18 +243,18 @@ const CONTENT = {
         pricingTable: null,
         variations: [
           {
-            name:    "20 Hr YTTC — Teaching Senior Citizens",
+            name:    "20 Hr YTTC · Teaching Senior Citizens",
             forWhom: "Teachers only",
             desc:    "Asana series plus core theory, focused on how to assist and teach yogasanas to senior citizens in a way that prevents injury and keeps the class risk-free. Main focus is on Purak asanas.",
           },
           {
             name:    "20 Hr Self Practice",
             forWhom: "Open to all",
-            desc:    "The syllabus is designed around your own requirements — for anyone who wants to design an asana sequence they can practise on their own.",
+            desc:    "The syllabus is designed around your own requirements, for anyone who wants to design an asana sequence they can practise on their own.",
           },
         ],
         bullets: [
-          "Accommodation on request, chargeable: one week’s stay with breakfast and dinner — $280.",
+          "Accommodation on request, chargeable: one week’s stay with breakfast and dinner, $280.",
         ],
       },
       {
@@ -269,8 +269,8 @@ const CONTENT = {
         hoursSub:     "10 teaching days over two weeks",
         price:        "$480",
         priceSub:     "+ $350 stay · $830 all-in",
-        desc:         "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs — the total always comes to forty.",
-        outcome:      "Walk away a stronger teacher — with the philosophy, method, and practice to back it.",
+        desc:         "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs, and the total always comes to forty.",
+        outcome:      "Walk away a stronger teacher, with the philosophy, method, and practice to back it.",
         highlights:   ["Certificate on completion", "Hours adjusted to you", "15 days · stay + meals"],
         schedule:     "Mon–Fri · 8:30–10:30 AM and 6:30–8:30 PM",
         image:        IMG.lakeYoga,
@@ -289,7 +289,7 @@ const CONTENT = {
         ],
         bullets: [
           "Only for practising or certified teachers.",
-          "Accommodation on request, chargeable: 15 days of stay with breakfast and dinner — $350. The course is spread over two weeks; weekends are off.",
+          "Accommodation on request, chargeable: 15 days of stay with breakfast and dinner, $350. The course is spread over two weeks; weekends are off.",
         ],
       },
       {
@@ -304,8 +304,8 @@ const CONTENT = {
         hoursSub:     "Accommodation included",
         price:        "$220",
         priceSub:     "stay included",
-        desc:         "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory — and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
-        outcome:      "Walk away knowing your body type — and how to reset it on your own.",
+        desc:         "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
+        outcome:      "Walk away knowing your body type, and how to reset it on your own.",
         highlights:   ["Know your doshas", "Gut cleaning food", "Stay included"],
         schedule:     "2 days · residential",
         image:        IMG.garden,
@@ -315,7 +315,7 @@ const CONTENT = {
         topics: [
           "Theory explanation and lectures",
           "Herbs for internal body cleaning, focused on the stomach",
-          "Specially prepared food for two days — gut cleaning and body resetting",
+          "Specially prepared food for two days, for gut cleaning and body resetting",
           "Accommodation for the full retreat",
         ],
         bullets: null,
@@ -328,15 +328,15 @@ const CONTENT = {
     heading: "Theory that changes how\nyou practice and teach",
     items: [
       { icon: "🪷", title: "Yog & Yog Philosophy",        desc: "What yog actually is, what it set out to do, and the philosophy that holds the whole practice together." },
-      { icon: "🧘", title: "Yog Practical & Asana Theory", desc: "Practice paired with the theory behind it — why each asana exists, and what it is doing to body and mind." },
-      { icon: "🌿", title: "Ayurveda",                     desc: "India’s ancient science of balance — and the root causes it sees where modern medicine often sees only symptoms." },
+      { icon: "🧘", title: "Yog Practical & Asana Theory", desc: "Practice paired with the theory behind it: why each asana exists, and what it is doing to body and mind." },
+      { icon: "🌿", title: "Ayurveda",                     desc: "India’s ancient science of balance, and the root causes it sees where modern medicine often sees only symptoms." },
       { icon: "📜", title: "Indian History & Civilisation",desc: "The civilisation that produced yog: its history, its thought, and the world these practices grew out of." },
-      { icon: "🌌", title: "Sankhya Darshan",              desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog — and asks what it has to say about God." },
+      { icon: "🌌", title: "Sankhya Darshan",              desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog, and asks what it has to say about God." },
       { icon: "🎵", title: "Mantra & Mantra Philosophy",   desc: "What aid do mantras really offer on the path of yog? Sound, vibration, and their quiet work on the mind." },
       { icon: "🌬️", title: "Pranayama & Its Philosophy",  desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
       { icon: "⚖️", title: "Yama – Niyama",               desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
       { icon: "📖", title: "Patanjali Yog Sutra",          desc: "An initial understanding of the foundational text behind classical yog, in plain language." },
-      { icon: "☀️", title: "Sun Salutation",              desc: "The history and root theory behind yog’s most iconic sequence. Theory only — pair it with one other topic." },
+      { icon: "☀️", title: "Sun Salutation",              desc: "The history and root theory behind yog’s most iconic sequence. Theory only, so pair it with one other topic." },
     ],
   },
 
@@ -351,7 +351,7 @@ const CONTENT = {
       name: "Shri Jayesh Mistry",
       role: "International Yoga Instructor, Yog Kendra · Vadodara",
     },
-    affiliation: "Affiliated with Yoga Kendra, Vadodara — est. 1963 · Reg. No. E-1642, Govt. of Gujarat.",
+    affiliation: "Affiliated with Yoga Kendra, Vadodara · Est. 1963 · Reg. No. E-1642, Govt. of Gujarat.",
   },
 
   location: {
@@ -363,21 +363,21 @@ const CONTENT = {
   ctaBanner: {
     sutra: "योगश्चित्तवृत्तिनिरोधः",
     heading: "You came looking\nfor ease.",
-    sub: "Yoga, said Patanjali, is the stilling of the movements of the mind. That is exactly where every class at Padma begins — and ends.",
+    sub: "Yoga, said Patanjali, is the stilling of the movements of the mind. That is exactly where every class at Padma begins, and where it ends.",
     cta: { label: "Register for a Course", href: "#register" },
   },
 
   register: {
     eyebrow: "Register",
     heading: "Reserve your place",
-    sub: "Tell us which course fits you and we’ll confirm dates and details. Prefer to chat first? Message us on WhatsApp — we reply fast.",
+    sub: "Tell us which course fits you and we’ll confirm dates and details. Prefer to chat first? Message us on WhatsApp, we reply fast.",
     courses: [
-      "8 Hour Course — 2 days · $96",
-      "20 Hour Course — Teaching Senior Citizens (teachers) · $280",
-      "20 Hour Course — Self Practice (open to all) · $280",
-      "40 Hour YTTC — 15 days · $480 (+$350 stay)",
-      "Two Day Retreat — stay included · $220",
-      "Not sure yet — help me choose",
+      "8 Hour Course · 2 days · $96",
+      "20 Hour Course · Teaching Senior Citizens (teachers) · $280",
+      "20 Hour Course · Self Practice (open to all) · $280",
+      "40 Hour YTTC · 15 days · $480 (+$350 stay)",
+      "Two Day Retreat · stay included · $220",
+      "Not sure yet, help me choose",
     ],
     whatsappPrompts: [
       { label: "8 Hour Course",   msg: "Hi Padma Yog Shala, I’m interested in the 8 Hour Course." },
@@ -397,7 +397,7 @@ const CONTENT = {
       { label: "Teacher",             href: "#instructor" },
       { label: "Register",            href: "#register" },
     ],
-    affiliation: "Affiliated with Yoga Kendra, Vadodara — the oldest yoga institute in Gujarat, est. 1963, founded by Yogacharya Dushant Modi. Reg. No. E-1642, Government of Gujarat.",
+    affiliation: "Affiliated with Yoga Kendra, Vadodara, the oldest yoga institute in Gujarat, est. 1963, founded by Yogacharya Dushant Modi. Reg. No. E-1642, Government of Gujarat.",
     contact: {
       email:    CONTACT_EMAIL,
       whatsapp: "+91 97255 60379",
@@ -1351,7 +1351,7 @@ function RegisterSection() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject:  `New course registration — ${form.course}`,
+          _subject:  `New course registration: ${form.course}`,
           _template: "table",
           name:      form.name,
           email:     form.email,
@@ -1410,7 +1410,7 @@ function RegisterSection() {
                   Request received
                 </h3>
                 <p className="text-sm max-w-sm" style={{ color: "rgba(249,245,239,0.58)", fontFamily: FONT.ui }}>
-                  Thank you. Your details are on their way to us — we’ll confirm your dates and the rest shortly.
+                  Thank you. Your details are on their way to us. We’ll confirm your dates and the rest shortly.
                 </p>
                 <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium"
                         style={{ color: C.terracotta, fontFamily: FONT.ui, background: "none", border: "none", cursor: "pointer" }}>
@@ -1461,7 +1461,7 @@ function RegisterSection() {
                        style={{ color: "#E0853F", textDecoration: "underline" }}>
                       Send them on WhatsApp instead
                     </a>{" "}
-                    — or email {CONTACT_EMAIL}.
+                    or email {CONTACT_EMAIL}.
                   </p>
                 )}
 
@@ -1483,7 +1483,7 @@ function RegisterSection() {
               Prefer to chat first?
             </h3>
             <p className="text-sm mb-6" style={{ color: "rgba(249,245,239,0.85)", fontFamily: FONT.ui }}>
-              Message us on WhatsApp about any course — we reply fast. Tap the one you’re considering:
+              Message us on WhatsApp about any course, we reply fast. Tap the one you’re considering:
             </p>
 
             <div className="flex flex-col gap-3 mb-8">

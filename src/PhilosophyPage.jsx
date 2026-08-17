@@ -16,11 +16,8 @@ const IMG = {
 const PAGE = {
   hero: {
     eyebrow: "Philosophy & Vision",
-    sutra:   "“अथ योगानुशासनम्”",
-    sutraTranslit: "“Atha yogānuśāsanam”",
-    sutraRef: "Patanjali Yoga Sutra 1.1",
     heading: "Yog is not something\nyou practise.\nIt is how you live.",
-    sub: "The philosophy Padma Yog Shala stands on — and the vision every course is built to carry.",
+    sub: "The philosophy Padma Yog Shala stands on, and the vision every course is built to carry.",
   },
 
   philosophy: {
@@ -43,7 +40,7 @@ const PAGE = {
 
   cta: {
     heading: "Come and study\nthe whole of it.",
-    sub: "Four courses, from a two-day introduction to a forty-hour teacher training — all taught in this order, and for this reason.",
+    sub: "Four courses, from a two-day introduction to a forty-hour teacher training, all taught in this order, and for this reason.",
     primary:   { label: "View the Courses",  href: `${HOME}#courses` },
     secondary: { label: "Founder’s Desk",    href: "/founders-desk.html" },
   },
