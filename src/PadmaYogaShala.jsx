@@ -5,45 +5,45 @@ import { useState, useEffect, useRef } from "react";
 // ─────────────────────────────────────────────────────────────────────────────
 export const C = {
   // Light sections
-  cream:       "#F9F5EF",
-  cardBg:      "#EDE7DC",
+  cream: "#F9F5EF",
+  cardBg: "#EDE7DC",
   // Dark sections
-  dark:        "#0F0D0B",
-  darkCard:    "#1C1814",
+  dark: "#0F0D0B",
+  darkCard: "#1C1814",
   // Accents
-  terracotta:  "#C2622D",
-  terraDark:   "#A8521F",
-  sage:        "#6B7C5E",
+  terracotta: "#C2622D",
+  terraDark: "#A8521F",
+  sage: "#6B7C5E",
   // Text
-  charcoal:    "#1C1917",
-  muted:       "#8B7D74",
+  charcoal: "#1C1917",
+  muted: "#8B7D74",
   // Borders
-  border:      "rgba(28,25,23,0.10)",
-  borderMid:   "rgba(28,25,23,0.16)",
-  darkBorder:  "rgba(249,245,239,0.09)",
+  border: "rgba(28,25,23,0.10)",
+  borderMid: "rgba(28,25,23,0.16)",
+  darkBorder: "rgba(249,245,239,0.09)",
 };
 
 // Fixed z-index scale (Emil — no ad-hoc values)
 export const Z = {
-  base:    1,
+  base: 1,
   overlay: 10,
   content: 20,
-  sticky:  40,
-  nav:     50,
+  sticky: 40,
+  nav: 50,
 };
 
 // Emil Kowalski easing blueprint
 export const E = {
-  outCubic:    "cubic-bezier(0.215,0.61,0.355,1)",
-  outQuart:    "cubic-bezier(0.165,0.84,0.44,1)",
-  outQuint:    "cubic-bezier(0.23,1,0.32,1)",
-  inOutCubic:  "cubic-bezier(0.645,0.045,0.355,1)",
-  ease:        "ease",
+  outCubic: "cubic-bezier(0.215,0.61,0.355,1)",
+  outQuart: "cubic-bezier(0.165,0.84,0.44,1)",
+  outQuint: "cubic-bezier(0.23,1,0.32,1)",
+  inOutCubic: "cubic-bezier(0.645,0.045,0.355,1)",
+  ease: "ease",
 };
 
 // Typography: Onest for all UI, Fraunces for editorial accent/display
 export const FONT = {
-  ui:      "'Onest', system-ui, sans-serif",
+  ui: "'Onest', system-ui, sans-serif",
   display: "'Fraunces', Georgia, serif",
 };
 
@@ -75,30 +75,30 @@ export const TEACHER_PORTRAIT_FOCUS = "50% 26%";
 
 const IMG = {
   groupStretch: "/images/1.png",          // group side-stretch on terrace
-  instructor:   "/images/2.png",          // instructor solo on grass (red mat)
-  teacher:      "/images/teacher.jpg",    // Jayesh Mistry seated in padmasana
+  instructor: "/images/2.png",          // instructor solo on grass (red mat)
+  teacher: "/images/teacher.jpg",    // Jayesh Mistry seated in padmasana
   teacherPortrait: "/images/teacher-jayesh.jpg", // Shri Jayesh Mistry, seated portrait
-  lakeYoga:     "/images/3.png",          // two people yoga, Phewa Lake behind
-  groupClass:   "/images/4.png",          // 1 instructor + 3 students seated
-  pool:         "/images/5.png",          // resort pool, mountains
-  garden:       "/images/6.jpeg",         // lush stone-path garden
-  castle:       "/images/7.jpeg",         // castle building in greenery
-  lake:         "/images/8.png",          // Phewa Lake panorama
-  yogaFocus1:   "/images/Yoga Focus-1.png",
-  yogaFocus2:   "/images/Yoga Focus-2.png",
-  yogaFocus3:   "/images/Yoga Focus-3.png",
+  lakeYoga: "/images/3.png",          // two people yoga, Phewa Lake behind
+  groupClass: "/images/4.png",          // 1 instructor + 3 students seated
+  pool: "/images/5.png",          // resort pool, mountains
+  garden: "/images/6.jpeg",         // lush stone-path garden
+  castle: "/images/7.jpeg",         // castle building in greenery
+  lake: "/images/8.png",          // Phewa Lake panorama
+  yogaFocus1: "/images/Yoga Focus-1.png",
+  yogaFocus2: "/images/Yoga Focus-2.png",
+  yogaFocus3: "/images/Yoga Focus-3.png",
 };
 
 // Hero slideshow order — best visual progression
 const SLIDES = [
-  { src: IMG.lake,          alt: "Phewa Lake panorama, Pokhara" },
-  { src: IMG.lakeYoga,      alt: "Yoga overlooking Phewa Lake" },
-  { src: IMG.groupClass,    alt: "Morning group class at The Castle Resort" },
-  { src: IMG.castle,        alt: "The Castle Resort, Lakeside Pokhara" },
-  { src: IMG.pool,          alt: "Castle Resort pool with Himalayan backdrop" },
-  { src: IMG.groupStretch,  alt: "Side-stretch group session" },
-  { src: IMG.garden,        alt: "Castle Resort gardens" },
-  { src: IMG.instructor,    alt: "Padma Yoga Shala lead instructor" },
+  { src: IMG.lake, alt: "Phewa Lake panorama, Pokhara" },
+  { src: IMG.lakeYoga, alt: "Yoga overlooking Phewa Lake" },
+  { src: IMG.groupClass, alt: "Morning group class at The Castle Resort" },
+  { src: IMG.castle, alt: "The Castle Resort, Lakeside Pokhara" },
+  { src: IMG.pool, alt: "Castle Resort pool with Himalayan backdrop" },
+  { src: IMG.groupStretch, alt: "Side-stretch group session" },
+  { src: IMG.garden, alt: "Castle Resort gardens" },
+  { src: IMG.instructor, alt: "Padma Yoga Shala lead instructor" },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -108,10 +108,10 @@ const CONTENT = {
   nav: {
     logo: "Padma Yoga Shala",
     links: [
-      { label: "Courses",             href: "#courses" },
+      { label: "Courses", href: "#courses" },
       { label: "Philosophy & Vision", href: "/philosophy.html" },
-      { label: "Founder’s Desk",      href: "/founders-desk.html" },
-      { label: "Location",            href: "#location" },
+      { label: "Founder’s Desk", href: "/founders-desk.html" },
+      { label: "Location", href: "#location" },
     ],
     cta: { label: "Register", href: "#register" },
   },
@@ -121,8 +121,8 @@ const CONTENT = {
     sutraTranslit: "“Atha yogānuśāsanam”",
     headline: "“Now, from this moment onwards,\nwe begin the disciplined study\nand practice of Yog.”",
     attribution: "Patanjali Yoga Sutra · Chapter 1, Samadhi Pada",
-    primaryCta:   { label: "Register for a Course", href: "#register" },
-    secondaryCta: { label: "Compare Courses",       href: "#compare" },
+    primaryCta: { label: "Register for a Course", href: "#register" },
+    secondaryCta: { label: "Compare Courses", href: "#compare" },
   },
 
   // Quick-compare strip directly under the hero
@@ -185,25 +185,25 @@ const CONTENT = {
     note: "All courses held at The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal. Session times can be adjusted on mutual understanding. Teaching follows the Guru–Shishya Parampara: instruction is mainly oral, in the Vedic tradition, and students are welcome to make their own notes.",
     items: [
       {
-        number:       "01",
-        id:           "foundations",
-        title:        "8 Hour Course",
-        tags:         ["Open to All", "Choose Your Topics", "2 Days"],
-        level:        "Open to All",
-        levelSub:     "Beginners welcome",
-        hours:        "8",
-        hoursUnit:    "Hours",
-        hoursSub:     "2 days · 4 hrs per day",
-        price:        "$96",
-        priceSub:     "for the full course",
-        desc:         "Eight hours across two days, two in the morning and two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
-        outcome:      "Walk away understanding what yoga actually is, and where to begin.",
-        highlights:   ["Choose from 10 topics", "Morning + evening sessions", "No experience needed"],
-        schedule:     "2 days · 2 hrs morning + 2 hrs evening",
-        image:        IMG.groupClass,
-        split:        null,
+        number: "01",
+        id: "foundations",
+        title: "8 Hour Course",
+        tags: ["Open to All", "Choose Your Topics", "2 Days"],
+        level: "Open to All",
+        levelSub: "Beginners welcome",
+        hours: "8",
+        hoursUnit: "Hours",
+        hoursSub: "2 days · 4 hrs per day",
+        price: "$96",
+        priceSub: "for the full course",
+        desc: "Eight hours across two days, two in the morning and two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
+        outcome: "Walk away understanding what yoga actually is, and where to begin.",
+        highlights: ["Choose from 10 topics", "Morning + evening sessions", "No experience needed"],
+        schedule: "2 days · 2 hrs morning + 2 hrs evening",
+        image: IMG.groupClass,
+        split: null,
         pricingTable: null,
-        topicsTitle:  "Choose your topics",
+        topicsTitle: "Choose your topics",
         topics: [
           "Yog and Yog Philosophy",
           "Yog Practical and Asana Theory",
@@ -223,34 +223,34 @@ const CONTENT = {
         ],
       },
       {
-        number:       "02",
-        id:           "twenty",
-        title:        "20 Hour Course",
-        tags:         ["Two Variations", "Senior Citizens", "Self Practice"],
-        level:        "Teachers · or self-practice",
-        levelSub:     "Two variations",
-        hours:        "20",
-        hoursUnit:    "Hours",
-        hoursSub:     "5 days · Mon–Fri · 4 hrs a day",
-        price:        "$280",
-        priceSub:     "for the full course",
-        desc:         "Five days, Monday to Friday, four hours a day. The course runs in two variations: a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
-        outcome:      "Walk away able to teach older students safely, or to practise on your own with a sequence built for you.",
-        highlights:   ["Purak asanas focus", "Injury-free methodology", "Syllabus built around you"],
-        schedule:     "Mon–Fri · 6:00–8:00 AM and 4:00–6:00 PM",
-        image:        IMG.groupStretch,
-        split:        null,
+        number: "02",
+        id: "twenty",
+        title: "20 Hour Course",
+        tags: ["Two Variations", "Senior Citizens", "Self Practice"],
+        level: "Teachers · or self-practice",
+        levelSub: "Two variations",
+        hours: "20",
+        hoursUnit: "Hours",
+        hoursSub: "5 days · Mon–Fri · 4 hrs a day",
+        price: "$280",
+        priceSub: "for the full course",
+        desc: "Five days, Monday to Friday, four hours a day. The course runs in two variations: a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
+        outcome: "Walk away able to teach older students safely, or to practise on your own with a sequence built for you.",
+        highlights: ["Purak asanas focus", "Injury-free methodology", "Syllabus built around you"],
+        schedule: "Mon–Fri · 6:00–8:00 AM and 4:00–6:00 PM",
+        image: IMG.groupStretch,
+        split: null,
         pricingTable: null,
         variations: [
           {
-            name:    "20 Hr YTTC · Teaching Senior Citizens",
+            name: "20 Hr YTTC · Teaching Senior Citizens",
             forWhom: "Teachers only",
-            desc:    "Asana series plus core theory, focused on how to assist and teach yogasanas to senior citizens in a way that prevents injury and keeps the class risk-free. Main focus is on Purak asanas.",
+            desc: "Asana series plus core theory, focused on how to assist and teach yogasanas to senior citizens in a way that prevents injury and keeps the class risk-free. Main focus is on Purak asanas.",
           },
           {
-            name:    "20 Hr Self Practice",
+            name: "20 Hr Self Practice",
             forWhom: "Open to all",
-            desc:    "The syllabus is designed around your own requirements, for anyone who wants to design an asana sequence they can practise on their own.",
+            desc: "The syllabus is designed around your own requirements, for anyone who wants to design an asana sequence they can practise on their own.",
           },
         ],
         bullets: [
@@ -258,27 +258,27 @@ const CONTENT = {
         ],
       },
       {
-        number:       "03",
-        id:           "yttc",
-        title:        "40 Hour YTTC",
-        tags:         ["Purak Asana", "Asana Theory", "Yog Theory"],
-        level:        "Certified Teachers Only",
-        levelSub:     "Certificate awarded",
-        hours:        "40",
-        hoursUnit:    "Hrs · 15 Days",
-        hoursSub:     "10 teaching days over two weeks",
-        price:        "$480",
-        priceSub:     "+ $350 stay · $830 all-in",
-        desc:         "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs, and the total always comes to forty.",
-        outcome:      "Walk away a stronger teacher, with the philosophy, method, and practice to back it.",
-        highlights:   ["Certificate on completion", "Hours adjusted to you", "15 days · stay + meals"],
-        schedule:     "Mon–Fri · 8:30–10:30 AM and 6:30–8:30 PM",
-        image:        IMG.lakeYoga,
-        split:        { theory: "15–25", practice: "15–25", theoryLabel: "Theory", practiceLabel: "Practice" },
+        number: "03",
+        id: "yttc",
+        title: "40 Hour YTTC",
+        tags: ["Purak Asana", "Asana Theory", "Yog Theory"],
+        level: "Certified Teachers Only",
+        levelSub: "Certificate awarded",
+        hours: "40",
+        hoursUnit: "Hrs · 15 Days",
+        hoursSub: "10 teaching days over two weeks",
+        price: "$480",
+        priceSub: "+ $350 stay · $830 all-in",
+        desc: "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs, and the total always comes to forty.",
+        outcome: "Walk away a stronger teacher, with the philosophy, method, and practice to back it.",
+        highlights: ["Certificate on completion", "Hours adjusted to you", "15 days · stay + meals"],
+        schedule: "Mon–Fri · 8:30–10:30 AM and 6:30–8:30 PM",
+        image: IMG.lakeYoga,
+        split: { theory: "15–25", practice: "15–25", theoryLabel: "Theory", practiceLabel: "Practice" },
         pricingTable: [
-          { label: "Course Fee",                              value: "$480"      },
-          { label: "Accommodation + Food (15 days @ Castle)", value: "$350"      },
-          { label: "Total, all-inclusive",                    value: "$830 USD", isTotal: true },
+          { label: "Course Fee", value: "$480" },
+          { label: "Accommodation + Food (15 days @ Castle)", value: "$350" },
+          { label: "Total, all-inclusive", value: "$830 USD", isTotal: true },
         ],
         topicsTitle: "Sample topics covered",
         topics: [
@@ -293,25 +293,25 @@ const CONTENT = {
         ],
       },
       {
-        number:       "04",
-        id:           "retreat",
-        title:        "Two Day Retreat",
-        tags:         ["Ayurveda", "Doshas", "Body Reset"],
-        level:        "Open to All",
-        levelSub:     "Self practice retreat",
-        hours:        "2",
-        hoursUnit:    "Days",
-        hoursSub:     "Accommodation included",
-        price:        "$220",
-        priceSub:     "stay included",
-        desc:         "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
-        outcome:      "Walk away knowing your body type, and how to reset it on your own.",
-        highlights:   ["Know your doshas", "Gut cleaning food", "Stay included"],
-        schedule:     "2 days · residential",
-        image:        IMG.garden,
-        split:        null,
+        number: "04",
+        id: "retreat",
+        title: "Two Day Retreat",
+        tags: ["Ayurveda", "Doshas", "Body Reset"],
+        level: "Open to All",
+        levelSub: "Self practice retreat",
+        hours: "2",
+        hoursUnit: "Days",
+        hoursSub: "Accommodation included",
+        price: "$220",
+        priceSub: "stay included",
+        desc: "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
+        outcome: "Walk away knowing your body type, and how to reset it on your own.",
+        highlights: ["Know your doshas", "Gut cleaning food", "Stay included"],
+        schedule: "2 days · residential",
+        image: IMG.garden,
+        split: null,
         pricingTable: null,
-        topicsTitle:  "The $220 includes",
+        topicsTitle: "The $220 includes",
         topics: [
           "Theory explanation and lectures",
           "Herbs for internal body cleaning, focused on the stomach",
@@ -327,16 +327,16 @@ const CONTENT = {
     eyebrow: "What You’ll Study",
     heading: "Theory that changes how\nyou practice and teach",
     items: [
-      { icon: "🪷", title: "Yog & Yog Philosophy",        desc: "What yog actually is, what it set out to do, and the philosophy that holds the whole practice together." },
+      { icon: "🪷", title: "Yog & Yog Philosophy", desc: "What yog actually is, what it set out to do, and the philosophy that holds the whole practice together." },
       { icon: "🧘", title: "Yog Practical & Asana Theory", desc: "Practice paired with the theory behind it: why each asana exists, and what it is doing to body and mind." },
-      { icon: "🌿", title: "Ayurveda",                     desc: "India’s ancient science of balance, and the root causes it sees where modern medicine often sees only symptoms." },
-      { icon: "📜", title: "Indian History & Civilisation",desc: "The civilisation that produced yog: its history, its thought, and the world these practices grew out of." },
-      { icon: "🌌", title: "Sankhya Darshan",              desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog, and asks what it has to say about God." },
-      { icon: "🎵", title: "Mantra & Mantra Philosophy",   desc: "What aid do mantras really offer on the path of yog? Sound, vibration, and their quiet work on the mind." },
-      { icon: "🌬️", title: "Pranayama & Its Philosophy",  desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
-      { icon: "⚖️", title: "Yama – Niyama",               desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
-      { icon: "📖", title: "Patanjali Yog Sutra",          desc: "An initial understanding of the foundational text behind classical yog, in plain language." },
-      { icon: "☀️", title: "Sun Salutation",              desc: "The history and root theory behind yog’s most iconic sequence. Theory only, so pair it with one other topic." },
+      { icon: "🌿", title: "Ayurveda", desc: "India’s ancient science of balance, and the root causes it sees where modern medicine often sees only symptoms." },
+      { icon: "📜", title: "Indian History & Civilisation", desc: "The civilisation that produced yog: its history, its thought, and the world these practices grew out of." },
+      { icon: "🌌", title: "Sankhya Darshan", desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog, and asks what it has to say about God." },
+      { icon: "🎵", title: "Mantra & Mantra Philosophy", desc: "What aid do mantras really offer on the path of yog? Sound, vibration, and their quiet work on the mind." },
+      { icon: "🌬️", title: "Pranayama & Its Philosophy", desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
+      { icon: "⚖️", title: "Yama – Niyama", desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
+      { icon: "📖", title: "Patanjali Yog Sutra", desc: "An initial understanding of the foundational text behind classical yog, in plain language." },
+      { icon: "☀️", title: "Sun Salutation", desc: "The history and root theory behind yog’s most iconic sequence. Theory only, so pair it with one other topic." },
     ],
   },
 
@@ -344,7 +344,7 @@ const CONTENT = {
     eyebrow: "Your Teacher",
     heading: "Shri Jayesh Mistry",
     body: [
-      "With over 30 years of experience in health and fitness, Shri Jayesh Mistry has trained more than 35,000 individuals through his fitness ventures, including the Pioneer Fitness Centre. His journey in yoga has been shaped by years of learning under accomplished teachers, including Yogacharya and Vedacharya Shri Shanti Kumar Bhatt (personal yoga teacher to former Prime Minister Shri Morarji Desai and Sahitya Ratna awardee), Shri Jayantibhai Patel, and Shri Dushyant Modi (M.S. University, Baroda).",
+      "With over 38 years of experience in health and fitness, Shri Jayesh Mistry has trained more than 35,000 individuals through his fitness ventures, including the Pioneer Fitness Centre. His journey in yoga has been shaped by years of learning under accomplished teachers, including Yogacharya and Vedacharya Shri Shanti Kumar Bhatt (personal yoga teacher to former Prime Minister Shri Morarji Desai and Sahitya Ratna awardee), Shri Jayantibhai Patel, and Shri Dushyant Modi (M.S. University, Baroda).",
       "He has taught yoga and its philosophy at institutions across the world, including Prince Aga Khan University in Nairobi, Kenya. Through Padma Yog Shala, he continues to share the practice and philosophy of yoga with students in India and around the world. He also serves as the appointed International Yoga Instructor of Yog Kendra, Vadodara.",
     ],
     badge: {
@@ -380,28 +380,28 @@ const CONTENT = {
       "Not sure yet, help me choose",
     ],
     whatsappPrompts: [
-      { label: "8 Hour Course",   msg: "Hi Padma Yog Shala, I’m interested in the 8 Hour Course." },
-      { label: "20 Hour Course",  msg: "Hi Padma Yog Shala, I’m interested in the 20 Hour Course." },
-      { label: "40 Hour YTTC",    msg: "Hi Padma Yog Shala, I’m interested in the 40 Hour YTTC." },
+      { label: "8 Hour Course", msg: "Hi Padma Yog Shala, I’m interested in the 8 Hour Course." },
+      { label: "20 Hour Course", msg: "Hi Padma Yog Shala, I’m interested in the 20 Hour Course." },
+      { label: "40 Hour YTTC", msg: "Hi Padma Yog Shala, I’m interested in the 40 Hour YTTC." },
       { label: "Two Day Retreat", msg: "Hi Padma Yog Shala, I’m interested in the Two Day Retreat course." },
     ],
   },
 
   footer: {
-    logo:    "Padma Yoga Shala",
+    logo: "Padma Yoga Shala",
     tagline: "Yoga as the art of stilling the mind",
-    links:   [
-      { label: "Courses",             href: "#courses" },
+    links: [
+      { label: "Courses", href: "#courses" },
       { label: "Philosophy & Vision", href: "/philosophy.html" },
-      { label: "Founder’s Desk",      href: "/founders-desk.html" },
-      { label: "Teacher",             href: "#instructor" },
-      { label: "Register",            href: "#register" },
+      { label: "Founder’s Desk", href: "/founders-desk.html" },
+      { label: "Teacher", href: "#instructor" },
+      { label: "Register", href: "#register" },
     ],
     affiliation: "Affiliated with Yoga Kendra, Vadodara, the oldest yoga institute in Gujarat, est. 1963, founded by Yogacharya Dushant Modi. Reg. No. E-1642, Government of Gujarat.",
     contact: {
-      email:    CONTACT_EMAIL,
+      email: CONTACT_EMAIL,
       whatsapp: "+91 97255 60379",
-      address:  "The Castle Resort Pvt. Ltd., Lakeside, Pokhara-6, Nepal",
+      address: "The Castle Resort Pvt. Ltd., Lakeside, Pokhara-6, Nepal",
     },
     year: new Date().getFullYear(),
   },
@@ -529,10 +529,10 @@ function GlassCard({ children, className = "", dark = true }) {
     <div
       className={`rounded-2xl ${className}`}
       style={{
-        background:          dark ? "rgba(15,13,11,0.55)"       : "rgba(249,245,239,0.12)",
-        backdropFilter:      "blur(24px)",
-        WebkitBackdropFilter:"blur(24px)",
-        boxShadow:           dark ? "0 0 0 1px rgba(249,245,239,0.13)" : "0 0 0 1px rgba(249,245,239,0.25)",
+        background: dark ? "rgba(15,13,11,0.55)" : "rgba(249,245,239,0.12)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        boxShadow: dark ? "0 0 0 1px rgba(249,245,239,0.13)" : "0 0 0 1px rgba(249,245,239,0.25)",
       }}
     >
       {children}
@@ -543,7 +543,7 @@ function GlassCard({ children, className = "", dark = true }) {
 export function Eyebrow({ children, light = false }) {
   return (
     <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4"
-       style={{ color: light ? "rgba(249,245,239,0.50)" : C.terracotta, fontFamily: FONT.ui }}>
+      style={{ color: light ? "rgba(249,245,239,0.50)" : C.terracotta, fontFamily: FONT.ui }}>
       {children}
     </p>
   );
@@ -561,9 +561,8 @@ export function SectionHeading({ children, light = false, className = "" }) {
 }
 
 export function Btn({ label, href, large = false, outline = false, onClick, type, fullWidth = false }) {
-  const base = `padma-btn inline-flex items-center justify-center rounded-full font-medium ${fullWidth ? "w-full" : ""} ${
-    large ? "px-9 py-4 text-base min-h-[52px]" : "px-6 py-3 text-sm min-h-[44px]"
-  }`;
+  const base = `padma-btn inline-flex items-center justify-center rounded-full font-medium ${fullWidth ? "w-full" : ""} ${large ? "px-9 py-4 text-base min-h-[52px]" : "px-6 py-3 text-sm min-h-[44px]"
+    }`;
   const colors = outline
     ? { color: "rgba(249,245,239,0.88)", boxShadow: "0 0 0 1px rgba(249,245,239,0.30)", background: "transparent" }
     : { background: C.terracotta, color: "#F9F5EF" };
@@ -575,8 +574,8 @@ export function Btn({ label, href, large = false, outline = false, onClick, type
   };
   const press = {
     onMouseDown: e => { e.currentTarget.style.transform = "scale(0.97)"; },
-    onMouseUp:   e => { e.currentTarget.style.transform = "scale(1)"; },
-    onMouseLeave:e => { e.currentTarget.style.transform = "scale(1)"; },
+    onMouseUp: e => { e.currentTarget.style.transform = "scale(1)"; },
+    onMouseLeave: e => { e.currentTarget.style.transform = "scale(1)"; },
   };
 
   if (type) {
@@ -605,19 +604,19 @@ export function StickyNav({ hrefBase = "" }) {
 
   return (
     <nav className="fixed top-0 inset-x-0"
-         style={{
-           zIndex:              Z.nav,
-           background:          scrolled ? "rgba(15,13,11,0.88)" : "transparent",
-           borderBottom:        `var(--hairline) solid ${scrolled ? C.darkBorder : "transparent"}`,
-           backdropFilter:      scrolled ? "blur(20px)" : "none",
-           WebkitBackdropFilter:scrolled ? "blur(20px)" : "none",
-           transition:          `background 300ms ${E.ease}, border-color 280ms ${E.ease}`,
-         }}
+      style={{
+        zIndex: Z.nav,
+        background: scrolled ? "rgba(15,13,11,0.88)" : "transparent",
+        borderBottom: `var(--hairline) solid ${scrolled ? C.darkBorder : "transparent"}`,
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+        transition: `background 300ms ${E.ease}, border-color 280ms ${E.ease}`,
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
 
         <a href={hrefBase || "#"} className="flex items-center gap-2.5"
-           style={{ fontFamily: FONT.display, color: "#F9F5EF", fontSize: "1.1rem", fontWeight: 600, textDecoration: "none", letterSpacing: "-0.01em" }}>
+          style={{ fontFamily: FONT.display, color: "#F9F5EF", fontSize: "1.1rem", fontWeight: 600, textDecoration: "none", letterSpacing: "-0.01em" }}>
           <LotusMark size={26} />
           {CONTENT.nav.logo}
         </a>
@@ -625,8 +624,8 @@ export function StickyNav({ hrefBase = "" }) {
         <div className="hidden md:flex items-center gap-8">
           {CONTENT.nav.links.map(l => (
             <a key={l.label} href={to(l.href)}
-               className="padma-nav-link text-sm font-medium"
-               style={{ color: "rgba(249,245,239,0.68)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
+              className="padma-nav-link text-sm font-medium"
+              style={{ color: "rgba(249,245,239,0.68)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
               {l.label}
             </a>
           ))}
@@ -644,13 +643,13 @@ export function StickyNav({ hrefBase = "" }) {
             <span className="relative block w-5 h-3.5">
               {[0, 1, 2].map(i => (
                 <span key={i} className="absolute left-0 w-full h-0.5 rounded-full"
-                      style={{
-                        background: "#F9F5EF",
-                        top:        i === 0 ? 0 : i === 2 ? "100%" : "50%",
-                        transform:  open ? (i === 0 ? "translateY(7px) rotate(45deg)" : i === 2 ? "translateY(-7px) rotate(-45deg)" : "translateY(-50%)") : i === 1 ? "translateY(-50%)" : "none",
-                        opacity:    open && i === 1 ? 0 : 1,
-                        transition: `transform 240ms ${E.inOutCubic}, opacity 180ms ${E.ease}`,
-                      }}
+                  style={{
+                    background: "#F9F5EF",
+                    top: i === 0 ? 0 : i === 2 ? "100%" : "50%",
+                    transform: open ? (i === 0 ? "translateY(7px) rotate(45deg)" : i === 2 ? "translateY(-7px) rotate(-45deg)" : "translateY(-50%)") : i === 1 ? "translateY(-50%)" : "none",
+                    opacity: open && i === 1 ? 0 : 1,
+                    transition: `transform 240ms ${E.inOutCubic}, opacity 180ms ${E.ease}`,
+                  }}
                 />
               ))}
             </span>
@@ -659,13 +658,13 @@ export function StickyNav({ hrefBase = "" }) {
       </div>
 
       <div className="md:hidden overflow-hidden"
-           style={{ maxHeight: open ? "360px" : "0", background: "rgba(15,13,11,0.95)", backdropFilter: "blur(20px)", transition: `max-height 340ms ${E.outCubic}` }}>
+        style={{ maxHeight: open ? "360px" : "0", background: "rgba(15,13,11,0.95)", backdropFilter: "blur(20px)", transition: `max-height 340ms ${E.outCubic}` }}>
         <div className="px-6 pt-2 pb-8 flex flex-col">
           {CONTENT.nav.links.map(l => (
             <a key={l.label} href={to(l.href)}
-               className="py-3.5 text-base font-medium border-b"
-               style={{ color: "rgba(249,245,239,0.80)", borderColor: C.darkBorder, textDecoration: "none", fontFamily: FONT.ui }}
-               onClick={() => setOpen(false)}>
+              className="py-3.5 text-base font-medium border-b"
+              style={{ color: "rgba(249,245,239,0.80)", borderColor: C.darkBorder, textDecoration: "none", fontFamily: FONT.ui }}
+              onClick={() => setOpen(false)}>
               {l.label}
             </a>
           ))}
@@ -699,7 +698,7 @@ function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-end overflow-hidden"
-             style={{ minHeight: "100svh", isolation: "isolate" }}>
+      style={{ minHeight: "100svh", isolation: "isolate" }}>
 
       {/* Slideshow images — opacity-only crossfade, GPU-safe */}
       {SLIDES.map((slide, i) => (
@@ -707,12 +706,12 @@ function HeroSection() {
           key={i}
           className="absolute inset-0"
           style={{
-            backgroundImage:    `url(${slide.src})`,
-            backgroundSize:     "cover",
+            backgroundImage: `url(${slide.src})`,
+            backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity:            i === idx ? 1 : 0,
-            transition:         `opacity 1400ms ${E.ease}`,
-            zIndex:             i === idx ? Z.base : 0,
+            opacity: i === idx ? 1 : 0,
+            transition: `opacity 1400ms ${E.ease}`,
+            zIndex: i === idx ? Z.base : 0,
           }}
           role="img"
           aria-label={slide.alt}
@@ -722,9 +721,9 @@ function HeroSection() {
       {/* Layered overlay for text legibility:
           1) vertical scrim (dark bottom → mid)  2) left scrim under the copy column */}
       <div className="absolute inset-0 pointer-events-none"
-           style={{ zIndex: Z.overlay, background: "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.62) 45%, rgba(0,0,0,0.48) 100%)" }} />
+        style={{ zIndex: Z.overlay, background: "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.62) 45%, rgba(0,0,0,0.48) 100%)" }} />
       <div className="absolute inset-0 pointer-events-none"
-           style={{ zIndex: Z.overlay, background: "linear-gradient(to right, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.24) 52%, rgba(0,0,0,0) 76%)" }} />
+        style={{ zIndex: Z.overlay, background: "linear-gradient(to right, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.24) 52%, rgba(0,0,0,0) 76%)" }} />
 
       {/* Content layer — one column, nothing but the sutra and the two actions */}
       <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-20 pt-28" style={{ zIndex: Z.content }}>
@@ -732,14 +731,14 @@ function HeroSection() {
 
           {/* Sanskrit sutra — quiet, above the headline it translates */}
           <span className="block rounded-full mb-8"
-                style={{ width: "2.5rem", height: "1px", background: C.terracotta }} aria-hidden="true" />
+            style={{ width: "2.5rem", height: "1px", background: C.terracotta }} aria-hidden="true" />
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.25] mb-4"
-              style={{ fontFamily: FONT.display, color: "#F4C9A8", letterSpacing: "0.02em", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
+            style={{ fontFamily: FONT.display, color: "#F4C9A8", letterSpacing: "0.02em", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
             {H.sutra}
           </h1>
           <p className="text-sm md:text-base tracking-[0.24em] uppercase mb-10"
-             style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.72)", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}>
+            style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.72)", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}>
             {H.sutraTranslit}
           </p>
 
@@ -751,7 +750,7 @@ function HeroSection() {
           </p>
 
           <p className="text-xs tracking-[0.16em] uppercase mb-12"
-             style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.55)" }}>
+            style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.55)" }}>
             {H.attribution}
           </p>
 
@@ -774,7 +773,7 @@ function HeroSection() {
               <span
                 className="block h-0.5 rounded-full"
                 style={{
-                  width:      i === idx ? 28 : 8,
+                  width: i === idx ? 28 : 8,
                   background: i === idx ? "#F9F5EF" : "rgba(249,245,239,0.35)",
                   transition: `width 300ms ${E.outCubic}, background 300ms ${E.ease}`,
                 }}
@@ -820,7 +819,7 @@ function CompareSection() {
               {/* Hours — the headline number */}
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl md:text-4xl font-semibold leading-none"
-                      style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums" }}>
+                  style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums" }}>
                   {r.hours}
                 </span>
                 <span className="text-xs md:text-sm" style={{ color: C.muted, fontFamily: FONT.ui }}>{r.unit}</span>
@@ -829,7 +828,7 @@ function CompareSection() {
               {/* Name */}
               <div className="min-w-0">
                 <p className="text-base md:text-lg font-semibold leading-tight truncate"
-                   style={{ fontFamily: FONT.display, color: C.charcoal }}>
+                  style={{ fontFamily: FONT.display, color: C.charcoal }}>
                   {r.name}
                 </p>
                 <p className="text-xs md:text-sm md:hidden" style={{ color: C.muted, fontFamily: FONT.ui }}>{r.forWhom}</p>
@@ -841,7 +840,7 @@ function CompareSection() {
               {/* Price */}
               <div className="text-right">
                 <p className="text-base md:text-lg font-semibold"
-                   style={{ color: C.charcoal, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>
+                  style={{ color: C.charcoal, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>
                   {r.price}
                 </p>
                 <span className="text-xs font-medium" style={{ color: C.terracotta, fontFamily: FONT.ui }}>Register →</span>
@@ -893,13 +892,13 @@ function PhilosophySection() {
 
   return (
     <section id="philosophy" data-anchor className="py-24 md:py-36 relative overflow-hidden"
-             style={{ background: "#1A1200" }}>
+      style={{ background: "#1A1200" }}>
 
       {/* LotusMark ghost watermark */}
       <div className="absolute inset-x-0 top-0 flex justify-center pointer-events-none select-none"
-           style={{ zIndex: Z.base }}>
+        style={{ zIndex: Z.base }}>
         <svg width="480" height="480" viewBox="0 0 48 48" fill="none"
-             aria-hidden="true" style={{ opacity: 0.05, userSelect: "none" }}>
+          aria-hidden="true" style={{ opacity: 0.05, userSelect: "none" }}>
           <defs>
             <linearGradient id="philoWmGrad" x1="24" y1="4" x2="24" y2="44" gradientUnits="userSpaceOnUse">
               <stop stopColor="#D9763B" /><stop offset="1" stopColor="#A8521F" />
@@ -923,8 +922,8 @@ function PhilosophySection() {
         <div ref={bodyRef} className="flex flex-col gap-7">
           {P.body.map((para, i) => (
             <p key={i}
-               className="text-xl md:text-2xl leading-relaxed font-medium"
-               style={{ color: "rgba(249,245,239,0.9)", fontFamily: FONT.display }}>
+              className="text-xl md:text-2xl leading-relaxed font-medium"
+              style={{ color: "rgba(249,245,239,0.9)", fontFamily: FONT.display }}>
               {para}
             </p>
           ))}
@@ -948,10 +947,10 @@ function CoursesSection() {
 
         {/* Header */}
         <div className="flex flex-wrap items-baseline justify-between gap-4 mb-12 pb-8"
-             style={{ borderBottom: `var(--hairline) solid ${C.border}` }}>
+          style={{ borderBottom: `var(--hairline) solid ${C.border}` }}>
           <Eyebrow>{CO.eyebrow}</Eyebrow>
           <a href="#register" className="text-sm font-medium"
-             style={{ color: C.terracotta, textDecoration: "none", fontFamily: FONT.ui }}>
+            style={{ color: C.terracotta, textDecoration: "none", fontFamily: FONT.ui }}>
             Register for a course →
           </a>
         </div>
@@ -976,13 +975,13 @@ function CoursesSection() {
               <div className="flex flex-wrap gap-2 mb-3">
                 {course.tags.map(tag => (
                   <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded-full"
-                        style={{ background: `${C.terracotta}14`, color: C.terracotta, fontFamily: FONT.ui }}>
+                    style={{ background: `${C.terracotta}14`, color: C.terracotta, fontFamily: FONT.ui }}>
                     {tag}
                   </span>
                 ))}
               </div>
               <h3 className="text-xl md:text-2xl font-semibold mb-2 leading-tight"
-                  style={{ fontFamily: FONT.display, color: C.charcoal }}>
+                style={{ fontFamily: FONT.display, color: C.charcoal }}>
                 {course.title}
               </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted, fontFamily: FONT.ui }}>
@@ -992,7 +991,7 @@ function CoursesSection() {
               {/* Outcome — the highlighted promise */}
               {course.outcome && (
                 <p className="text-sm font-semibold mb-4 inline-flex items-start gap-2 leading-snug"
-                   style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                  style={{ color: C.terracotta, fontFamily: FONT.ui }}>
                   <span aria-hidden="true" className="mt-px">→</span>
                   {course.outcome}
                 </p>
@@ -1003,7 +1002,7 @@ function CoursesSection() {
                 <div className="flex flex-wrap gap-2 mb-5">
                   {course.highlights.map(h => (
                     <span key={h} className="text-xs font-medium px-2.5 py-1.5 rounded-lg inline-flex items-center gap-1.5"
-                          style={{ background: C.cream, boxShadow: `0 0 0 1px ${C.border}`, color: C.charcoal, fontFamily: FONT.ui }}>
+                      style={{ background: C.cream, boxShadow: `0 0 0 1px ${C.border}`, color: C.charcoal, fontFamily: FONT.ui }}>
                       <span className="w-1.5 h-1.5 rounded-full" style={{ background: C.sage }} />
                       {h}
                     </span>
@@ -1016,13 +1015,13 @@ function CoursesSection() {
                 <div className="grid sm:grid-cols-2 gap-3 mb-5">
                   {course.variations.map(v => (
                     <div key={v.name} className="rounded-xl p-4"
-                         style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
+                      style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
                       <p className="text-xs font-medium mb-1.5 inline-block px-2 py-0.5 rounded-full"
-                         style={{ background: `${C.sage}22`, color: C.sage, fontFamily: FONT.ui }}>
+                        style={{ background: `${C.sage}22`, color: C.sage, fontFamily: FONT.ui }}>
                         {v.forWhom}
                       </p>
                       <p className="text-sm font-semibold mb-1.5 leading-snug"
-                         style={{ fontFamily: FONT.display, color: C.charcoal }}>
+                        style={{ fontFamily: FONT.display, color: C.charcoal }}>
                         {v.name}
                       </p>
                       <p className="text-xs leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
@@ -1049,22 +1048,22 @@ function CoursesSection() {
 
               {course.schedule && (
                 <p className="text-xs mb-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full"
-                   style={{ color: C.sage, fontFamily: FONT.ui, background: `${C.sage}14` }}>
+                  style={{ color: C.sage, fontFamily: FONT.ui, background: `${C.sage}14` }}>
                   🕗 {course.schedule}
                 </p>
               )}
 
               {course.pricingTable && (
                 <div className="rounded-xl overflow-hidden text-xs w-full max-w-md"
-                     style={{ boxShadow: `0 0 0 1px ${C.border}`, fontFamily: FONT.ui }}>
+                  style={{ boxShadow: `0 0 0 1px ${C.border}`, fontFamily: FONT.ui }}>
                   {course.pricingTable.map((row, ri) => (
                     <div key={ri} className="flex justify-between px-3 py-2"
-                         style={{
-                           background: row.isTotal ? `${C.terracotta}0F` : ri % 2 ? `${C.border}40` : "transparent",
-                           borderTop:  ri > 0 ? `var(--hairline) solid ${C.border}` : "none",
-                           fontWeight: row.isTotal ? 600 : 400,
-                           color:      row.isTotal ? C.terracotta : C.charcoal,
-                         }}>
+                      style={{
+                        background: row.isTotal ? `${C.terracotta}0F` : ri % 2 ? `${C.border}40` : "transparent",
+                        borderTop: ri > 0 ? `var(--hairline) solid ${C.border}` : "none",
+                        fontWeight: row.isTotal ? 600 : 400,
+                        color: row.isTotal ? C.terracotta : C.charcoal,
+                      }}>
                       <span className="pr-2 leading-snug">{row.label}</span>
                       <span style={{ fontVariantNumeric: "tabular-nums", flexShrink: 0 }}>{row.value}</span>
                     </div>
@@ -1076,15 +1075,15 @@ function CoursesSection() {
               {course.topics && (
                 <div className="mt-5">
                   <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-3"
-                     style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                    style={{ color: C.terracotta, fontFamily: FONT.ui }}>
                     {course.topicsTitle}
                   </p>
                   <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
                     {course.topics.map(t => (
                       <li key={t} className="flex items-start gap-2.5 text-sm leading-snug"
-                          style={{ color: C.charcoal, fontFamily: FONT.ui }}>
+                        style={{ color: C.charcoal, fontFamily: FONT.ui }}>
                         <span className="rounded-full flex-shrink-0 mt-[0.45rem]"
-                              style={{ width: "5px", height: "5px", background: C.sage }} aria-hidden="true" />
+                          style={{ width: "5px", height: "5px", background: C.sage }} aria-hidden="true" />
                         {t}
                       </li>
                     ))}
@@ -1095,10 +1094,10 @@ function CoursesSection() {
               {/* Practical notes — stay, food, who it’s for, flexibility */}
               {course.bullets && (
                 <ul className="mt-5 flex flex-col gap-2 pt-4"
-                    style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
+                  style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
                   {course.bullets.map(b => (
                     <li key={b} className="flex items-start gap-2.5 text-xs leading-relaxed"
-                        style={{ color: C.muted, fontFamily: FONT.ui }}>
+                      style={{ color: C.muted, fontFamily: FONT.ui }}>
                       <span aria-hidden="true" style={{ color: C.terracotta }}>·</span>
                       {b}
                     </li>
@@ -1111,10 +1110,10 @@ function CoursesSection() {
             <div className="flex-shrink-0">
               {/* Hours band — the clear, scannable number */}
               <div className="rounded-xl p-4 mb-4 text-center md:text-right"
-                   style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
+                style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
                 <p className="text-xs uppercase tracking-[0.12em] mb-1" style={{ color: C.muted, fontFamily: FONT.ui }}>Duration</p>
                 <p className="text-3xl md:text-4xl font-semibold leading-none"
-                   style={{ fontFamily: FONT.display, color: C.charcoal, fontVariantNumeric: "tabular-nums" }}>
+                  style={{ fontFamily: FONT.display, color: C.charcoal, fontVariantNumeric: "tabular-nums" }}>
                   {course.hours}<span className="text-base font-medium ml-1" style={{ color: C.muted }}>{course.hoursUnit}</span>
                 </p>
                 <p className="text-xs mt-1.5" style={{ color: C.muted, fontFamily: FONT.ui }}>{course.hoursSub}</p>
@@ -1170,18 +1169,18 @@ function TheorySection() {
               key={item.title}
               className="padma-theory-card rounded-2xl p-7 h-full"
               style={{
-                background:  C.cream,
-                boxShadow:   `0 0 0 1px ${C.border}`,
-                transition:  `background 220ms ${E.ease}, box-shadow 220ms ${E.ease}`,
+                background: C.cream,
+                boxShadow: `0 0 0 1px ${C.border}`,
+                transition: `background 220ms ${E.ease}, box-shadow 220ms ${E.ease}`,
               }}
             >
               <span className="text-3xl block mb-5 select-none pointer-events-none" aria-hidden="true">{item.icon}</span>
               <h3 className="text-lg font-semibold mb-2 leading-tight"
-                  style={{ fontFamily: FONT.display, color: C.charcoal }}>
+                style={{ fontFamily: FONT.display, color: C.charcoal }}>
                 {item.title}
               </h3>
               <p className="text-sm leading-relaxed"
-                 style={{ color: C.muted, fontFamily: FONT.ui }}>
+                style={{ color: C.muted, fontFamily: FONT.ui }}>
                 {item.desc}
               </p>
             </div>
@@ -1225,12 +1224,12 @@ function InstructorSection() {
             <SectionHeading light className="mb-8 whitespace-pre-line">{I.heading}</SectionHeading>
             {(Array.isArray(I.body) ? I.body : [I.body]).map((para, i) => (
               <p key={i} className="text-lg leading-relaxed mb-6 last:mb-8"
-                 style={{ color: "rgba(249,245,239,0.62)", fontFamily: FONT.ui }}>
+                style={{ color: "rgba(249,245,239,0.62)", fontFamily: FONT.ui }}>
                 {para}
               </p>
             ))}
             <p className="text-sm leading-relaxed pt-6"
-               style={{ color: "rgba(249,245,239,0.45)", fontFamily: FONT.ui, borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
+              style={{ color: "rgba(249,245,239,0.45)", fontFamily: FONT.ui, borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
               {I.affiliation}
             </p>
           </div>
@@ -1258,16 +1257,16 @@ function LocationSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="col-span-2 md:row-span-2 h-full">
             <img src={IMG.lake} alt="Phewa Lake panorama from The Castle Resort"
-                 className="w-full h-full object-cover rounded-2xl"
-                 style={{ aspectRatio: "16/9", minHeight: "180px" }} />
+              className="w-full h-full object-cover rounded-2xl"
+              style={{ aspectRatio: "16/9", minHeight: "180px" }} />
           </div>
           {[
-            { src: IMG.pool,    alt: "Castle Resort swimming pool" },
-            { src: IMG.castle,  alt: "The Castle Resort building" },
-            { src: IMG.garden,  alt: "Resort garden stone path" },
+            { src: IMG.pool, alt: "Castle Resort swimming pool" },
+            { src: IMG.castle, alt: "The Castle Resort building" },
+            { src: IMG.garden, alt: "Resort garden stone path" },
           ].map((img, i) => (
             <img key={i} src={img.src} alt={img.alt}
-                 className="w-full object-cover rounded-2xl" style={{ aspectRatio: "4/3" }} />
+              className="w-full object-cover rounded-2xl" style={{ aspectRatio: "4/3" }} />
           ))}
           <div className="rounded-2xl overflow-hidden relative" style={{ aspectRatio: "4/3", background: C.terracotta }}>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
@@ -1297,19 +1296,19 @@ function CTABannerSection() {
         style={{ zIndex: Z.base }}
       />
       <div className="absolute inset-0 pointer-events-none"
-           style={{ background: "rgba(0,0,0,0.62)", zIndex: Z.overlay }} />
+        style={{ background: "rgba(0,0,0,0.62)", zIndex: Z.overlay }} />
 
       <div className="relative max-w-4xl mx-auto px-6 md:px-10 text-center" style={{ zIndex: Z.content }}>
         <p className="mb-6 text-xl md:text-2xl"
-           style={{ fontFamily: FONT.display, color: "rgba(249,245,239,0.80)" }}>
+          style={{ fontFamily: FONT.display, color: "rgba(249,245,239,0.80)" }}>
           {B.sutra}
         </p>
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-7 whitespace-pre-line"
-            style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
+          style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
           {B.heading}
         </h2>
         <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto"
-           style={{ color: "rgba(249,245,239,0.70)", fontFamily: FONT.ui, lineHeight: 1.75 }}>
+          style={{ color: "rgba(249,245,239,0.70)", fontFamily: FONT.ui, lineHeight: 1.75 }}>
           {B.sub}
         </p>
         <Btn label={B.cta.label} href={B.cta.href} large />
@@ -1351,13 +1350,13 @@ function RegisterSection() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject:  `New course registration: ${form.course}`,
+          _subject: `New course registration: ${form.course}`,
           _template: "table",
-          name:      form.name,
-          email:     form.email,
-          course:    form.course,
-          dates:     form.dates || "flexible",
-          message:   form.message,
+          name: form.name,
+          email: form.email,
+          course: form.course,
+          dates: form.dates || "flexible",
+          message: form.message,
         }),
       });
       setStatus(res.ok ? "success" : "error");
@@ -1413,7 +1412,7 @@ function RegisterSection() {
                   Thank you. Your details are on their way to us. We’ll confirm your dates and the rest shortly.
                 </p>
                 <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium"
-                        style={{ color: C.terracotta, fontFamily: FONT.ui, background: "none", border: "none", cursor: "pointer" }}>
+                  style={{ color: C.terracotta, fontFamily: FONT.ui, background: "none", border: "none", cursor: "pointer" }}>
                   Register for another course
                 </button>
               </div>
@@ -1423,13 +1422,13 @@ function RegisterSection() {
                   <div>
                     <label htmlFor="reg-name" className="block text-sm mb-2" style={labelStyle}>Name</label>
                     <input id="reg-name" className="padma-field" style={fieldStyle("name")}
-                           value={form.name} onChange={set("name")} placeholder="Your full name" />
+                      value={form.name} onChange={set("name")} placeholder="Your full name" />
                     {errors.name && <p className="text-xs mt-1.5" style={{ color: "#E0853F", fontFamily: FONT.ui }}>{errors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="reg-email" className="block text-sm mb-2" style={labelStyle}>Email</label>
                     <input id="reg-email" type="email" className="padma-field" style={fieldStyle("email")}
-                           value={form.email} onChange={set("email")} placeholder="you@email.com" />
+                      value={form.email} onChange={set("email")} placeholder="you@email.com" />
                     {errors.email && <p className="text-xs mt-1.5" style={{ color: "#E0853F", fontFamily: FONT.ui }}>{errors.email}</p>}
                   </div>
                 </div>
@@ -1437,7 +1436,7 @@ function RegisterSection() {
                 <div className="mb-4">
                   <label htmlFor="reg-course" className="block text-sm mb-2" style={labelStyle}>Course</label>
                   <select id="reg-course" className="padma-field" style={fieldStyle("course")}
-                          value={form.course} onChange={set("course")}>
+                    value={form.course} onChange={set("course")}>
                     {R.courses.map(c => <option key={c} value={c} style={{ color: "#1C1917" }}>{c}</option>)}
                   </select>
                 </div>
@@ -1445,20 +1444,20 @@ function RegisterSection() {
                 <div className="mb-4">
                   <label htmlFor="reg-dates" className="block text-sm mb-2" style={labelStyle}>Preferred dates <span style={{ opacity: 0.5 }}>(optional)</span></label>
                   <input id="reg-dates" className="padma-field" style={fieldStyle("dates")}
-                         value={form.dates} onChange={set("dates")} placeholder="e.g. early October" />
+                    value={form.dates} onChange={set("dates")} placeholder="e.g. early October" />
                 </div>
 
                 <div className="mb-6">
                   <label htmlFor="reg-msg" className="block text-sm mb-2" style={labelStyle}>Anything we should know? <span style={{ opacity: 0.5 }}>(optional)</span></label>
                   <textarea id="reg-msg" rows={3} className="padma-field" style={{ ...fieldStyle("message"), resize: "vertical" }}
-                            value={form.message} onChange={set("message")} placeholder="Experience level, questions, special requirements…" />
+                    value={form.message} onChange={set("message")} placeholder="Experience level, questions, special requirements…" />
                 </div>
 
                 {status === "error" && (
                   <p className="text-sm mb-4" style={{ color: "#E0853F", fontFamily: FONT.ui }}>
                     Something went wrong sending your details.{" "}
                     <a href={fallbackWa} target="_blank" rel="noopener noreferrer"
-                       style={{ color: "#E0853F", textDecoration: "underline" }}>
+                      style={{ color: "#E0853F", textDecoration: "underline" }}>
                       Send them on WhatsApp instead
                     </a>{" "}
                     or email {CONTACT_EMAIL}.
@@ -1489,8 +1488,8 @@ function RegisterSection() {
             <div className="flex flex-col gap-3 mb-8">
               {R.whatsappPrompts.map(p => (
                 <a key={p.label} href={waLink(p.msg)} target="_blank" rel="noopener noreferrer"
-                   className="padma-wa-chip flex items-center justify-between px-5 py-3.5 rounded-full text-sm font-medium min-h-[48px]"
-                   style={{ background: "rgba(249,245,239,0.16)", color: "#F9F5EF", textDecoration: "none", fontFamily: FONT.ui, transition: `background 160ms ${E.ease}` }}>
+                  className="padma-wa-chip flex items-center justify-between px-5 py-3.5 rounded-full text-sm font-medium min-h-[48px]"
+                  style={{ background: "rgba(249,245,239,0.16)", color: "#F9F5EF", textDecoration: "none", fontFamily: FONT.ui, transition: `background 160ms ${E.ease}` }}>
                   {p.label}
                   <span aria-hidden="true">→</span>
                 </a>
@@ -1499,7 +1498,7 @@ function RegisterSection() {
 
             <div className="mt-auto pt-6 space-y-2" style={{ borderTop: "var(--hairline) solid rgba(249,245,239,0.22)" }}>
               <a href={`mailto:${F.contact.email}`} className="block text-sm"
-                 style={{ color: "#F9F5EF", fontFamily: FONT.ui, textDecoration: "none" }}>
+                style={{ color: "#F9F5EF", fontFamily: FONT.ui, textDecoration: "none" }}>
                 ✉️  {F.contact.email}
               </a>
               <p className="text-sm" style={{ color: "rgba(249,245,239,0.85)", fontFamily: FONT.ui }}>
@@ -1557,7 +1556,7 @@ export function FooterSection({ hrefBase = "" }) {
         <div className="grid md:grid-cols-3 gap-12 mb-14">
           <div>
             <p className="text-xl font-semibold mb-2 flex items-center gap-2.5"
-               style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
+              style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
               <LotusMark size={24} />
               {F.logo}
             </p>
@@ -1568,8 +1567,8 @@ export function FooterSection({ hrefBase = "" }) {
             <div className="flex gap-3">
               {[{ label: "Instagram", g: "IG" }, { label: "Facebook", g: "FB" }].map(s => (
                 <a key={s.label} href="#" aria-label={s.label}
-                   className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-semibold min-w-[44px] min-h-[44px]"
-                   style={{ background: "rgba(249,245,239,0.07)", color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui }}>
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-semibold min-w-[44px] min-h-[44px]"
+                  style={{ background: "rgba(249,245,239,0.07)", color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui }}>
                   {s.g}
                 </a>
               ))}
@@ -1577,12 +1576,12 @@ export function FooterSection({ hrefBase = "" }) {
           </div>
           <div>
             <p className="text-xs font-semibold tracking-[0.14em] uppercase mb-5"
-               style={{ color: "rgba(249,245,239,0.28)", fontFamily: FONT.ui }}>Navigation</p>
+              style={{ color: "rgba(249,245,239,0.28)", fontFamily: FONT.ui }}>Navigation</p>
             <div className="flex flex-col gap-3">
               {F.links.map(l => (
                 <a key={l.label} href={to(l.href)}
-                   className="padma-footer-link text-sm"
-                   style={{ color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
+                  className="padma-footer-link text-sm"
+                  style={{ color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
                   {l.label}
                 </a>
               ))}
@@ -1590,10 +1589,10 @@ export function FooterSection({ hrefBase = "" }) {
           </div>
           <div>
             <p className="text-xs font-semibold tracking-[0.14em] uppercase mb-5"
-               style={{ color: "rgba(249,245,239,0.28)", fontFamily: FONT.ui }}>Contact</p>
+              style={{ color: "rgba(249,245,239,0.28)", fontFamily: FONT.ui }}>Contact</p>
             <div className="flex flex-col gap-3">
               <a href={`mailto:${F.contact.email}`} className="text-sm"
-                 style={{ color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui }}>
+                style={{ color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui }}>
                 {F.contact.email}
               </a>
               <p className="text-sm" style={{ color: "rgba(249,245,239,0.50)", fontFamily: FONT.ui }}>
@@ -1606,7 +1605,7 @@ export function FooterSection({ hrefBase = "" }) {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-8"
-             style={{ borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
+          style={{ borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
           <p className="text-xs" style={{ color: "rgba(249,245,239,0.22)", fontFamily: FONT.ui }}>
             © {F.year} Padma Yoga Shala. All rights reserved.
           </p>
