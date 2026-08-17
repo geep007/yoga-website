@@ -182,8 +182,6 @@ const CONTENT = {
 
   courses: {
     eyebrow: "Our Courses",
-    headingLeft: "Four courses.\nClear hours.\nClear outcomes.",
-    headingRight: "From a first taste of yoga philosophy to advanced teacher training and a two-day Ayurvedic retreat — each course states exactly how many hours you get, what they cover, and what you walk away able to do.",
     note: "All courses held at The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal. Session times can be adjusted on mutual understanding. Teaching follows the Guru–Shishya Parampara: instruction is mainly oral, in the Vedic tradition, and students are welcome to make their own notes.",
     items: [
       {
@@ -948,26 +946,14 @@ function CoursesSection() {
     <section id="courses" data-anchor className="py-24 md:py-36" style={{ background: C.cream }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-        {/* Split header */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-end mb-16 pb-10"
+        {/* Header */}
+        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-12 pb-8"
              style={{ borderBottom: `var(--hairline) solid ${C.border}` }}>
-          <div>
-            <Eyebrow>{CO.eyebrow}</Eyebrow>
-            <h2 className="text-4xl md:text-5xl font-semibold leading-tight whitespace-pre-line"
-                style={{ fontFamily: FONT.display, color: C.charcoal }}>
-              {CO.headingLeft}
-            </h2>
-          </div>
-          <div>
-            <p className="text-base md:text-lg leading-relaxed mb-5"
-               style={{ color: C.muted, fontFamily: FONT.ui }}>
-              {CO.headingRight}
-            </p>
-            <a href="#register" className="text-sm font-medium"
-               style={{ color: C.terracotta, textDecoration: "none", fontFamily: FONT.ui }}>
-              Register for a course →
-            </a>
-          </div>
+          <Eyebrow>{CO.eyebrow}</Eyebrow>
+          <a href="#register" className="text-sm font-medium"
+             style={{ color: C.terracotta, textDecoration: "none", fontFamily: FONT.ui }}>
+            Register for a course →
+          </a>
         </div>
 
         {/* Course rows */}
