@@ -357,7 +357,7 @@ const CONTENT = {
   location: {
     eyebrow: "Where You’ll Stay & Study",
     heading: "The Castle Resort,\nLakeside Pokhara",
-    body: "Set on a hillside overlooking Phewa Lake — with gardens, a pool, and a calm, homely atmosphere that makes theory feel like retreat. Stay and food are arranged on request: fifteen days with breakfast and dinner for the 40 Hour YTTC, a week for the 20 Hour course, and full accommodation included in the Two Day Retreat.",
+    body: "Set on a hillside overlooking Phewa Lake, with gardens, a pool, and a calm, homely atmosphere that makes theory feel like retreat. Stay and food are arranged on request.",
   },
 
   ctaBanner: {
