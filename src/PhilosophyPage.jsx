@@ -16,8 +16,8 @@ const IMG = {
 const PAGE = {
   hero: {
     eyebrow: "Philosophy & Vision",
-    sutra:   "अथ योगानुशासनम्",
-    sutraTranslit: "Atha yogānuśāsanam",
+    sutra:   "“अथ योगानुशासनम्”",
+    sutraTranslit: "“Atha yogānuśāsanam”",
     sutraRef: "Patanjali Yoga Sutra 1.1",
     heading: "Yog is not something\nyou practise.\nIt is how you live.",
     sub: "The philosophy Padma Yog Shala stands on — and the vision every course is built to carry.",
@@ -29,7 +29,7 @@ const PAGE = {
     intro: "As Sage Patanjali says, Yog is a disciplined practice that must be introduced into every aspect of one’s life. It is not limited to practising asanas on a yoga mat, but is a fundamental reorientation of one’s inner being that should guide every thought, action, and decision. This understanding forms the very foundation of our philosophy. It is also why Sage Patanjali begins the Patanjali Yoga Sutras with:",
     sutraBlock: {
       chapter: "Chapter 1: Samadhi Pada || 1.1 ||",
-      sutra:   "अथ योगानुशासनम्",
+      sutra:   "“अथ योगानुशासनम्”",
     },
     paras: [
       "One way of understanding this sutra is to imagine Sage Patanjali’s disciples asking, “What shall we learn today?” Patanjali, a master of Indian (Sanskrit) grammar, linguistics, Ayurveda, and Yog, could be understood as responding, “Now, from this moment onwards, after learning everything else, we begin the disciplined study and practice of Yog.” The emphasis is not merely on Yog, but on Anushasan, that is discipline. From this moment onwards, Yog must become a disciplined way of living.",

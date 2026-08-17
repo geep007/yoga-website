@@ -117,9 +117,9 @@ const CONTENT = {
   },
 
   hero: {
-    sutra: "अथ योगानुशासनम्",
-    sutraTranslit: "Atha yogānuśāsanam",
-    headline: "Now, from this moment onwards,\nwe begin the disciplined study\nand practice of Yog.",
+    sutra: "“अथ योगानुशासनम्”",
+    sutraTranslit: "“Atha yogānuśāsanam”",
+    headline: "“Now, from this moment onwards,\nwe begin the disciplined study\nand practice of Yog.”",
     attribution: "Patanjali Yoga Sutra · Chapter 1, Samadhi Pada",
     primaryCta:   { label: "Register for a Course", href: "#register" },
     secondaryCta: { label: "Compare Courses",       href: "#compare" },
@@ -173,36 +173,32 @@ const CONTENT = {
   philosophy: {
     eyebrow: "The Teachers Who Taught Us",
     body: [
-      "All courses offered at Padma Yog Shala have been developed under the guidance of Vedacharya and Yogacharya Shri Shanti Kumar Bhatt, who dedicated over 53 years exclusively to the teaching of Yog. During his lifetime, he taught at institutions including NASA, was the Yog teacher of India’s former Prime Minister Shri Morarji Desai, and guided more than 60,000 students across the globe.",
-      "Mr. Jayesh Mistry was also fortunate to receive the guidance of Shri Jayantibhai K. Patel, Yog Guru at LIFE Mission and Lakulish Yog, whose experience in designing university-level Yog curricula also played an important role in the development of these courses.",
-      "Drawing upon the teachings and guidance of both these revered teachers, every course at Padma Yog Shala has been designed to go far beyond learning postures. These are immersive, transformative, and exceptionally detailed programmes that encourage students to question, think, understand, and engage with Yog in its fullest sense. Every course is designed to help students not only practise Yog, but also adapt its philosophy and principles into their everyday lives.",
-    ],
-    stats: [
-      { value: "53+ Yrs", label: "Shri Shanti Kumar Bhatt spent teaching Yog" },
-      { value: "60,000+", label: "Students he guided across the globe" },
-      { value: "NASA",    label: "Among the institutions he taught at" },
+      "All courses offered at Padma Yog Shala are a result of deep study and discourse between Jayesh Mistry and his revered mentors. The open curricula are developed under the guidance of Vedacharya and Yogacharya Shri Shanti Kumar Bhatt, Yogacharya Shri Jayantibhai Patel, amongst others.",
+      "Shri Shanti Kumar Bhatt dedicated fifty-five years exclusively to the teaching of Yog, teaching at institutions such as NASA and to prominent figures like former Indian Prime Minister Shri Morarji Desai. He has also authored the seminal book The Science of Yogic Meditation and is the recipient of the prestigious Sahitya Ratna Award.",
+      "Shri Jayantibhai Patel, Yog Guru at L.I.F.E. Mission and Lakulesh Yog, was instrumental in the formation of these courses, lending his expertise in designing university-level Yog curricula.",
+      "Padma Yog Shala is Jayesh Mistry’s humble attempt at carrying forward the legacy his teachers entrusted to him. Every course here is designed to go far and beyond just learning postures. Our courses are immersive, transformative, and exceptionally detailed programmes that encourage students to question, think, and engage with Yog in its fullest sense.",
     ],
   },
 
   whyPadma: {
     eyebrow: "Why Padma",
-    heading: "Four things we refuse\nto compromise on",
+    heading: "Four things every course\nis built on",
     items: [
       {
-        title: "Foundational asanas, not trending ones",
-        desc: "Out of thousands of asanas, we teach the most important — and most neglected. Not the exciting poses that look good and teach nothing.",
+        title: "Foundational asanas",
+        desc: "Out of thousands of asanas, we teach the ones that matter most to the body and to the practice that follows.",
       },
       {
-        title: "Philosophy as foundation, not footnote",
-        desc: "15–25 hours of real theory in the 40 Hour course. A weak philosophical base makes a weak teacher, however flexible the body.",
+        title: "Philosophy",
+        desc: "The 40 Hour course carries 15 to 25 hours of real theory, because a strong philosophical base is what makes a strong teacher.",
       },
       {
-        title: "Logical reasoning, not blind repetition",
+        title: "Logical reasoning",
         desc: "Every theory and every pose is taught through its logic. You understand the why before you ever teach the how.",
       },
       {
-        title: "Customised, not standardised",
-        desc: "Sessions adjust to what you most want to explore. Real assignments during the course teach you to read students — not just lead poses.",
+        title: "Customised teaching",
+        desc: "Sessions adjust to what you most want to explore, and real assignments during the course teach you to read your students.",
       },
     ],
   },
@@ -1002,26 +998,8 @@ function PhilosophySection() {
           ))}
         </div>
 
-        {/* 3 stat cards */}
-        <div className="grid grid-cols-3 gap-4 mt-16">
-          {P.stats.map((s) => (
-            <div key={s.value}
-                 className="rounded-2xl p-6 md:p-8 flex flex-col gap-2"
-                 style={{ background: "rgba(249,245,239,0.05)", boxShadow: "0 0 0 1px rgba(249,245,239,0.08)" }}>
-              <p className="text-3xl md:text-4xl font-semibold leading-none"
-                 style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums" }}>
-                {s.value}
-              </p>
-              <p className="text-xs leading-snug"
-                 style={{ color: "rgba(249,245,239,0.5)", fontFamily: FONT.ui }}>
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
         {/* 4 commitments — IntersectionObserver stagger cards */}
-        <div className="mt-20 pt-12 grid sm:grid-cols-2 gap-4"
+        <div className="mt-16 pt-12 grid sm:grid-cols-2 gap-4"
              style={{ borderTop: "var(--hairline) solid rgba(249,245,239,0.1)" }}>
           {W.items.map((item, i) => (
             <WhyCard key={item.title} item={item} index={i} />
