@@ -69,11 +69,15 @@ const WHATSAPP_NUMBER = "919725560379"; // +91 97255 60379
 // The teacher photo is a wide landscape frame with him seated slightly right of
 // centre — this focal point keeps him centred in any portrait crop.
 export const TEACHER_FOCUS = "59% center";
+// The portrait of Shri Jayesh Mistry is a tall 2:3 frame — his face sits in the
+// upper third, so portrait crops are pulled towards the top.
+export const TEACHER_PORTRAIT_FOCUS = "50% 26%";
 
 const IMG = {
   groupStretch: "/images/1.png",          // group side-stretch on terrace
   instructor:   "/images/2.png",          // instructor solo on grass (red mat)
   teacher:      "/images/teacher.jpg",    // Jayesh Mistry seated in padmasana
+  teacherPortrait: "/images/teacher-jayesh.jpg", // Shri Jayesh Mistry, seated portrait
   lakeYoga:     "/images/3.png",          // two people yoga, Phewa Lake behind
   groupClass:   "/images/4.png",          // 1 instructor + 3 students seated
   pool:         "/images/5.png",          // resort pool, mountains
@@ -367,11 +371,14 @@ const CONTENT = {
 
   instructor: {
     eyebrow: "Your Teacher",
-    heading: "Forty years.\nThirty-five thousand students.\nOne tradition.",
-    body: "Jayesh Mistry learned in lineage, not in a weekend. He trained under Yoga Kendra, Vadodara — the oldest yoga institute in Gujarat, founded in 1963 by Yogacharya Dushant Modi, Yoga Coordinator at the M.S. University of Vadodara. In 2016 the Kendra officially appointed him its Chief International Instructor, to carry its yoga seminars and teacher-training courses beyond India. Across four decades he has taught more than thirty-five thousand students — and still teaches the way he always has: one person at a time, until the why is truly understood.",
+    heading: "Shri Jayesh Mistry",
+    body: [
+      "With over 30 years of experience in health and fitness, Shri Jayesh Mistry has trained more than 35,000 individuals through his fitness ventures, including the Pioneer Fitness Centre. His journey in yoga has been shaped by years of learning under accomplished teachers, including Yogacharya and Vedacharya Shri Shanti Kumar Bhatt (personal yoga teacher to former Prime Minister Shri Morarji Desai and Sahitya Ratna awardee), Shri Jayantibhai Patel, and Shri Dushyant Modi (M.S. University, Baroda).",
+      "He has taught yoga and its philosophy at institutions across the world, including Prince Aga Khan University in Nairobi, Kenya. Through Padma Yog Shala, he continues to share the practice and philosophy of yoga with students in India and around the world. He also serves as the appointed International Yoga Instructor of Yog Kendra, Vadodara.",
+    ],
     badge: {
-      name: "Jayesh Mistry",
-      role: "Chief International Instructor, Yoga Kendra · Vadodara",
+      name: "Shri Jayesh Mistry",
+      role: "International Yoga Instructor, Yog Kendra · Vadodara",
     },
     affiliation: "Affiliated with Yoga Kendra, Vadodara — est. 1963 · Reg. No. E-1642, Govt. of Gujarat.",
   },
@@ -1308,10 +1315,10 @@ function InstructorSection() {
 
           <div className="relative max-w-sm mx-auto md:max-w-none">
             <img
-              src={IMG.teacher}
-              alt="Jayesh Mistry, lead instructor at Padma Yoga Shala"
+              src={IMG.teacherPortrait}
+              alt="Shri Jayesh Mistry, lead instructor at Padma Yog Shala"
               className="w-full object-cover rounded-2xl"
-              style={{ aspectRatio: "4/5", objectPosition: TEACHER_FOCUS }}
+              style={{ aspectRatio: "4/5", objectPosition: TEACHER_PORTRAIT_FOCUS }}
             />
             <GlassCard className="absolute bottom-5 left-5 right-5 p-5">
               <p className="text-base font-semibold" style={{ color: "#F9F5EF", fontFamily: FONT.display }}>
@@ -1326,10 +1333,12 @@ function InstructorSection() {
           <div>
             <Eyebrow light>{I.eyebrow}</Eyebrow>
             <SectionHeading light className="mb-8 whitespace-pre-line">{I.heading}</SectionHeading>
-            <p className="text-lg leading-relaxed mb-8"
-               style={{ color: "rgba(249,245,239,0.62)", fontFamily: FONT.ui }}>
-              {I.body}
-            </p>
+            {(Array.isArray(I.body) ? I.body : [I.body]).map((para, i) => (
+              <p key={i} className="text-lg leading-relaxed mb-6 last:mb-8"
+                 style={{ color: "rgba(249,245,239,0.62)", fontFamily: FONT.ui }}>
+                {para}
+              </p>
+            ))}
             <p className="text-sm leading-relaxed pt-6"
                style={{ color: "rgba(249,245,239,0.45)", fontFamily: FONT.ui, borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
               {I.affiliation}
