@@ -51,16 +51,19 @@ export function PageHero({ image, eyebrow, sutra, sutraTranslit, sutraRef, headi
 // ─────────────────────────────────────────────────────────────────────────────
 // PAGE CTA — closing banner over a photo, shared by every secondary page
 // ─────────────────────────────────────────────────────────────────────────────
-export function PageCTA({ image, heading, sub, children }) {
+export function PageCTA({ image, imageFocus = "center", minHeight, heading, sub, children }) {
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden" style={{ isolation: "isolate" }}>
+    <section className="relative py-28 md:py-40 overflow-hidden flex items-center"
+             style={{ isolation: "isolate", minHeight }}>
+      {/* The band is much wider than it is tall, so object-cover crops hard on the
+          vertical axis. imageFocus keeps the part of the photo that matters in frame. */}
       <img src={image} alt="" aria-hidden="true"
            className="absolute inset-0 w-full h-full object-cover"
-           style={{ zIndex: Z.base }} />
+           style={{ zIndex: Z.base, objectPosition: imageFocus }} />
       <div className="absolute inset-0 pointer-events-none"
            style={{ background: "rgba(0,0,0,0.66)", zIndex: Z.overlay }} />
 
-      <div className="relative max-w-3xl mx-auto px-6 md:px-10 text-center" style={{ zIndex: Z.content }}>
+      <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 text-center" style={{ zIndex: Z.content }}>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6 whitespace-pre-line"
             style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
           {heading}

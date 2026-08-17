@@ -6,7 +6,7 @@ import {
 import { HOME, PageHero, PageCTA } from "./pageParts.jsx";
 
 const IMG = {
-  instructor: "/images/2.png",
+  instructor: "/images/teacher.jpg",
   lake:       "/images/8.png",
 };
 
@@ -112,7 +112,7 @@ export default function PhilosophyPage() {
       <main>
         <PageHero image={IMG.lake} {...H} />
         <PhilosophyEssay />
-        <PageCTA image={IMG.instructor} heading={cta.heading} sub={cta.sub}>
+        <PageCTA image={IMG.instructor} imageFocus="center 18%" minHeight="82vh" heading={cta.heading} sub={cta.sub}>
           <Btn label={cta.primary.label}   href={cta.primary.href}   large />
           <Btn label={cta.secondary.label} href={cta.secondary.href} large outline />
         </PageCTA>
