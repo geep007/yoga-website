@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // ─────────────────────────────────────────────────────────────────────────────
 // DESIGN TOKENS
 // ─────────────────────────────────────────────────────────────────────────────
-const C = {
+export const C = {
   // Light sections
   cream:       "#F9F5EF",
   cardBg:      "#EDE7DC",
@@ -24,7 +24,7 @@ const C = {
 };
 
 // Fixed z-index scale (Emil — no ad-hoc values)
-const Z = {
+export const Z = {
   base:    1,
   overlay: 10,
   content: 20,
@@ -33,7 +33,7 @@ const Z = {
 };
 
 // Emil Kowalski easing blueprint
-const E = {
+export const E = {
   outCubic:    "cubic-bezier(0.215,0.61,0.355,1)",
   outQuart:    "cubic-bezier(0.165,0.84,0.44,1)",
   outQuint:    "cubic-bezier(0.23,1,0.32,1)",
@@ -42,26 +42,38 @@ const E = {
 };
 
 // Typography: Onest for all UI, Fraunces for editorial accent/display
-const FONT = {
+export const FONT = {
   ui:      "'Onest', system-ui, sans-serif",
   display: "'Fraunces', Georgia, serif",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FORM CONFIG
-// Create a free form at https://formspree.io → paste the id (e.g. "xpzgkqab").
-// If left empty, the booking form gracefully falls back to opening WhatsApp
-// with a pre-filled message — so registration works either way.
+// Registrations are delivered by email to CONTACT_EMAIL through FormSubmit
+// (https://formsubmit.co) — no account or API key needed.
+//
+// ONE-TIME ACTIVATION: the first submission triggers a confirmation email to
+// CONTACT_EMAIL. Click the activation link in it once; every submission after
+// that arrives straight in the inbox.
+//
+// If the request fails for any reason, the form falls back to opening WhatsApp
+// with the details pre-filled — so registration works either way.
 // ─────────────────────────────────────────────────────────────────────────────
-const FORMSPREE_ID = "";
+const CONTACT_EMAIL = "padmayogshala@gmail.com";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 const WHATSAPP_NUMBER = "919725560379"; // +91 97255 60379
 
 // ─────────────────────────────────────────────────────────────────────────────
 // IMAGES
 // ─────────────────────────────────────────────────────────────────────────────
+// The teacher photo is a wide landscape frame with him seated slightly right of
+// centre — this focal point keeps him centred in any portrait crop.
+export const TEACHER_FOCUS = "59% center";
+
 const IMG = {
   groupStretch: "/images/1.png",          // group side-stretch on terrace
   instructor:   "/images/2.png",          // instructor solo on grass (red mat)
+  teacher:      "/images/teacher.jpg",    // Jayesh Mistry seated in padmasana
   lakeYoga:     "/images/3.png",          // two people yoga, Phewa Lake behind
   groupClass:   "/images/4.png",          // 1 instructor + 3 students seated
   pool:         "/images/5.png",          // resort pool, mountains
@@ -72,19 +84,6 @@ const IMG = {
   yogaFocus2:   "/images/Yoga Focus-2.png",
   yogaFocus3:   "/images/Yoga Focus-3.png",
 };
-
-// Foundational asanas — ink-line illustrations (B1 style).
-// Drop matching files into /public/images/poses/ (png or jpg). Until a file
-// exists, the card shows a graceful name-placeholder — no broken images.
-const POSES = [
-  { slug: "downward-dog",    sanskrit: "Adho Mukha Svanasana",   english: "Downward Dog",        benefit: "Lengthens the spine, calms the mind." },
-  { slug: "tree",            sanskrit: "Vrikshasana",            english: "Tree Pose",           benefit: "Balance, focus, and rootedness." },
-  { slug: "side-angle",      sanskrit: "Utthita Parsvakonasana", english: "Extended Side Angle", benefit: "Opens the body, builds strength." },
-  { slug: "lotus",           sanskrit: "Padmasana",              english: "Lotus Pose",          benefit: "The steady seat of meditation." },
-  { slug: "mountain",        sanskrit: "Tadasana",               english: "Mountain Pose",       benefit: "Where every standing pose begins." },
-  { slug: "forward-fold",    sanskrit: "Paschimottanasana",      english: "Seated Forward Fold", benefit: "Release through the whole back body." },
-];
-const POSE_PATH = "/images/poses/"; // e.g. /images/poses/downward-dog.png
 
 // Hero slideshow order — best visual progression
 const SLIDES = [
@@ -105,99 +104,79 @@ const CONTENT = {
   nav: {
     logo: "Padma Yoga Shala",
     links: [
-      { label: "Courses",    href: "#courses" },
-      { label: "Philosophy", href: "#philosophy" },
-      { label: "Teacher",    href: "#instructor" },
-      { label: "Location",   href: "#location" },
+      { label: "Courses",             href: "#courses" },
+      { label: "Philosophy & Vision", href: "/philosophy.html" },
+      { label: "Founder’s Desk",      href: "/founders-desk.html" },
+      { label: "Location",            href: "#location" },
     ],
     cta: { label: "Register", href: "#register" },
   },
 
   hero: {
-    sutra: "योगश्चित्तवृत्तिनिरोधः",
-    sutraTranslit: "Yogaś-citta-vṛtti-nirodhaḥ",
-    sutraRef: "Patanjali Yoga Sutra 1.2",
-    eyebrow: "Pokhara, Nepal · The Castle Resort",
-    headline1: "Yoga is not\nan acrobat’s art.",
-    headline2: "It is the art of\nstilling the mind.",
-    sub: "One living tradition — taught the way it was meant to be, through the lens of the Upanishads.",
-    highlights: [
-      { v: "40+",       l: "Years teaching" },
-      { v: "35,000+",   l: "Students taught" },
-      { v: "15–18 Hrs", l: "Deep theory" },
-    ],
+    sutra: "अथ योगानुशासनम्",
+    sutraTranslit: "Atha yogānuśāsanam",
+    headline: "Now, from this moment onwards,\nwe begin the disciplined study\nand practice of Yog.",
+    attribution: "Patanjali Yoga Sutra · Chapter 1, Samadhi Pada",
     primaryCta:   { label: "Register for a Course", href: "#register" },
     secondaryCta: { label: "Compare Courses",       href: "#compare" },
-    glassCard: {
-      stat: "35,000+",
-      label: "students taught",
-      sub: "by one teacher, across four decades",
-    },
   },
 
   // Quick-compare strip directly under the hero
   compare: {
-    eyebrow: "Three Courses · Clear Hours",
+    eyebrow: "Four Courses · Clear Hours",
     heading: "Find your course in ten seconds",
     sub: "Every course pairs hands-on practice with deep Upanishadic theory. Pick by where you are today.",
     rows: [
       {
         id: "foundations",
-        name: "Foundations of Yoga",
+        name: "8 Hour Course",
         hours: "8",
-        unit: "hours",
+        unit: "hrs · 2 days",
         forWhom: "Open to all",
         price: "$96",
         href: "#courses",
       },
       {
-        id: "senior",
-        name: "Teaching Seniors",
+        id: "twenty",
+        name: "20 Hour Course",
         hours: "20",
-        unit: "hours",
-        forWhom: "Certified teachers",
+        unit: "hrs · 5 days",
+        forWhom: "Teachers · or self-practice",
         price: "$280",
         href: "#courses",
       },
       {
         id: "yttc",
-        name: "Advanced YTTC",
+        name: "40 Hour YTTC",
         hours: "40",
         unit: "hrs · 15 days",
-        forWhom: "Yoga teachers",
+        forWhom: "Certified teachers only",
         price: "$480",
+        href: "#courses",
+      },
+      {
+        id: "retreat",
+        name: "Two Day Retreat",
+        hours: "2",
+        unit: "days",
+        forWhom: "Open to all · stay included",
+        price: "$220",
         href: "#courses",
       },
     ],
   },
 
-  testimonials: [
-    {
-      quote: "“My sister and I tried five yoga places in Pokhara, including the famous names. Don’t trust the online reviews — many felt fake. Then we found Jayesh.”",
-      author: "Visiting Yoga Teacher",
-    },
-    {
-      quote: "“We had tried Varanasi, Rishikesh, Indonesia, and more. Till date I haven’t found anyone of his class. You feel it from the very first session.”",
-      author: "Visiting Yoga Teacher",
-    },
-    {
-      quote: "“A course that finally explained the why behind every pose — not just the how. I came for the asanas and left with the philosophy that built them.”",
-      author: "Past Student",
-    },
-    {
-      quote: "“The setting at The Castle Resort, overlooking Phewa Lake, made every theory session feel like a retreat in itself.”",
-      author: "Past Student",
-    },
-  ],
-
   philosophy: {
-    eyebrow: "Why Most Training Falls Short",
-    heading: "Yoga without philosophy\nis gymnastics with\nSanskrit names.",
-    body: "Most teacher training treats philosophy as a footnote — and quietly copies its syllabus from somewhere else. Jayesh found the same gap again and again: the important, foundational asanas neglected, the exciting ones performed, and the philosophical spine missing entirely. Padma Yoga Shala was built to put that spine back. Alongside rigorous practice, every course carries deep theory drawn from the Upanishads, Patanjali, and Samkhya — so you understand not just how to hold a pose, but why it exists.",
+    eyebrow: "The Teachers Who Taught Us",
+    body: [
+      "All courses offered at Padma Yog Shala have been developed under the guidance of Vedacharya and Yogacharya Shri Shanti Kumar Bhatt, who dedicated over 53 years exclusively to the teaching of Yog. During his lifetime, he taught at institutions including NASA, was the Yog teacher of India’s former Prime Minister Shri Morarji Desai, and guided more than 60,000 students across the globe.",
+      "Mr. Jayesh Mistry was also fortunate to receive the guidance of Shri Jayantibhai K. Patel, Yog Guru at LIFE Mission and Lakulish Yog, whose experience in designing university-level Yog curricula also played an important role in the development of these courses.",
+      "Drawing upon the teachings and guidance of both these revered teachers, every course at Padma Yog Shala has been designed to go far beyond learning postures. These are immersive, transformative, and exceptionally detailed programmes that encourage students to question, think, understand, and engage with Yog in its fullest sense. Every course is designed to help students not only practise Yog, but also adapt its philosophy and principles into their everyday lives.",
+    ],
     stats: [
-      { value: "35,000+",   label: "Students taught worldwide" },
-      { value: "40+ Yrs",   label: "Teaching experience" },
-      { value: "15–18 Hrs", label: "Theory in the 40 Hr course" },
+      { value: "53+ Yrs", label: "Shri Shanti Kumar Bhatt spent teaching Yog" },
+      { value: "60,000+", label: "Students he guided across the globe" },
+      { value: "NASA",    label: "Among the institutions he taught at" },
     ],
   },
 
@@ -211,7 +190,7 @@ const CONTENT = {
       },
       {
         title: "Philosophy as foundation, not footnote",
-        desc: "15–18 hours of real theory in the advanced course. A weak philosophical base makes a weak teacher, however flexible the body.",
+        desc: "15–25 hours of real theory in the 40 Hour course. A weak philosophical base makes a weak teacher, however flexible the body.",
       },
       {
         title: "Logical reasoning, not blind repetition",
@@ -226,73 +205,145 @@ const CONTENT = {
 
   courses: {
     eyebrow: "Our Courses",
-    headingLeft: "Three courses.\nClear hours.\nClear outcomes.",
-    headingRight: "From a first taste of yoga philosophy to advanced teacher training — each course states exactly how many hours you get, what they cover, and what you walk away able to do.",
-    note: "All courses held at The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal. Session times can be adjusted on mutual understanding.",
+    headingLeft: "Four courses.\nClear hours.\nClear outcomes.",
+    headingRight: "From a first taste of yoga philosophy to advanced teacher training and a two-day Ayurvedic retreat — each course states exactly how many hours you get, what they cover, and what you walk away able to do.",
+    note: "All courses held at The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal. Session times can be adjusted on mutual understanding. Teaching follows the Guru–Shishya Parampara: instruction is mainly oral, in the Vedic tradition, and students are welcome to make their own notes.",
     items: [
       {
         number:       "01",
         id:           "foundations",
-        title:        "Foundations of Yoga",
-        tags:         ["History", "Philosophy", "Ayurveda"],
+        title:        "8 Hour Course",
+        tags:         ["Open to All", "Choose Your Topics", "2 Days"],
         level:        "Open to All",
-        levelSub:     "Trial Course",
+        levelSub:     "Beginners welcome",
         hours:        "8",
         hoursUnit:    "Hours",
-        hoursSub:     "Flexible · choose your topics",
+        hoursSub:     "2 days · 4 hrs per day",
         price:        "$96",
-        priceSub:     "per person",
-        desc:         "Your first real conversation with the tradition — an introduction to yoga, Ayurveda, and the philosophy that shaped it. Choose the topics that interest you most from eleven theory areas.",
+        priceSub:     "for the full course",
+        desc:         "Eight hours across two days — two in the morning, two in the evening. You choose what you want to learn from ten subject areas; if you would rather be guided, Mr. Jayesh Mistry will suggest the topic that fits you best.",
         outcome:      "Walk away understanding what yoga actually is — and where to begin.",
-        highlights:   ["11 theory topics", "Choose your focus", "No experience needed"],
-        schedule:     "Flexible timings · open to all",
+        highlights:   ["Choose from 10 topics", "Morning + evening sessions", "No experience needed"],
+        schedule:     "2 days · 2 hrs morning + 2 hrs evening",
         image:        IMG.groupClass,
         split:        null,
         pricingTable: null,
+        topicsTitle:  "Choose your topics",
+        topics: [
+          "Yog and Yog Philosophy",
+          "Yog Practical and Asana Theory",
+          "Ayurveda",
+          "Indian History and Civilisation",
+          "Sankhya Darshan (Sankhya Philosophy)",
+          "Mantra and Mantra Philosophy",
+          "Pranayama and Pranayama Philosophy",
+          "Yama – Niyama",
+          "Patanjali Yog Sutra",
+          "Sun Salutation — theory only (combine with one other topic)",
+        ],
+        bullets: [
+          "Who it’s for: beginners, anyone wanting in-depth knowledge of a specific topic, and anyone who wants to try a course with Mr. Jayesh Mistry.",
+          "Students are guided to build their own asana sequence and schedule, tailored to their requirements.",
+          "Accommodation and food available on request, chargeable.",
+        ],
       },
       {
         number:       "02",
-        id:           "senior",
-        title:        "Teaching Yoga to Senior Citizens",
-        tags:         ["Specialisation", "Methodology", "Adaptation"],
-        level:        "Certified Yoga Teachers",
-        levelSub:     "Specialisation",
+        id:           "twenty",
+        title:        "20 Hour Course",
+        tags:         ["Two Variations", "Senior Citizens", "Self Practice"],
+        level:        "Teachers · or self-practice",
+        levelSub:     "Two variations",
         hours:        "20",
         hoursUnit:    "Hours",
-        hoursSub:     "Mon–Fri · 2 hrs per session",
+        hoursSub:     "5 days · Mon–Fri · 4 hrs a day",
         price:        "$280",
-        priceSub:     "per person",
-        desc:         "A focused course for working teachers who want to teach older bodies safely — adapting asanas, re-sequencing for limited mobility, and reading what a senior student actually needs.",
-        outcome:      "Walk away able to teach older students safely and with confidence.",
-        highlights:   ["Safe sequencing", "Adapt for mobility", "Teachers only"],
-        schedule:     "Mon–Fri · 6:00–8:00 AM or 4:00–6:00 PM",
+        priceSub:     "for the full course",
+        desc:         "Five days, Monday to Friday, four hours a day. The course runs in two variations — a teaching specialisation for working with senior citizens, and a fully personalised self-practice course open to everyone.",
+        outcome:      "Walk away able to teach older students safely — or to practise on your own with a sequence built for you.",
+        highlights:   ["Purak asanas focus", "Injury-free methodology", "Syllabus built around you"],
+        schedule:     "Mon–Fri · 6:00–8:00 AM and 4:00–6:00 PM",
         image:        IMG.groupStretch,
         split:        null,
         pricingTable: null,
+        variations: [
+          {
+            name:    "20 Hr YTTC — Teaching Senior Citizens",
+            forWhom: "Teachers only",
+            desc:    "Asana series plus core theory, focused on how to assist and teach yogasanas to senior citizens in a way that prevents injury and keeps the class risk-free. Main focus is on Purak asanas.",
+          },
+          {
+            name:    "20 Hr Self Practice",
+            forWhom: "Open to all",
+            desc:    "The syllabus is designed around your own requirements — for anyone who wants to design an asana sequence they can practise on their own.",
+          },
+        ],
+        bullets: [
+          "Accommodation on request, chargeable: one week’s stay with breakfast and dinner — $280.",
+        ],
       },
       {
         number:       "03",
         id:           "yttc",
-        title:        "Advanced Yoga Teachers Training",
-        tags:         ["Patanjali Yoga Sutra", "Samkhya", "Pranayama"],
-        level:        "Yoga Teachers Only",
-        levelSub:     "Advanced YTTC",
+        title:        "40 Hour YTTC",
+        tags:         ["Purak Asana", "Asana Theory", "Yog Theory"],
+        level:        "Certified Teachers Only",
+        levelSub:     "Certificate awarded",
         hours:        "40",
         hoursUnit:    "Hrs · 15 Days",
-        hoursSub:     "Theory + practice, with assignments",
+        hoursSub:     "10 teaching days over two weeks",
         price:        "$480",
         priceSub:     "+ $350 stay · $830 all-in",
-        desc:         "Our most complete programme. Fifteen days of deep theory paired with structured asana series, meditation sequences, and stress-relief practice — plus real teaching assignments. The split below is a starting point; it adjusts to where you want to go deeper.",
+        desc:         "Our most complete programme: forty hours over ten teaching days, spread across two weeks with weekends off. Theory and practical hours are adjusted to what each student needs — the total always comes to forty.",
         outcome:      "Walk away a stronger teacher — with the philosophy, method, and practice to back it.",
-        highlights:   ["Assignments included", "15 days · stay + meals", "Patanjali Yoga Sutra"],
-        schedule:     "Mon–Fri · 8:30–10:30 AM or 6:30–8:30 PM",
+        highlights:   ["Certificate on completion", "Hours adjusted to you", "15 days · stay + meals"],
+        schedule:     "Mon–Fri · 8:30–10:30 AM and 6:30–8:30 PM",
         image:        IMG.lakeYoga,
-        split:        { theory: "15–18", practice: "22–25", theoryLabel: "Theory", practiceLabel: "Practice" },
+        split:        { theory: "15–25", practice: "15–25", theoryLabel: "Theory", practiceLabel: "Practice" },
         pricingTable: [
           { label: "Course Fee",                              value: "$480"      },
           { label: "Accommodation + Food (15 days @ Castle)", value: "$350"      },
           { label: "Total, all-inclusive",                    value: "$830 USD", isTotal: true },
         ],
+        topicsTitle: "Sample topics covered",
+        topics: [
+          "Purak asana",
+          "How to teach asanas and prepare students for advanced poses",
+          "Asana theory",
+          "Yog theory",
+        ],
+        bullets: [
+          "Only for practising or certified teachers.",
+          "Accommodation on request, chargeable: 15 days of stay with breakfast and dinner — $350. The course is spread over two weeks; weekends are off.",
+        ],
+      },
+      {
+        number:       "04",
+        id:           "retreat",
+        title:        "Two Day Retreat",
+        tags:         ["Ayurveda", "Doshas", "Body Reset"],
+        level:        "Open to All",
+        levelSub:     "Self practice retreat",
+        hours:        "2",
+        hoursUnit:    "Days",
+        hoursSub:     "Accommodation included",
+        price:        "$220",
+        priceSub:     "stay included",
+        desc:         "A two-day retreat course for self practice. You learn your doshas and your body type through Ayurvedic theory — and, more importantly, how to retreat yourself at home, without needing a retreat centre ever again.",
+        outcome:      "Walk away knowing your body type — and how to reset it on your own.",
+        highlights:   ["Know your doshas", "Gut cleaning food", "Stay included"],
+        schedule:     "2 days · residential",
+        image:        IMG.garden,
+        split:        null,
+        pricingTable: null,
+        topicsTitle:  "The $220 includes",
+        topics: [
+          "Theory explanation and lectures",
+          "Herbs for internal body cleaning, focused on the stomach",
+          "Specially prepared food for two days — gut cleaning and body resetting",
+          "Accommodation for the full retreat",
+        ],
+        bullets: null,
       },
     ],
   },
@@ -300,36 +351,18 @@ const CONTENT = {
   theory: {
     eyebrow: "What You’ll Study",
     heading: "Theory that changes how\nyou practice and teach",
-    sub: "Choose the topics that matter to you — especially in the 8 Hour course. Each one is a question worth a lifetime.",
     items: [
-      { icon: "📜", title: "History & Philosophy",  desc: "Where did yoga come from, and what did it actually set out to do? Trace it through Indian civilisation and thought." },
-      { icon: "🧘", title: "Yama-Niyama",           desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
-      { icon: "🌌", title: "Samkhya",               desc: "What is the self, and what is not? Sankhyadarshan reframes the goal of yoga — and asks what it has to say about God." },
-      { icon: "🌬️", title: "Pranayama",            desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
-      { icon: "🎵", title: "Mantra",                desc: "What aid do mantras really offer on the path of yoga? Sound, vibration, and their quiet work on the mind." },
-      { icon: "☀️", title: "Sun Salutation",        desc: "The history and root theory behind yoga’s most iconic sequence — and why it is built the way it is." },
-      { icon: "📖", title: "Patanjali Yoga Sutra",  desc: "An initial understanding of the foundational text behind classical yoga, in plain language." },
-      { icon: "🌿", title: "Ayurveda",              desc: "India’s ancient science of balance — and the root causes it sees where modern medicine often sees only symptoms." },
+      { icon: "🪷", title: "Yog & Yog Philosophy",        desc: "What yog actually is, what it set out to do, and the philosophy that holds the whole practice together." },
+      { icon: "🧘", title: "Yog Practical & Asana Theory", desc: "Practice paired with the theory behind it — why each asana exists, and what it is doing to body and mind." },
+      { icon: "🌿", title: "Ayurveda",                     desc: "India’s ancient science of balance — and the root causes it sees where modern medicine often sees only symptoms." },
+      { icon: "📜", title: "Indian History & Civilisation",desc: "The civilisation that produced yog: its history, its thought, and the world these practices grew out of." },
+      { icon: "🌌", title: "Sankhya Darshan",              desc: "What is the self, and what is not? Sankhya philosophy reframes the goal of yog — and asks what it has to say about God." },
+      { icon: "🎵", title: "Mantra & Mantra Philosophy",   desc: "What aid do mantras really offer on the path of yog? Sound, vibration, and their quiet work on the mind." },
+      { icon: "🌬️", title: "Pranayama & Its Philosophy",  desc: "What is prana, and why does breath sit at the centre of practice and daily life? The bridge between body and mind." },
+      { icon: "⚖️", title: "Yama – Niyama",               desc: "Ten ethical commitments the ancients considered more foundational than any asana. Why were they stressed so heavily?" },
+      { icon: "📖", title: "Patanjali Yog Sutra",          desc: "An initial understanding of the foundational text behind classical yog, in plain language." },
+      { icon: "☀️", title: "Sun Salutation",              desc: "The history and root theory behind yog’s most iconic sequence. Theory only — pair it with one other topic." },
     ],
-  },
-
-  practical: {
-    eyebrow: "Practice & Application",
-    heading: "From first asana to\nteaching your own series",
-    items: [
-      { title: "Where to Begin",          desc: "Which asanas to learn and teach first, and why — a principled foundation for any student who walks in." },
-      { title: "Anatomy of Each Asana",   desc: "The body mechanics behind every pose, so you teach safely and explain with confidence." },
-      { title: "Sukshma Kriyas",          desc: "Subtle warm-up variations that prepare body and mind before deeper practice." },
-      { title: "Structured Asana Series", desc: "Fixed beginner series for physical health & flexibility, meditation & mental stress, disease management, and core strength." },
-      { title: "Teaching Assignments",    desc: "Real assignments during the course: identify what a student needs, assess their level, and learn what to ask before you teach a single pose. This is what turns a practitioner into a teacher." },
-    ],
-    note: "Sessions can be adjusted to match what students are most interested in exploring.",
-  },
-
-  asana: {
-    eyebrow: "The Asanas We Teach",
-    heading: "The most important poses —\nnot the most impressive ones",
-    sub: "Out of thousands of asanas, we focus on the foundational few that most trainings neglect. Learn them deeply, teach them safely.",
   },
 
   instructor: {
@@ -346,7 +379,7 @@ const CONTENT = {
   location: {
     eyebrow: "Where You’ll Stay & Study",
     heading: "The Castle Resort,\nLakeside Pokhara",
-    body: "Set on a hillside overlooking Phewa Lake — with gardens, a pool, and a calm, homely atmosphere that makes theory feel like retreat. The 40 Hour course includes fifteen days of stay, breakfast, lunch, and dinner.",
+    body: "Set on a hillside overlooking Phewa Lake — with gardens, a pool, and a calm, homely atmosphere that makes theory feel like retreat. Stay and food are arranged on request: fifteen days with breakfast and dinner for the 40 Hour YTTC, a week for the 20 Hour course, and full accommodation included in the Two Day Retreat.",
   },
 
   ctaBanner: {
@@ -361,25 +394,34 @@ const CONTENT = {
     heading: "Reserve your place",
     sub: "Tell us which course fits you and we’ll confirm dates and details. Prefer to chat first? Message us on WhatsApp — we reply fast.",
     courses: [
-      "Foundations of Yoga — 8 Hrs · $96",
-      "Teaching Yoga to Senior Citizens — 20 Hrs · $280",
-      "Advanced YTTC — 40 Hrs · $480 (+$350 stay)",
+      "8 Hour Course — 2 days · $96",
+      "20 Hour Course — Teaching Senior Citizens (teachers) · $280",
+      "20 Hour Course — Self Practice (open to all) · $280",
+      "40 Hour YTTC — 15 days · $480 (+$350 stay)",
+      "Two Day Retreat — stay included · $220",
       "Not sure yet — help me choose",
     ],
     whatsappPrompts: [
-      { label: "8 Hr Foundations",  msg: "Hi Padma Yoga Shala, I’m interested in the 8 Hr Foundations of Yoga course." },
-      { label: "20 Hr Seniors",     msg: "Hi Padma Yoga Shala, I’m interested in the 20 Hr Teaching Yoga to Senior Citizens course." },
-      { label: "40 Hr Advanced YTTC", msg: "Hi Padma Yoga Shala, I’m interested in the 40 Hr Advanced YTTC." },
+      { label: "8 Hour Course",   msg: "Hi Padma Yog Shala, I’m interested in the 8 Hour Course." },
+      { label: "20 Hour Course",  msg: "Hi Padma Yog Shala, I’m interested in the 20 Hour Course." },
+      { label: "40 Hour YTTC",    msg: "Hi Padma Yog Shala, I’m interested in the 40 Hour YTTC." },
+      { label: "Two Day Retreat", msg: "Hi Padma Yog Shala, I’m interested in the Two Day Retreat course." },
     ],
   },
 
   footer: {
     logo:    "Padma Yoga Shala",
     tagline: "Yoga as the art of stilling the mind",
-    links:   ["Courses", "Philosophy", "Teacher", "Register"],
+    links:   [
+      { label: "Courses",             href: "#courses" },
+      { label: "Philosophy & Vision", href: "/philosophy.html" },
+      { label: "Founder’s Desk",      href: "/founders-desk.html" },
+      { label: "Teacher",             href: "#instructor" },
+      { label: "Register",            href: "#register" },
+    ],
     affiliation: "Affiliated with Yoga Kendra, Vadodara — the oldest yoga institute in Gujarat, est. 1963, founded by Yogacharya Dushant Modi. Reg. No. E-1642, Government of Gujarat.",
     contact: {
-      email:    "hello@padmayogashala.com",
+      email:    CONTACT_EMAIL,
       whatsapp: "+91 97255 60379",
       address:  "The Castle Resort Pvt. Ltd., Lakeside, Pokhara-6, Nepal",
     },
@@ -390,7 +432,7 @@ const CONTENT = {
 // ─────────────────────────────────────────────────────────────────────────────
 // LOTUS MARK — inline SVG so it stays crisp at any size (no asset dependency)
 // ─────────────────────────────────────────────────────────────────────────────
-function LotusMark({ size = 26 }) {
+export function LotusMark({ size = 26 }) {
   return (
     <svg
       width={size} height={size} viewBox="0 0 48 48" fill="none"
@@ -417,7 +459,7 @@ function LotusMark({ size = 26 }) {
 // ─────────────────────────────────────────────────────────────────────────────
 // GLOBAL STYLES
 // ─────────────────────────────────────────────────────────────────────────────
-function GlobalStyles() {
+export function GlobalStyles() {
   useEffect(() => {
     if (document.getElementById("padma-styles")) return;
     const el = document.createElement("style");
@@ -432,14 +474,7 @@ function GlobalStyles() {
       :root { --hairline: 1px; }
       @media (min-resolution: 192dpi) { :root { --hairline: 0.5px; } }
 
-      @keyframes marquee {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-      }
-      .padma-marquee { animation: marquee 60s linear infinite; will-change: transform; }
-
       @media (hover: hover) and (pointer: fine) {
-        .padma-marquee:hover    { animation-play-state: paused; }
         .padma-nav-link:hover   { color: ${C.terracotta} !important; }
         .padma-btn:hover        { background: ${C.terraDark} !important; }
         .padma-compare-row:hover { background: ${C.cardBg} !important; }
@@ -448,10 +483,6 @@ function GlobalStyles() {
         .padma-theory-card:hover {
           background: rgba(249,245,239,0.10) !important;
           box-shadow: 0 0 0 1px rgba(249,245,239,0.18) !important;
-        }
-        .padma-practical-card:hover {
-          transform: translateY(-3px) !important;
-          box-shadow: 0 12px 40px rgba(28,25,23,0.10), 0 0 0 1px ${C.border} !important;
         }
         .padma-why-card:hover {
           transform: translateY(-3px) !important;
@@ -531,7 +562,7 @@ function GlassCard({ children, className = "", dark = true }) {
   );
 }
 
-function Eyebrow({ children, light = false }) {
+export function Eyebrow({ children, light = false }) {
   return (
     <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4"
        style={{ color: light ? "rgba(249,245,239,0.50)" : C.terracotta, fontFamily: FONT.ui }}>
@@ -540,7 +571,7 @@ function Eyebrow({ children, light = false }) {
   );
 }
 
-function SectionHeading({ children, light = false, className = "" }) {
+export function SectionHeading({ children, light = false, className = "" }) {
   return (
     <h2
       className={`text-4xl md:text-5xl font-semibold leading-tight whitespace-pre-line ${className}`}
@@ -551,7 +582,7 @@ function SectionHeading({ children, light = false, className = "" }) {
   );
 }
 
-function Btn({ label, href, large = false, outline = false, onClick, type, fullWidth = false }) {
+export function Btn({ label, href, large = false, outline = false, onClick, type, fullWidth = false }) {
   const base = `padma-btn inline-flex items-center justify-center rounded-full font-medium ${fullWidth ? "w-full" : ""} ${
     large ? "px-9 py-4 text-base min-h-[52px]" : "px-6 py-3 text-sm min-h-[44px]"
   }`;
@@ -587,9 +618,12 @@ function Btn({ label, href, large = false, outline = false, onClick, type, fullW
 // ─────────────────────────────────────────────────────────────────────────────
 // STICKY NAV
 // ─────────────────────────────────────────────────────────────────────────────
-function StickyNav() {
+// `hrefBase` lets a secondary page (e.g. /philosophy.html) point in-page anchors back
+// at the home page: pass "/" and "#courses" becomes "/#courses".
+export function StickyNav({ hrefBase = "" }) {
   const scrolled = useNavScroll();
   const [open, setOpen] = useState(false);
+  const to = (href) => (href.startsWith("#") ? `${hrefBase}${href}` : href);
 
   return (
     <nav className="fixed top-0 inset-x-0"
@@ -604,7 +638,7 @@ function StickyNav() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
 
-        <a href="#" className="flex items-center gap-2.5"
+        <a href={hrefBase || "#"} className="flex items-center gap-2.5"
            style={{ fontFamily: FONT.display, color: "#F9F5EF", fontSize: "1.1rem", fontWeight: 600, textDecoration: "none", letterSpacing: "-0.01em" }}>
           <LotusMark size={26} />
           {CONTENT.nav.logo}
@@ -612,7 +646,7 @@ function StickyNav() {
 
         <div className="hidden md:flex items-center gap-8">
           {CONTENT.nav.links.map(l => (
-            <a key={l.label} href={l.href}
+            <a key={l.label} href={to(l.href)}
                className="padma-nav-link text-sm font-medium"
                style={{ color: "rgba(249,245,239,0.68)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
               {l.label}
@@ -622,7 +656,7 @@ function StickyNav() {
 
         <div className="flex items-center gap-3">
           <div className="hidden md:block">
-            <Btn label={CONTENT.nav.cta.label} href={CONTENT.nav.cta.href} />
+            <Btn label={CONTENT.nav.cta.label} href={to(CONTENT.nav.cta.href)} />
           </div>
           <button
             className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
@@ -650,7 +684,7 @@ function StickyNav() {
            style={{ maxHeight: open ? "360px" : "0", background: "rgba(15,13,11,0.95)", backdropFilter: "blur(20px)", transition: `max-height 340ms ${E.outCubic}` }}>
         <div className="px-6 pt-2 pb-8 flex flex-col">
           {CONTENT.nav.links.map(l => (
-            <a key={l.label} href={l.href}
+            <a key={l.label} href={to(l.href)}
                className="py-3.5 text-base font-medium border-b"
                style={{ color: "rgba(249,245,239,0.80)", borderColor: C.darkBorder, textDecoration: "none", fontFamily: FONT.ui }}
                onClick={() => setOpen(false)}>
@@ -658,7 +692,7 @@ function StickyNav() {
             </a>
           ))}
           <div className="mt-4">
-            <Btn label={CONTENT.nav.cta.label} href={CONTENT.nav.cta.href} large fullWidth />
+            <Btn label={CONTENT.nav.cta.label} href={to(CONTENT.nav.cta.href)} large fullWidth />
           </div>
         </div>
       </div>
@@ -667,8 +701,8 @@ function StickyNav() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// HERO — auto-advancing slideshow (pauses on reduced-motion + tab blur),
-// left-aligned content, glass stat card, slide dot indicators.
+// HERO — auto-advancing slideshow (pauses on reduced-motion + tab blur).
+// Deliberately minimal: sutra, its translation, attribution, two actions.
 // ─────────────────────────────────────────────────────────────────────────────
 function HeroSection() {
   const [idx, setIdx] = useState(0);
@@ -712,94 +746,45 @@ function HeroSection() {
       <div className="absolute inset-0 pointer-events-none"
            style={{ zIndex: Z.overlay, background: "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.62) 45%, rgba(0,0,0,0.48) 100%)" }} />
       <div className="absolute inset-0 pointer-events-none"
-           style={{ zIndex: Z.overlay, background: "linear-gradient(to right, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.30) 48%, rgba(0,0,0,0) 72%)" }} />
+           style={{ zIndex: Z.overlay, background: "linear-gradient(to right, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.24) 52%, rgba(0,0,0,0) 76%)" }} />
 
-      {/* Content layer */}
+      {/* Content layer — one column, nothing but the sutra and the two actions */}
       <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-20 pt-28" style={{ zIndex: Z.content }}>
-        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-end">
+        <div className="max-w-4xl">
 
-          {/* Left: sutra + headline + CTAs */}
-          <div className="max-w-3xl">
-            {/* Highlighted Sanskrit sutra — terracotta pill with accent bar */}
-            <div className="inline-flex items-center gap-3 mb-7 pl-3 pr-4 py-2 rounded-full"
-                 style={{ background: "rgba(194,98,45,0.18)", boxShadow: `0 0 0 1px ${C.terracotta}66`, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
-              <span className="w-1 h-6 rounded-full flex-shrink-0" style={{ background: C.terracotta }} />
-              <span className="leading-tight">
-                <span className="block text-lg md:text-xl"
-                      style={{ fontFamily: FONT.display, color: "#F4C9A8", letterSpacing: "0.02em", textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
-                  {H.sutra}
-                </span>
-                <span className="block text-[10px] tracking-[0.16em] uppercase"
-                      style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.62)" }}>
-                  {H.sutraTranslit} · {H.sutraRef}
-                </span>
-              </span>
-            </div>
+          {/* Sanskrit sutra — quiet, above the headline it translates */}
+          <span className="block rounded-full mb-8"
+                style={{ width: "2.5rem", height: "1px", background: C.terracotta }} aria-hidden="true" />
 
-            <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-semibold leading-[1.04] tracking-tight mb-8 whitespace-pre-line"
-              style={{ fontFamily: FONT.display, color: "#F9F5EF", textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
-            >
-              {H.headline1}{"\n"}{H.headline2}
-            </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.25] mb-4"
+              style={{ fontFamily: FONT.display, color: "#F4C9A8", letterSpacing: "0.02em", textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
+            {H.sutra}
+          </h1>
+          <p className="text-sm md:text-base tracking-[0.24em] uppercase mb-10"
+             style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.72)", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}>
+            {H.sutraTranslit}
+          </p>
 
-            {/* Highlight chips — the main facts, scannable at a glance */}
-            <div className="flex flex-wrap gap-2.5 mb-8">
-              {H.highlights.map(h => (
-                <div key={h.l} className="inline-flex items-baseline gap-2 px-4 py-2.5 rounded-xl"
-                     style={{ background: "rgba(249,245,239,0.10)", boxShadow: "0 0 0 1px rgba(249,245,239,0.18)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
-                  <span className="text-xl md:text-2xl font-semibold leading-none"
-                        style={{ fontFamily: FONT.display, color: "#F4C9A8", fontVariantNumeric: "tabular-nums" }}>
-                    {h.v}
-                  </span>
-                  <span className="text-xs md:text-sm font-medium" style={{ color: "rgba(249,245,239,0.88)", fontFamily: FONT.ui }}>
-                    {h.l}
-                  </span>
-                </div>
-              ))}
-            </div>
+          <p
+            className="text-xl sm:text-2xl md:text-3xl font-medium leading-[1.35] tracking-tight mb-8 whitespace-pre-line max-w-2xl"
+            style={{ fontFamily: FONT.display, color: "#F9F5EF", textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
+          >
+            {H.headline}
+          </p>
 
-            <p className="text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
-               style={{ color: "rgba(249,245,239,0.80)", fontFamily: FONT.ui, textShadow: "0 1px 12px rgba(0,0,0,0.4)" }}>
-              {H.sub}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Btn label={H.primaryCta.label} href={H.primaryCta.href} large />
-              <Btn label={H.secondaryCta.label} href={H.secondaryCta.href} large outline />
-            </div>
-          </div>
+          <p className="text-xs tracking-[0.16em] uppercase mb-12"
+             style={{ fontFamily: FONT.ui, color: "rgba(249,245,239,0.55)" }}>
+            {H.attribution}
+          </p>
 
-          {/* Right: glass stat card (desktop only) */}
-          <div className="hidden md:block">
-            <GlassCard className="p-7 min-w-[220px]">
-              <p className="text-xs font-medium tracking-[0.14em] uppercase mb-4"
-                 style={{ color: "rgba(249,245,239,0.42)", fontFamily: FONT.ui }}>
-                Taught by one master
-              </p>
-              <p className="text-5xl font-semibold leading-none mb-2"
-                 style={{ fontFamily: FONT.display, color: C.terracotta, fontVariantNumeric: "tabular-nums" }}>
-                {H.glassCard.stat}
-              </p>
-              <p className="text-base font-medium mb-1"
-                 style={{ color: "#F9F5EF", fontFamily: FONT.ui }}>
-                {H.glassCard.label}
-              </p>
-              <p className="text-sm"
-                 style={{ color: "rgba(249,245,239,0.48)", fontFamily: FONT.ui }}>
-                {H.glassCard.sub}
-              </p>
-              <div className="mt-6 pt-5" style={{ borderTop: "var(--hairline) solid rgba(249,245,239,0.10)" }}>
-                <a href="#courses" className="text-sm font-medium"
-                   style={{ color: C.terracotta, textDecoration: "none", fontFamily: FONT.ui }}>
-                  View all courses →
-                </a>
-              </div>
-            </GlassCard>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Btn label={H.primaryCta.label} href={H.primaryCta.href} large />
+            <Btn label={H.secondaryCta.label} href={H.secondaryCta.href} large outline />
           </div>
         </div>
 
         {/* Slide indicators */}
-        <div className="flex items-center gap-2 mt-10">
+        <div className="flex items-center gap-2 mt-14">
           {SLIDES.map((_, i) => (
             <button
               key={i}
@@ -884,47 +869,6 @@ function CompareSection() {
                 <span className="text-xs font-medium" style={{ color: C.terracotta, fontFamily: FONT.ui }}>Register →</span>
               </div>
             </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// TESTIMONIAL MARQUEE
-// ─────────────────────────────────────────────────────────────────────────────
-function TestimonialMarquee() {
-  const items = [...CONTENT.testimonials, ...CONTENT.testimonials, ...CONTENT.testimonials];
-
-  return (
-    <section className="py-10 overflow-hidden"
-             style={{ background: C.cream, borderTop: `var(--hairline) solid ${C.border}`, borderBottom: `var(--hairline) solid ${C.border}` }}
-             aria-label="Student testimonials">
-      <p className="text-center text-[11px] mb-6 select-none pointer-events-none uppercase"
-         style={{ color: C.muted, fontFamily: FONT.ui, letterSpacing: "0.16em" }}>
-        In their words
-      </p>
-      <div className="relative">
-        <div className="padma-marquee flex gap-4 w-max">
-          {items.map((t, i) => (
-            <div key={i} className="flex-shrink-0 w-80 rounded-2xl p-6"
-                 style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center"
-                     style={{ background: `${C.sage}28`, boxShadow: `0 0 0 1px ${C.borderMid}` }}>
-                  <LotusMark size={18} />
-                </div>
-                <div>
-                  <p className="text-sm font-medium" style={{ color: C.charcoal, fontFamily: FONT.ui }}>{t.author}</p>
-                  <p className="text-xs" style={{ color: C.muted, fontFamily: FONT.ui }}>Padma Yoga Shala</p>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed"
-                 style={{ color: C.charcoal, fontFamily: FONT.display, fontStyle: "italic" }}>
-                {t.quote}
-              </p>
-            </div>
           ))}
         </div>
       </div>
@@ -1036,17 +980,20 @@ function PhilosophySection() {
       <div className="relative max-w-5xl mx-auto px-6 md:px-10" style={{ zIndex: Z.content }}>
 
         {/* Heading */}
-        <div className="mb-14">
+        <div className="mb-10">
           <Eyebrow light>{P.eyebrow}</Eyebrow>
-          <SectionHeading light className="whitespace-pre-line">{P.heading}</SectionHeading>
         </div>
 
         {/* Scroll-highlight body text */}
-        <p ref={bodyRef}
-           className="text-xl md:text-2xl leading-relaxed font-medium"
-           style={{ color: "rgba(249,245,239,0.9)", fontFamily: FONT.display }}>
-          {P.body}
-        </p>
+        <div ref={bodyRef} className="flex flex-col gap-7">
+          {P.body.map((para, i) => (
+            <p key={i}
+               className="text-xl md:text-2xl leading-relaxed font-medium"
+               style={{ color: "rgba(249,245,239,0.9)", fontFamily: FONT.display }}>
+              {para}
+            </p>
+          ))}
+        </div>
 
         {/* 3 stat cards */}
         <div className="grid grid-cols-3 gap-4 mt-16">
@@ -1167,6 +1114,28 @@ function CoursesSection() {
                 </div>
               )}
 
+              {/* Variations — courses that run in more than one form */}
+              {course.variations && (
+                <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                  {course.variations.map(v => (
+                    <div key={v.name} className="rounded-xl p-4"
+                         style={{ background: C.cardBg, boxShadow: `0 0 0 1px ${C.border}` }}>
+                      <p className="text-xs font-medium mb-1.5 inline-block px-2 py-0.5 rounded-full"
+                         style={{ background: `${C.sage}22`, color: C.sage, fontFamily: FONT.ui }}>
+                        {v.forWhom}
+                      </p>
+                      <p className="text-sm font-semibold mb-1.5 leading-snug"
+                         style={{ fontFamily: FONT.display, color: C.charcoal }}>
+                        {v.name}
+                      </p>
+                      <p className="text-xs leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>
+                        {v.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Theory / practice split bar (40hr only) */}
               {course.split && (
                 <div className="mb-4 max-w-md">
@@ -1204,6 +1173,40 @@ function CoursesSection() {
                     </div>
                   ))}
                 </div>
+              )}
+
+              {/* Topic list — what you can choose, or what’s included */}
+              {course.topics && (
+                <div className="mt-5">
+                  <p className="text-xs font-semibold tracking-[0.12em] uppercase mb-3"
+                     style={{ color: C.terracotta, fontFamily: FONT.ui }}>
+                    {course.topicsTitle}
+                  </p>
+                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                    {course.topics.map(t => (
+                      <li key={t} className="flex items-start gap-2.5 text-sm leading-snug"
+                          style={{ color: C.charcoal, fontFamily: FONT.ui }}>
+                        <span className="rounded-full flex-shrink-0 mt-[0.45rem]"
+                              style={{ width: "5px", height: "5px", background: C.sage }} aria-hidden="true" />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Practical notes — stay, food, who it’s for, flexibility */}
+              {course.bullets && (
+                <ul className="mt-5 flex flex-col gap-2 pt-4"
+                    style={{ borderTop: `var(--hairline) solid ${C.border}` }}>
+                  {course.bullets.map(b => (
+                    <li key={b} className="flex items-start gap-2.5 text-xs leading-relaxed"
+                        style={{ color: C.muted, fontFamily: FONT.ui }}>
+                      <span aria-hidden="true" style={{ color: C.terracotta }}>·</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
 
@@ -1261,8 +1264,7 @@ function TheorySection() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <Eyebrow>{T.eyebrow}</Eyebrow>
-          <SectionHeading className="whitespace-pre-line mb-5">{T.heading}</SectionHeading>
-          <p className="text-base leading-relaxed" style={{ color: C.muted, fontFamily: FONT.ui }}>{T.sub}</p>
+          <SectionHeading className="whitespace-pre-line">{T.heading}</SectionHeading>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1294,187 +1296,6 @@ function TheorySection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PRACTICAL
-// ─────────────────────────────────────────────────────────────────────────────
-function TimelineItem({ item, index, total }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.2 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  const isLast = index === total - 1;
-
-  return (
-    <div ref={ref} className="relative flex gap-8 md:gap-12"
-         style={{
-           opacity: visible ? 1 : 0,
-           transform: visible ? "translateX(0)" : "translateX(-20px)",
-           transition: `opacity 0.55s ease ${index * 0.12}s, transform 0.55s ease ${index * 0.12}s`,
-         }}>
-
-      {/* Line + dot column */}
-      <div className="flex flex-col items-center flex-shrink-0" style={{ width: "2rem" }}>
-        {/* Dot */}
-        <div className="rounded-full flex-shrink-0 mt-1"
-             style={{
-               width: "10px", height: "10px",
-               background: visible ? C.terracotta : C.borderMid,
-               boxShadow: visible ? `0 0 0 3px ${C.terracotta}28` : "none",
-               transition: `background 0.4s ease ${index * 0.12 + 0.3}s, box-shadow 0.4s ease ${index * 0.12 + 0.3}s`,
-               flexShrink: 0,
-             }} />
-        {/* Connector line */}
-        {!isLast && (
-          <div className="flex-1 mt-2"
-               style={{ width: "1px", background: C.border, minHeight: "3rem" }} />
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="pb-12">
-        <p className="text-xs font-semibold tracking-[0.12em] mb-2"
-           style={{ color: C.terracotta, fontFamily: FONT.ui, fontVariantNumeric: "tabular-nums" }}>
-          {String(index + 1).padStart(2, "0")}
-        </p>
-        <h3 className="text-xl md:text-2xl font-semibold mb-3 leading-snug"
-            style={{ fontFamily: FONT.display, color: C.charcoal }}>
-          {item.title}
-        </h3>
-        <p className="text-base leading-relaxed max-w-xl"
-           style={{ color: C.muted, fontFamily: FONT.ui }}>
-          {item.desc}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function PracticalSection() {
-  const { practical: P } = CONTENT;
-
-  return (
-    <section id="practical" data-anchor className="py-24 md:py-36" style={{ background: C.cream }}>
-      <div className="max-w-4xl mx-auto px-6 md:px-10">
-
-        <div className="mb-16">
-          <Eyebrow>{P.eyebrow}</Eyebrow>
-          <SectionHeading className="whitespace-pre-line">{P.heading}</SectionHeading>
-        </div>
-
-        <div>
-          {P.items.map((item, i) => (
-            <TimelineItem key={item.title} item={item} index={i} total={P.items.length} />
-          ))}
-        </div>
-
-        <p className="text-sm italic mt-4 ml-16"
-           style={{ color: C.muted, fontFamily: FONT.ui }}>{P.note}</p>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// POSE IMAGE — B1 ink-line illustration with graceful name-placeholder.
-// Fixed aspect-ratio container → no layout shift whether the file exists or not.
-// ─────────────────────────────────────────────────────────────────────────────
-function PoseImg({ pose }) {
-  const [failed, setFailed] = useState(false);
-
-  if (!failed) {
-    return (
-      <img
-        src={`${POSE_PATH}${pose.slug}.png`}
-        alt={`${pose.english} — ${pose.sanskrit}`}
-        className="w-full h-full object-contain"
-        style={{ padding: "1.5rem" }}
-        onError={() => setFailed(true)}
-        loading="lazy"
-      />
-    );
-  }
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center select-none"
-         style={{ border: `var(--hairline) dashed ${C.borderMid}`, margin: "0.75rem", borderRadius: "1rem", width: "calc(100% - 1.5rem)", height: "calc(100% - 1.5rem)" }}>
-      <LotusMark size={30} />
-      <p className="text-xs mt-2 tracking-[0.12em] uppercase" style={{ color: C.muted, fontFamily: FONT.ui }}>
-        {pose.slug}.png
-      </p>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// ASANA SHOWCASE — foundational poses in B1 ink-line style
-// ─────────────────────────────────────────────────────────────────────────────
-function AsanaSection() {
-  const { asana: A } = CONTENT;
-
-  return (
-    <section id="asanas" data-anchor className="py-24 md:py-36" style={{ background: C.cardBg }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-        {/* Header — left-aligned, Image #5 reference style */}
-        <div className="max-w-xl mb-14">
-          <Eyebrow>{A.eyebrow}</Eyebrow>
-          <SectionHeading className="whitespace-pre-line">{A.heading}</SectionHeading>
-        </div>
-
-        {/* 3-col card grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {POSES.map((pose) => (
-            <div key={pose.slug}
-                 className="flex flex-col rounded-2xl overflow-hidden"
-                 style={{ background: "#F4EFE6", boxShadow: `0 0 0 1px ${C.border}` }}>
-
-              {/* Illustration — fixed 4:5 area, off-white bg */}
-              <div className="relative w-full overflow-hidden"
-                   style={{ aspectRatio: "4/5", background: "#FDFAF6" }}>
-                <PoseImg pose={pose} />
-              </div>
-
-              {/* Card text — dash + Sanskrit + English + benefit */}
-              <div className="flex flex-col gap-2.5 p-6">
-                {/* Terracotta dash — Image #5 signature detail */}
-                <span className="block rounded-full"
-                      style={{ width: "2rem", height: "2px", background: C.terracotta }} />
-                <h3 className="text-lg font-semibold leading-snug"
-                    style={{ fontFamily: FONT.display, color: C.charcoal }}>
-                  {pose.sanskrit}
-                </h3>
-                <p className="text-xs tracking-[0.1em] uppercase"
-                   style={{ color: C.terracotta, fontFamily: FONT.ui }}>
-                  {pose.english}
-                </p>
-                <p className="text-sm leading-relaxed"
-                   style={{ color: C.muted, fontFamily: FONT.ui }}>
-                  {pose.benefit}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Footnote — italic centered, Image #5 style */}
-        <p className="text-center mt-12 text-sm italic"
-           style={{ color: C.muted, fontFamily: FONT.display }}>
-          {A.sub}
-        </p>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 // INSTRUCTOR
 // ─────────────────────────────────────────────────────────────────────────────
 function InstructorSection() {
@@ -1487,10 +1308,10 @@ function InstructorSection() {
 
           <div className="relative max-w-sm mx-auto md:max-w-none">
             <img
-              src={IMG.instructor}
+              src={IMG.teacher}
               alt="Jayesh Mistry, lead instructor at Padma Yoga Shala"
               className="w-full object-cover rounded-2xl"
-              style={{ aspectRatio: "4/5" }}
+              style={{ aspectRatio: "4/5", objectPosition: TEACHER_FOCUS }}
             />
             <GlassCard className="absolute bottom-5 left-5 right-5 p-5">
               <p className="text-base font-semibold" style={{ color: "#F9F5EF", fontFamily: FONT.display }}>
@@ -1552,8 +1373,8 @@ function LocationSection() {
           <div className="rounded-2xl overflow-hidden relative" style={{ aspectRatio: "4/3", background: C.terracotta }}>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
               <p className="text-3xl font-semibold mb-2" style={{ fontFamily: FONT.display, color: "#F9F5EF", fontVariantNumeric: "tabular-nums" }}>15</p>
-              <p className="text-sm font-medium" style={{ color: "rgba(249,245,239,0.82)", fontFamily: FONT.ui }}>days, all included</p>
-              <p className="text-xs mt-1" style={{ color: "rgba(249,245,239,0.58)", fontFamily: FONT.ui }}>stay + meals · 40 Hr YTTC</p>
+              <p className="text-sm font-medium" style={{ color: "rgba(249,245,239,0.82)", fontFamily: FONT.ui }}>days of stay + meals</p>
+              <p className="text-xs mt-1" style={{ color: "rgba(249,245,239,0.58)", fontFamily: FONT.ui }}>40 Hr YTTC · on request, $350</p>
             </div>
           </div>
         </div>
@@ -1625,26 +1446,31 @@ function RegisterSection() {
     e.preventDefault();
     if (!validate()) return;
 
-    // No backend configured → open WhatsApp pre-filled so registration still works.
-    if (!FORMSPREE_ID) {
-      const msg = `Hi Padma Yoga Shala, I'd like to register.\n\nName: ${form.name}\nEmail: ${form.email}\nCourse: ${form.course}\nPreferred dates: ${form.dates || "flexible"}\n${form.message ? `\nNote: ${form.message}` : ""}`;
-      window.open(waLink(msg), "_blank", "noopener");
-      setStatus("success");
-      return;
-    }
-
     setStatus("submitting");
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          _subject:  `New course registration — ${form.course}`,
+          _template: "table",
+          name:      form.name,
+          email:     form.email,
+          course:    form.course,
+          dates:     form.dates || "flexible",
+          message:   form.message,
+        }),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {
       setStatus("error");
     }
   };
+
+  // If the email delivery fails, registration still gets through on WhatsApp.
+  const fallbackWa = waLink(
+    `Hi Padma Yog Shala, I'd like to register.\n\nName: ${form.name}\nEmail: ${form.email}\nCourse: ${form.course}\nPreferred dates: ${form.dates || "flexible"}${form.message ? `\n\nNote: ${form.message}` : ""}`
+  );
 
   // Cmd/Ctrl+Enter submits
   const onKeyDown = (e) => {
@@ -1682,12 +1508,10 @@ function RegisterSection() {
               <div className="h-full flex flex-col items-center justify-center text-center py-12">
                 <span className="text-4xl mb-4" aria-hidden="true">🪷</span>
                 <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: FONT.display, color: "#F9F5EF" }}>
-                  {FORMSPREE_ID ? "Request received" : "Opening WhatsApp…"}
+                  Request received
                 </h3>
                 <p className="text-sm max-w-sm" style={{ color: "rgba(249,245,239,0.58)", fontFamily: FONT.ui }}>
-                  {FORMSPREE_ID
-                    ? "Thank you. We’ll confirm your dates and details shortly."
-                    : "Your details are pre-filled in a WhatsApp message — just press send and we’ll take it from there."}
+                  Thank you. Your details are on their way to us — we’ll confirm your dates and the rest shortly.
                 </p>
                 <button onClick={() => setStatus("idle")} className="mt-6 text-sm font-medium"
                         style={{ color: C.terracotta, fontFamily: FONT.ui, background: "none", border: "none", cursor: "pointer" }}>
@@ -1733,7 +1557,12 @@ function RegisterSection() {
 
                 {status === "error" && (
                   <p className="text-sm mb-4" style={{ color: "#E0853F", fontFamily: FONT.ui }}>
-                    Something went wrong. Please try again, or message us on WhatsApp.
+                    Something went wrong sending your details.{" "}
+                    <a href={fallbackWa} target="_blank" rel="noopener noreferrer"
+                       style={{ color: "#E0853F", textDecoration: "underline" }}>
+                      Send them on WhatsApp instead
+                    </a>{" "}
+                    — or email {CONTACT_EMAIL}.
                   </p>
                 )}
 
@@ -1819,8 +1648,9 @@ function StickyMobileCTA() {
 // ─────────────────────────────────────────────────────────────────────────────
 // FOOTER
 // ─────────────────────────────────────────────────────────────────────────────
-function FooterSection() {
+export function FooterSection({ hrefBase = "" }) {
   const { footer: F } = CONTENT;
+  const to = (href) => (href.startsWith("#") ? `${hrefBase}${href}` : href);
 
   return (
     <footer style={{ background: C.dark, borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
@@ -1851,10 +1681,10 @@ function FooterSection() {
                style={{ color: "rgba(249,245,239,0.28)", fontFamily: FONT.ui }}>Navigation</p>
             <div className="flex flex-col gap-3">
               {F.links.map(l => (
-                <a key={l} href={`#${l.toLowerCase()}`}
+                <a key={l.label} href={to(l.href)}
                    className="padma-footer-link text-sm"
                    style={{ color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui, transition: `color 160ms ${E.ease}` }}>
-                  {l}
+                  {l.label}
                 </a>
               ))}
             </div>
@@ -1900,13 +1730,11 @@ export default function PadmaYogaShala() {
       <StickyNav />
       <main>
         <HeroSection />
-        <TestimonialMarquee />
+        <CompareSection />
         <PhilosophySection />
         <CoursesSection />
         <InstructorSection />
         <TheorySection />
-        <PracticalSection />
-        <AsanaSection />
         <LocationSection />
         <RegisterSection />
       </main>
