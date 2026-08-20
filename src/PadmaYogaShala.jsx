@@ -127,7 +127,7 @@ const CONTENT = {
 
   // Quick-compare strip directly under the hero
   compare: {
-    eyebrow: "Four Courses · Clear Hours",
+    eyebrow: "Five Courses · Clear Hours",
     heading: "Find your course in ten seconds",
     sub: "Every course pairs hands-on practice with deep Upanishadic theory. Pick by where you are today.",
     rows: [
@@ -156,6 +156,15 @@ const CONTENT = {
         unit: "hrs · 15 days",
         forWhom: "Certified teachers only",
         price: "$480",
+        href: "#courses",
+      },
+      {
+        id: "first-degree",
+        name: "First Degree YTTC",
+        hours: "2",
+        unit: "months · Mon–Fri",
+        forWhom: "Open for all",
+        price: "$1,500",
         href: "#courses",
       },
       {
@@ -365,6 +374,58 @@ const CONTENT = {
       },
       {
         number: "04",
+        id: "first-degree",
+        title: "First Degree Yoga Teachers Training Course",
+        tags: ["First Degree", "Open for All", "2 Months"],
+        level: "Open for All",
+        levelSub: "First Degree Yoga Teachers Training Course",
+        hours: "2",
+        hoursUnit: "Months",
+        hoursSub: "Monday to Friday",
+        price: "$1,500",
+        priceSub: "for the complete course",
+        desc: "A two-month First Degree Yoga Teachers Training Course, held Monday to Friday, open for all. The course fee of $1,500 covers the complete course.",
+        outcome: "A full two-month immersion open to all, with accommodation and food available on request at The Castle Resort, Pokhara.",
+        highlights: ["2 months · Mon to Fri", "Open for all", "Stay & meals optional"],
+        schedule: "2 months · Monday to Friday",
+        image: IMG.instructor,
+        pricingTable: [
+          { label: "Course Fee (Complete Course)", value: "$1,500" },
+          { label: "Accommodation + Food (2 months @ Castle Resort)", value: "$1,400" },
+          { label: "Total All-Inclusive", value: "$2,900 USD", isTotal: true },
+        ],
+        accordions: [
+          {
+            title: "Overview & Schedule",
+            icon: "📋",
+            desc: "A two-month First Degree Yoga Teachers Training Course, open for all.",
+            details: [
+              "Course Type: First Degree Yoga Teachers Training Course",
+              "Eligibility: Open for all",
+              "Duration: 2 months",
+              "Classes: Monday to Friday",
+              "Course Fee: $1,500 for the complete course (only the course fee)",
+            ],
+          },
+          {
+            title: "Accommodation & Food",
+            icon: "🏠",
+            desc: "Participants are free to arrange their own accommodation and food. Alternatively, accommodation and food can be provided upon request at an additional charge.",
+            details: [
+              "Location: Castle Resort Private Limited, Pokhara, Nepal",
+              "Meals Included: Breakfast, lunch and dinner",
+              "Accommodation & Food Charges: $1,400 for the two-month course period",
+            ],
+            pricingSummary: [
+              { label: "Course", value: "$1,500" },
+              { label: "Accommodation & Food", value: "$1,400" },
+              { label: "Total", value: "$2,900 USD", isTotal: true },
+            ],
+          },
+        ],
+      },
+      {
+        number: "05",
         id: "retreat",
         title: "Two-Day Ayurvedic Self-Retreat Program",
         tags: ["Ayurveda", "Doshas", "Body Reset"],
@@ -375,7 +436,7 @@ const CONTENT = {
         hoursSub: "Residential program at Padma Yogshala",
         price: "$220",
         priceSub: "including accommodation",
-        desc: "A two-day residential Ayurvedic self-retreat program at Padma Yogshala. Understand your body constitution (dosha), reset your digestive system with gut cleansing, and learn how to self-retreat at home.",
+        desc: "A two-day residential Ayurvedic self-retreat program by Padma Yogshala at The Castle Resort Pvt. Ltd., Lakeside, Pokhara, Nepal. Understand your body constitution (dosha), reset your digestive system with gut cleansing, and learn how to self-retreat at home.",
         outcome: "Walk away understanding your body constitution (dosha) and how to self-retreat and reset your body at home.",
         highlights: ["Dosha & digestive health", "Gut cleansing & reset", "Stay & meals included"],
         schedule: "2 days · residential at Padma Yogshala",
@@ -391,6 +452,7 @@ const CONTENT = {
               "Duration: 2 days (residential at Padma Yogshala)",
               "Course Fee: $220, including accommodation and stay charges",
             ],
+            note: "This retreat is mainly conducted on weekends. For weekdays, please enquire.",
           },
           {
             title: "Focus & What the Retreat Includes",
@@ -442,8 +504,8 @@ const CONTENT = {
     eyebrow: "Your Teacher",
     heading: "Shri Jayesh Mistry",
     body: [
-      "With over 38 years of experience in health and fitness, Shri Jayesh Mistry has trained more than 35,000 individuals through his fitness ventures, including the Pioneer Fitness Centre. His journey in yoga has been shaped by years of learning under accomplished teachers, including Yogacharya and Vedacharya Shri Shanti Kumar Bhatt (personal yoga teacher to former Prime Minister Shri Morarji Desai and Sahitya Ratna awardee), Shri Jayantibhai Patel, and Shri Dushyant Modi (M.S. University, Baroda).",
-      "He has taught yoga and its philosophy at institutions across the world, including Prince Aga Khan University in Nairobi, Kenya. Through Padma Yog Shala, he continues to share the practice and philosophy of yoga with students in India and around the world. He also serves as the appointed International Yoga Instructor of Yog Kendra, Vadodara.",
+      "With over 38 years of experience in health and fitness, Shri Jayesh Mistry has trained more than 35,000 individuals through his fitness ventures, including the Pioneer Fitness Centre, Vadodara. His journey in yoga has been shaped by years of learning under accomplished teachers, including Yogacharya and Vedacharya Shri Shanti Kumar Bhatt (personal yoga teacher to former Prime Minister Shri Morarji Desai and Sahitya Ratna awardee), Shri Jayantibhai Patel (L.I.F.E. Mission), and Shri Dushyant Modi (M.S. University, Baroda).",
+      "He has taught yoga and its philosophy worldwide, including at Prince Aga Khan University, Nairobi, and trained teachers at Purna Yoga Retreat, Pokhara. Through Padma Yog Shala, he continues to share the practice and philosophy of yoga with students in India and around the world. He also serves as the appointed International Yoga Instructor of Yog Kendra, Vadodara.",
     ],
     badge: {
       name: "Shri Jayesh Mistry",
@@ -1209,9 +1271,13 @@ function CourseSectionsAccordion({ sections }) {
                 )}
 
                 {sec.note && (
-                  <p className="text-[11px] italic pt-1" style={{ color: C.muted, fontFamily: FONT.ui }}>
-                    {sec.note}
-                  </p>
+                  <div className="flex items-start gap-2 rounded-lg px-3 py-2 mt-2"
+                    style={{ background: `${C.terracotta}12`, borderLeft: `3px solid ${C.terracotta}`, fontFamily: FONT.ui }}>
+                    <span className="text-xs leading-relaxed flex-shrink-0" aria-hidden="true">📌</span>
+                    <p className="text-xs leading-relaxed font-medium" style={{ color: C.terracotta }}>
+                      {sec.note}
+                    </p>
+                  </div>
                 )}
 
                 {sec.pricingSummary && (
