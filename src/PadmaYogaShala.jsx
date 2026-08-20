@@ -71,13 +71,15 @@ const WHATSAPP_NUMBER = "919725560379"; // +91 97255 60379
 export const TEACHER_FOCUS = "59% center";
 // The portrait of Shri Jayesh Mistry is a tall 2:3 frame — his face sits in the
 // upper third, so portrait crops are pulled towards the top.
-export const TEACHER_PORTRAIT_FOCUS = "50% 26%";
+export const TEACHER_PORTRAIT_FOCUS = "50% 50%";
 
 const IMG = {
   groupStretch: "/images/1.png",          // group side-stretch on terrace
   instructor: "/images/2.png",          // instructor solo on grass (red mat)
   teacher: "/images/teacher.jpg",    // Jayesh Mistry seated in padmasana
   teacherPortrait: "/images/teacher-jayesh.jpg", // Shri Jayesh Mistry, seated portrait
+  certPurna: "/images/cert-purna-yoga.jpg",      // Purna Yoga & Treks letter of appreciation
+  certYogaKendra: "/images/cert-yoga-kendra.jpg", // Yoga Kendra Vadodara appointment letter
   lakeYoga: "/images/3.png",          // two people yoga, Phewa Lake behind
   groupClass: "/images/4.png",          // 1 instructor + 3 students seated
   pool: "/images/5.png",          // resort pool, mountains
@@ -512,6 +514,23 @@ const CONTENT = {
       role: "International Yoga Instructor, Yog Kendra · Vadodara",
     },
     affiliation: "Affiliated with Yoga Kendra, Vadodara · Est. 1963 · Reg. No. E-1642, Govt. of Gujarat.",
+    credentialsTitle: "Credentials & Recognition",
+    credentials: [
+      {
+        src: IMG.certYogaKendra,
+        title: "Appointment Letter · Yoga Kendra, Vadodara",
+        issuer: "Dushyant Modi, Yoga Coordinator, M.S. University of Vadodara",
+        detail: "Appointed chief instructor for the International Yoga Training and Yoga Teachers Training Course.",
+        alt: "Appointment letter naming Jayesh Mistry chief instructor at Yoga Kendra, Vadodara",
+      },
+      {
+        src: IMG.certPurna,
+        title: "Letter of Appreciation · Purna Yoga Retreat, Pokhara",
+        issuer: "Manohar Shrestha, Founder, Purna Yoga & Treks Pvt. Ltd.",
+        detail: "One month of yoga and biomechanics training delivered to trainers and participants.",
+        alt: "Letter of appreciation from Purna Yoga Retreat, Pokhara, for Jayesh Mistry",
+      },
+    ],
   },
 
   location: {
@@ -628,6 +647,7 @@ export function GlobalStyles() {
           box-shadow: 0 12px 40px rgba(28,25,23,0.10), 0 0 0 1px ${C.borderMid} !important;
         }
         .padma-footer-link:hover { color: rgba(249,245,239,0.9) !important; }
+        .padma-cert-card:hover { background: rgba(249,245,239,0.09) !important; border-color: rgba(249,245,239,0.22) !important; }
         .padma-wa-chip:hover { background: ${C.terracotta} !important; color: #F9F5EF !important; }
       }
 
@@ -1631,6 +1651,49 @@ function InstructorSection() {
             </p>
           </div>
         </div>
+
+        {I.credentials && I.credentials.length > 0 && (
+          <div className="mt-20 pt-14" style={{ borderTop: `var(--hairline) solid ${C.darkBorder}` }}>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase mb-8"
+              style={{ color: "rgba(249,245,239,0.34)", fontFamily: FONT.ui }}>
+              {I.credentialsTitle}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {I.credentials.map((c) => (
+                <a key={c.title} href={c.src} target="_blank" rel="noopener noreferrer"
+                  className="padma-cert-card flex gap-5 p-5 rounded-2xl"
+                  style={{
+                    background: "rgba(249,245,239,0.05)",
+                    border: `var(--hairline) solid ${C.darkBorder}`,
+                    textDecoration: "none",
+                    transition: `background 200ms ${E.ease}, border-color 200ms ${E.ease}`,
+                  }}>
+                  <img
+                    src={c.src}
+                    alt={c.alt}
+                    loading="lazy"
+                    className="w-20 sm:w-24 flex-shrink-0 object-cover rounded-lg"
+                    style={{ aspectRatio: "3/4", objectPosition: "50% 0%", background: "#F9F5EF" }}
+                  />
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-snug mb-1.5"
+                      style={{ color: "#F9F5EF", fontFamily: FONT.display }}>
+                      {c.title}
+                    </p>
+                    <p className="text-xs leading-relaxed mb-2"
+                      style={{ color: "rgba(249,245,239,0.52)", fontFamily: FONT.ui }}>
+                      {c.detail}
+                    </p>
+                    <p className="text-[11px] leading-relaxed"
+                      style={{ color: "rgba(249,245,239,0.34)", fontFamily: FONT.ui }}>
+                      {c.issuer}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -1958,18 +2021,9 @@ export function FooterSection({ hrefBase = "" }) {
               {F.logo}
             </p>
             <p className="text-sm mb-6" style={{ color: "rgba(249,245,239,0.40)", fontFamily: FONT.ui }}>{F.tagline}</p>
-            <p className="text-xs leading-relaxed mb-8 max-w-xs" style={{ color: "rgba(249,245,239,0.32)", fontFamily: FONT.ui }}>
+            <p className="text-xs leading-relaxed max-w-xs" style={{ color: "rgba(249,245,239,0.32)", fontFamily: FONT.ui }}>
               {F.affiliation}
             </p>
-            <div className="flex gap-3">
-              {[{ label: "Instagram", g: "IG" }, { label: "Facebook", g: "FB" }].map(s => (
-                <a key={s.label} href="#" aria-label={s.label}
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-semibold min-w-[44px] min-h-[44px]"
-                  style={{ background: "rgba(249,245,239,0.07)", color: "rgba(249,245,239,0.50)", textDecoration: "none", fontFamily: FONT.ui }}>
-                  {s.g}
-                </a>
-              ))}
-            </div>
           </div>
           <div>
             <p className="text-xs font-semibold tracking-[0.14em] uppercase mb-5"
